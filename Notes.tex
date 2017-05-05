@@ -48,7 +48,7 @@ The players are no longer the rhino manager and rhino poachers, but poacher vers
 
 The poacher incurs a loss from seeking a rhino, and the risk involved. The gain depends upon the value of horn, the proportion of horn remaining after the manager has devalued the rhino horn and the number of rhinos (devalued and not). 
 
-Let us first consider the gain to the poacher, where $\theta$ is the amount of horn taken. We assume rhino horn value is determined by weight only, a reasonable assumption as rhino horn is sold in a grounded form (savetherhino.org). Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of horn gained is $\theta=1$ for both the selective and the indiscriminate poacher. If the rhino horn has been devalued, and the poacher is selective, the amount of horn gained is $\theta=0$ as the poacher does not kill. However, if the poacher is behaving indiscriminately, the amount of horn gained is $\theta = \theta_r$. Therefore, assuming a linear relationship, the amount of horn gained in the general case is 
+Let us first consider the gain to the poacher, where $\theta$ is the amount of horn taken. We assume rhino horn value is determined by weight only, a reasonable assumption as rhino horn is sold in a grounded form (savetherhino.org). Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of horn gained is $\theta=1$ for both the selective and the indiscriminate poacher. If the rhino horn has been devalued, and the poacher is selective, the amount of horn gained is $\theta=0$ as the poacher does not kill. However, if the poacher is behaving indiscriminately, the amount of horn gained is $\theta = \theta_r$. Therefore, the amount of horn gained in the general case is 
 \begin{eqnarray}
 \label{eqn:theta}
 \theta(r,s) = s(1-r) + (1-s)((\theta_r -1)r + 1),
@@ -87,7 +87,7 @@ where $R_1 < R_2$. Thus, when a given individual interacts in the `world', the c
 \end{eqnarray}
 where $\beta \geq 0$ is a constant that determines the precise relationship between the proportion of rhinos not devalued (resources saved) and the security on the grounds.
 
-Another cost to the poacher is seeking out a rhino. The proportion of rhinos that are not killed is $rs$. Therefore, for a given individual, the cost of finding a rhino that to kill is 
+Another cost to the poacher is seeking out a rhino. The proportion of rhinos that are not killed is $rs$. Therefore, for a given individual, the cost of finding a rhino to kill is 
 \begin{eqnarray}
 \label{eqn:psi}
 \psi(r,s) = 1-rs.
@@ -112,31 +112,52 @@ u(\sigma, \chi) = s u(S,\chi) +(1-s) u(\bar{S},\chi),
 where
 \begin{eqnarray}
 \label{eqn:USchi}
-u(S,\chi) &=& \theta(r,1) H \theta(r,s)^{-\alpha}
+u(S,\chi) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
 - \phi(r,1) (1-r)^{-\beta} 
-- \psi(r,1) F(1-rs)^{-\gamma} ,
+- \psi(r,1) F(1-rx)^{-\gamma} ,
 \\
 \label{eqn:UnotSchi}
-u(\bar{S},\chi) &=& \theta(r,0) H \theta(r,s)^{-\alpha}
+u(\bar{S},\chi) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
 - \phi(r,0) (1-r)^{-\beta}
-- \psi(r,0) F(1-rs)^{-\gamma}.
+- \psi(r,0) F(1-rx)^{-\gamma}.
 \end{eqnarray}
 Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) gives
 \begin{eqnarray}
 \label{eqn:utility2}
 u(\sigma, \chi) &=& 
-H (\theta_r r(s+1)-r+1)g(r,s)^{-\alpha} \\ \nonumber &&
+H (\theta_r r(1-s) - r + 1)g(r,s)^{-\alpha} \\ \nonumber &&
 -
-(sR_1 + (1-s)R_2)(1-r)^{-\beta} - F(1-rs)(1-rs){-\gamma},
+(sR_1 + (1-s)R_2)(1-r)^{-\beta} - F(1-rs)(1-rx)^{-\gamma},
 \end{eqnarray}
 where 
 \begin{eqnarray}
 \label{eqn:g}
-g(r,s) = s(1-r)+(1-s)((\theta_r+1)r+1) = \theta_r r + r + 1 - s(\theta_r - 2r).
+g(r,x) = x(1-r)+(1-x)((\theta_r+1)r+1) = \theta_r r + r + 1 - x(\theta_r - 2r).
 \end{eqnarray}
-Note that since $\theta_r, r, s  \in [0,1]$, then $g(r,s)>0$.
+Note that since $\theta_r, r, x  \in [0,1]$, then $g(r,x)>0$.
+
 \subsection{Stable strategies}
-When a strategy is stable, the individual $\sigma$ is representative of the population $\chi$. There are three stable strategies. Firstly where everyone is selective, secondly where everyone is indiscriminate, and thirdly, where there is a mix $\sigma^* = (s^*,1-s^*)$. We now discuss three different $s^*$ and establish whether it is evolutionary stable. If it is evolutionary stable, then the utility function~(\ref{eqn:utility}) for $\sigma^*$ in a mutated population $\chi_\epsilon$ is greater than an alternative $\sigma$ in the same mutated population,
+
+For a strategy $\sigma$ to be stable: it must be a best response in the population it generates.
+
+For a given $\sigma$, we take $\chi=\sigma$, and then check that $u(\sigma, \chi) = \max_{s}u(s, \chi)$.
+
+So for $\sigma=(1,0)$: we want to compare:
+
+$u((1, 0), (1, 0))$ and $u((0, 1), (1, 0))$
+
+$u((0, 1), (0, 1))$ and $u((1, 0), (0, 1))$
+
+
+For mixed $\sigma=(s, 1-s)$ with $0<s<1$ then finding a potential mix is equivalent to solving:
+
+$$
+u((1, 0), (s, 1 - s)) = u((0, 1), (s, 1 -s))
+$$
+
+\subsection{Evolutionary stable strategies}
+
+When a strategy is stable, the individual $\sigma$ is representative of the population $\chi$. There are three potential stable strategies. Firstly where everyone is selective, secondly where everyone is indiscriminate, and thirdly, where there is a mix $\sigma^* = (s^*,1-s^*)$. We now discuss three different $s^*$ and establish whether it is evolutionary stable. If it is evolutionary stable, then the utility function~(\ref{eqn:utility}) for $\sigma^*$ in a mutated population $\chi_\epsilon$ is greater than an alternative $\sigma$ in the same mutated population,
 \begin{eqnarray}
 \label{eqn:ees}
 u(\sigma^*,\chi_\epsilon) > u(\sigma,\chi_\epsilon).
