@@ -125,79 +125,137 @@ Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility})
 \begin{eqnarray}
 \label{eqn:utility2}
 u(\sigma, \chi) &=& 
-H (\theta_r r(1-s) - r + 1)g(r,s)^{-\alpha} \\ \nonumber &&
+H (\theta_r r(1-s) - r + 1)g(r,x)^{-\alpha} \\ \nonumber &&
 -
 (sR_1 + (1-s)R_2)(1-r)^{-\beta} - F(1-rs)(1-rx)^{-\gamma},
 \end{eqnarray}
 where 
 \begin{eqnarray}
 \label{eqn:g}
-g(r,x) = x(1-r)+(1-x)((\theta_r+1)r+1) = \theta_r r + r + 1 - x(\theta_r - 2r).
+g(r,x) = x(1-r)+(1-x)((\theta_r-1)r+1) = \theta_r r +1 -r - x \theta_r r.
 \end{eqnarray}
 Note that since $\theta_r, r, x  \in [0,1]$, then $g(r,x)>0$.
 
 \subsection{Stable strategies}
 
-For a strategy $\sigma$ to be stable: it must be a best response in the population it generates.
-
-For a given $\sigma$, we take $\chi=\sigma$, and then check that $u(\sigma, \chi) = \max_{s}u(s, \chi)$.
-
-So for $\sigma=(1,0)$: we want to compare:
-
-$u((1, 0), (1, 0))$ and $u((0, 1), (1, 0))$
-
-$u((0, 1), (0, 1))$ and $u((1, 0), (0, 1))$
-
-
-For mixed $\sigma=(s, 1-s)$ with $0<s<1$ then finding a potential mix is equivalent to solving:
-
-$$
-u((1, 0), (s, 1 - s)) = u((0, 1), (s, 1 -s))
-$$
-
-\subsection{Evolutionary stable strategies}
-
-When a strategy is stable, the individual $\sigma$ is representative of the population $\chi$. There are three potential stable strategies. Firstly where everyone is selective, secondly where everyone is indiscriminate, and thirdly, where there is a mix $\sigma^* = (s^*,1-s^*)$. We now discuss three different $s^*$ and establish whether it is evolutionary stable. If it is evolutionary stable, then the utility function~(\ref{eqn:utility}) for $\sigma^*$ in a mutated population $\chi_\epsilon$ is greater than an alternative $\sigma$ in the same mutated population,
+For a strategy $\sigma$ to be stable, it must be a best response in the population it generates. So if the utility for a poacher behaving selectively in a population of selective poachers
 \begin{eqnarray}
-\label{eqn:ees}
-u(\sigma^*,\chi_\epsilon) > u(\sigma,\chi_\epsilon).
+\label{eqn:s1x1}
+ u((1,0),(1,0)) = H(1-r)(1-r)^{-\alpha} - R_1(1-r)^{-\beta} - F(1-r)(1-r)^{-\gamma},
 \end{eqnarray}
-That is, for the system to be evolutionary stable, even when the population is mutated, it is beneficial for the poachers to return to the equilibrium behaviour $\sigma^* = (s^*,1-s^*)$. The right-hand side of~(\ref{eqn:ees}) is simply~(\ref{eqn:utility2}) where $s=s_\epsilon$ to represent a mutation of $s$.
-\subsubsection{All poachers are selective}
-Consider the case where all poachers are selective,  $\sigma^* = (1,0)$, meaning that the left-hand side of~(\ref{eqn:ees}) is 
+is greater than the utility for a poacher behaving indiscriminately in a population of selective poachers,
 \begin{eqnarray}
-\label{eqn:1a}
-u(\sigma^*,\chi_\epsilon) = H(1-r)g(r,s_\epsilon)-R_1(1-r)^{-\beta} - F(1-r)(1-rs_\epsilon)^{-\gamma}.
-\end{eqnarray}
-The conditions under (\ref{eqn:1a}) is greater than (\ref{eqn:utility2}) provides the conditions under which the system is evolutionary stable when all poachers are selective. This essentially provides the conditions under which the rhino manager can deter poachers. 
-\begin{eqnarray}
-u(\sigma^*,\chi_\epsilon) -u(\sigma,\chi_\epsilon) &=& 
--rHg(r,s)^{-\alpha} 
-\\ \nonumber &&- (1-s_\epsilon)(R_1-R_2)(1-r)^{-\beta} 
-\\ \nonumber
-&&+ Fr (1-s_\epsilon) (1-rs_\epsilon)^{-\gamma}.
-\end{eqnarray}
-Now $rHg(r,s_\epsilon)^{-\alpha}$ is positive (see~(\ref{eqn:g})), and $(R_1-R_2)$ is negative. Therefore, the system is evolutionary stable when 
-\begin{eqnarray}
-\label{ees1}
-rHg(r,s)^{-\alpha} < (1-s_\epsilon)(R_1-R_2)(1-r)^{-\beta} +Fr (1-s_\epsilon) (1-rs_\epsilon)^{-\gamma}.
-\end{eqnarray}
+\label{eqn:s0x1}
+u((0,1),(1,0)) = H(\theta_r r +1 -r)(1-r)^{-\alpha} - R_2(1-r)^{-\beta} - F(1-r)^{-\gamma},
+\end{eqnarray} 
+then $\sigma = (1,0)$ is stable. Now the first term in~(\ref{eqn:s1x1}) is greater than the first term in~(\ref{eqn:s0x1}); the second term in~(\ref{eqn:s1x1}) is less than the second term in~(\ref{eqn:s0x1}) since $R_2 > R_1$; and the last term in~(\ref{eqn:s1x1}) is less than the last term in~(\ref{eqn:s0x1}). Therefore~(\ref{eqn:s1x1}) is greater than~(\ref{eqn:s0x1}) and so $\sigma = (1,0)$, all poachers are selective for all $r$, is stable. (Not yet proved evolutionary stable). 
 
-\subsubsection{All poachers are indiscriminate}
-Consider the case where all poachers are selective,  $\sigma^* = (0,1)$, meaning that the left-hand side of~(\ref{eqn:ees}) is 
+Similarly, if the utility for a poacher behaving indiscriminately in a population of indiscriminate poachers
 \begin{eqnarray}
-\label{eqn:2a}
-u(\sigma^*,\chi_\epsilon) = H((\theta_r-1)r+1)g(r,s_\epsilon)-R_2(1-r)^{-\beta} - F(1-rs_\epsilon)^{-\gamma}.
+\label{eqn:s0x0}
+ u((0,1),(0,1)) = H(\theta_r + 1 - r)(\theta_r + 1 - r)^{-\alpha} - R_2(1-r)^{-\beta} - F,
 \end{eqnarray}
-The conditions under (\ref{eqn:2a}) is greater than (\ref{eqn:utility2}) provides the conditions under which the system is evolutionary stable when all poachers are indiscriminate. This essentially provides the conditions under which the rhino manager cannot deter poachers. 
+is greater than the utility for a poacher behaving selectively in a population of indiscriminate poachers,
 \begin{eqnarray}
-u(\sigma^*,\chi_\epsilon) -u(\sigma,\chi_\epsilon) &=& 
-Hr(\theta_r -1)g(r,s_\epsilon)^{-\alpha} 
-\\ \nonumber &&- s_\epsilon(R_2-R_1)(1-r)^{-\beta} 
-\\ \nonumber
-&&- Fr s_\epsilon (1-rs_\epsilon)^{-\gamma}.
+\label{eqn:s1x0}
+u((1,0),(0,1)) = H(1 -r)(\theta_r + 1 - r)^{-\alpha} - R_1(1-r)^{-\beta} - F(1-r),
+\end{eqnarray} 
+then $\sigma = (0,1)$ is stable. Now all three terms in~(\ref{eqn:s0x0}) are greater than their corresponding terms in~(\ref{eqn:s1x0}) so it is not immediately clear whether $u((0,1),(0,1)) > u((1,0),(0,1))$. Setting~(\ref{eqn:s0x0}) to be greater than~(\ref{eqn:s1x0}) gives
+\begin{eqnarray}
+\label{eqn:s0x0_s1x0}
+H\theta_r r (\theta_r - r + 1)^{-\alpha} + (1-r)^{-\beta}(R_1-R_2) - Fr > 0.
 \end{eqnarray}
-Since $\theta_r, r, s_\epsilon \in [0,1]$, and $(R_2-R_1)$ is positive, the system is never evolutionary stable.
+For $r = 0$,~(\ref{eqn:s0x0_s1x0}) does not hold since it reduces to $R_1-R_2 > 0$, which is not true. So if all rhinos are devalued, it is not stable for all poachers to behave indiscriminately. For all horns devalued, $r=1$, then the system with indiscrimiate poachers is stable if the amount of partial horn gained is $\theta_r > (F/H)^{1/(\alpha-1)}$ [OR $\theta_r > (F/H)^{-1/(\alpha-1)}$ - depending on whether trusting my algebra or Maple]. The general solution is 
+\begin{eqnarray}
+\label{eqn:rcond1}
+r = XXXXX,\mbox{Need to be solved numerically!?!?!?}
+\end{eqnarray}
+Therefore, for all poachers to behave indiscriminately to be stable,~(\ref{eqn:rcond1}) must be satisfied
+
+The third potential stable solution $\sigma = (s^*, 1-s^*)$ is the solution to 
+\begin{eqnarray}
+\label{eqn:s1xs_s0xs}
+u((1,0),(s^*,1-s^*)) = u((0,1),(s^*,1-s^*)).
+\end{eqnarray}
+The left-hand side is 
+\begin{eqnarray} \nonumber
+u((1,0),(s^*,1-s^*)) =
+H(1-r)g(r,s)^{-\alpha} - R_1(1-r)^{-\beta} - F(1-r)(1-rs)^{-\gamma}.
+\end{eqnarray}
+The right-hand side is
+\begin{eqnarray} \nonumber
+u((0,1),(s^*,1-s^*)) = 
+H(\theta_r + 1-r)g(r,s^*)^{-\alpha} - R_2(1-r)^{-\beta} - F(1-rs^*)^{-\gamma}.
+\end{eqnarray}
+So~(\ref{eqn:s1xs_s0xs}) is 
+\begin{eqnarray}
+-R_1(1-r)^{-\beta} + Fr(1-rs^*)^{-\gamma} =
+H\theta_r r g(r,s^*)^{-\alpha} - R_2(1-r)^{-\beta}.\\
+\mbox{Need to be solved numerically!?!?!?}
+\end{eqnarray}
+If $r=1$, then $s^*=1$ (as already identified) or
+\begin{eqnarray}
+s^* = 1-\left(\frac{F}{H\theta_r^2}\right)^{1/(\gamma+1)}.
+\end{eqnarray}
+When $r=0$, then there is not a solution for $s^*$ since it reduces to $R_1=R_2$, which is not true.
+% For a given $\sigma$, we take $\chi=\sigma$, and then check that $u(\sigma, \chi) = \max_{s}u(s, \chi)$.
+
+% So for $\sigma=(1,0)$: we want to compare:
+
+% $u((1, 0), (1, 0))$ and $u((0, 1), (1, 0))$
+
+% $u((0, 1), (0, 1))$ and $u((1, 0), (0, 1))$
+
+
+% For mixed $\sigma=(s, 1-s)$ with $0<s<1$ then finding a potential mix is equivalent to solving:
+
+% $$
+% u((1, 0), (s, 1 - s)) = u((0, 1), (s, 1 -s))
+% $$
+
+% \subsection{Evolutionary stable strategies}
+
+% When a strategy is stable, the individual $\sigma$ is representative of the population $\chi$. There are three potential stable strategies. Firstly where everyone is selective, secondly where everyone is indiscriminate, and thirdly, where there is a mix $\sigma^* = (s^*,1-s^*)$. We now discuss three different $s^*$ and establish whether it is evolutionary stable. If it is evolutionary stable, then the utility function~(\ref{eqn:utility}) for $\sigma^*$ in a mutated population $\chi_\epsilon$ is greater than an alternative $\sigma$ in the same mutated population,
+% \begin{eqnarray}
+% \label{eqn:ees}
+% u(\sigma^*,\chi_\epsilon) > u(\sigma,\chi_\epsilon).
+% \end{eqnarray}
+% That is, for the system to be evolutionary stable, even when the population is mutated, it is beneficial for the poachers to return to the equilibrium behaviour $\sigma^* = (s^*,1-s^*)$. The right-hand side of~(\ref{eqn:ees}) is simply~(\ref{eqn:utility2}) where $s=s_\epsilon$ to represent a mutation of $s$.
+% \subsubsection{All poachers are selective}
+% Consider the case where all poachers are selective,  $\sigma^* = (1,0)$, meaning that the left-hand side of~(\ref{eqn:ees}) is 
+% \begin{eqnarray}
+% \label{eqn:1a}
+% u(\sigma^*,\chi_\epsilon) = H(1-r)g(r,s_\epsilon)-R_1(1-r)^{-\beta} - F(1-r)(1-rs_\epsilon)^{-\gamma}.
+% \end{eqnarray}
+% The conditions under (\ref{eqn:1a}) is greater than (\ref{eqn:utility2}) provides the conditions under which the system is evolutionary stable when all poachers are selective. This essentially provides the conditions under which the rhino manager can deter poachers. 
+% \begin{eqnarray}
+% u(\sigma^*,\chi_\epsilon) -u(\sigma,\chi_\epsilon) &=& 
+% -rHg(r,s)^{-\alpha} 
+% \\ \nonumber &&- (1-s_\epsilon)(R_1-R_2)(1-r)^{-\beta} 
+% \\ \nonumber
+% &&+ Fr (1-s_\epsilon) (1-rs_\epsilon)^{-\gamma}.
+% \end{eqnarray}
+% Now $rHg(r,s_\epsilon)^{-\alpha}$ is positive (see~(\ref{eqn:g})), and $(R_1-R_2)$ is negative. Therefore, the system is evolutionary stable when 
+% \begin{eqnarray}
+% \label{ees1}
+% rHg(r,s)^{-\alpha} < (1-s_\epsilon)(R_1-R_2)(1-r)^{-\beta} +Fr (1-s_\epsilon) (1-rs_\epsilon)^{-\gamma}.
+% \end{eqnarray}
+
+% \subsubsection{All poachers are indiscriminate}
+% Consider the case where all poachers are selective,  $\sigma^* = (0,1)$, meaning that the left-hand side of~(\ref{eqn:ees}) is 
+% \begin{eqnarray}
+% \label{eqn:2a}
+% u(\sigma^*,\chi_\epsilon) = H((\theta_r-1)r+1)g(r,s_\epsilon)-R_2(1-r)^{-\beta} - F(1-rs_\epsilon)^{-\gamma}.
+% \end{eqnarray}
+% The conditions under (\ref{eqn:2a}) is greater than (\ref{eqn:utility2}) provides the conditions under which the system is evolutionary stable when all poachers are indiscriminate. This essentially provides the conditions under which the rhino manager cannot deter poachers. 
+% \begin{eqnarray}
+% u(\sigma^*,\chi_\epsilon) -u(\sigma,\chi_\epsilon) &=& 
+% Hr(\theta_r -1)g(r,s_\epsilon)^{-\alpha} 
+% \\ \nonumber &&- s_\epsilon(R_2-R_1)(1-r)^{-\beta} 
+% \\ \nonumber
+% &&- Fr s_\epsilon (1-rs_\epsilon)^{-\gamma}.
+% \end{eqnarray}
+% Since $\theta_r, r, s_\epsilon \in [0,1]$, and $(R_2-R_1)$ is positive, the system is never evolutionary stable.
 \begin{thebibliography}{00}
 % http://ams.org/msnhtml/serials.pdf
 
