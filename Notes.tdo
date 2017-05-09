@@ -1,0 +1,5 @@
+\contentsline {todo}{I don't understand how this expression is correct.}{4}
+\contentsline {todo}{There's an \(r\) term missing here: should be \(\theta _rr\)}{5}
+\contentsline {todo}{There's an \(r\) term missing here: should be \(\theta _rr\)}{5}
+\contentsline {todo}{This is correct.}{5}
+\contentsline {todo}{Technically the expression doesn't hold for \(r=1\), this is due to the fact that \(\beta \geq \) so \((1-r)^{-\beta }={\begingroup 1\endgroup \over (1-r)^{\beta }}\). However \(\mathop {\mathgroup \symoperators lim}_{r\to 1}(17)=-\mathop {\mathgroup \symoperators inf}\), because of the \(R_1>R_2\), so I think we can say that this is not stable in the limit case of \(r\to 1\).}{5}
