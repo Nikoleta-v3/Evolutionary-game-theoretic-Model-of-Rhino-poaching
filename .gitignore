@@ -6,3 +6,7 @@
 
 # py charm files
 .idea/*
+
+# pycache
+*__pycache__/*
+
