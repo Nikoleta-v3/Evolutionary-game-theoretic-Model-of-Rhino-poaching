@@ -3,3 +3,13 @@
 *.fls
 *.log
 *.tdo
+
+# py charm files
+.idea/*
+
+# pycache
+*__pycache__/*
+
+# notebooks
+*/.ipynb_checkpoints/*
+
