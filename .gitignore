@@ -10,3 +10,6 @@
 # pycache
 *__pycache__/*
 
+# notebooks
+*/.ipynb_checkpoints/*
+
