@@ -2,9 +2,9 @@ import sympy as sym
 
 r, s, x, theta_r, = sym.symbols("r, s, x, theta_r", positive=True)
 
-alpha, H, R, a1, beta, gamma, F, epsilon = sym.symbols("alpha, H, R, a1, beta, "
-                                                       "gamma, F, epsilon",
-                                                       positive=True)
+alpha, H, beta, gamma, F, epsilon = sym.symbols("alpha, H, beta, "
+                                                "gamma, F, epsilon",
+                                                positive=True)
 
 
 def theta(r, s, theta_r=theta_r):
@@ -28,8 +28,8 @@ def psi(r, s):
     return 1 - r * s
 
 
-def utility(s, x, H=H, r=r, theta_r=theta_r, R=R, a1=a1, F=F, alpha=alpha,
-            beta=beta, gamma=gamma):
+def utility(s, x, H=H, r=r, theta_r=theta_r, F=F, alpha=alpha, beta=beta,
+            gamma=gamma):
     """
     The total utility for a strategy 
     sigma=(s, 1-s) in a population chi=(x, 1-x)

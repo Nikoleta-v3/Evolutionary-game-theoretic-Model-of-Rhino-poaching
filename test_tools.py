@@ -5,8 +5,7 @@ import sympy as sym
 
 
 class TestCostFunctions(unittest.TestCase):
-    r, s, x, theta_r, R, a1 = sym.symbols("""r, s, x, theta_r, R, a1""",
-                                                                  positive=True)
+    r, s, x, theta_r= sym.symbols("r, s, x, theta_r", positive=True)
 
     def test_theta(self):
         self.assertEqual(tools.theta(self.r, self.s, self.theta_r) - (self.s *
@@ -18,11 +17,10 @@ class TestCostFunctions(unittest.TestCase):
 
 
 class TestUtility(unittest.TestCase):
-    r, s, x, theta_r, alpha, H, R, a1, beta, gamma, F = sym.symbols("""r, s, x,
-                                                                    theta_r, alpha,
-                                                                    H, R, a1, beta, 
-                                                                    gamma, F""",
-                                                                    positive=True)
+    r, s, x, theta_r, alpha, H, beta, gamma, F = sym.symbols("""r, s, x, 
+                                                                theta_r, alpha,
+                                                                H, beta, gamma,
+                                                                F""", positive=True)
 
     def test_utility(self):
         selective_gain = (1 - self.r) * self.H * (self.x * (1 - self.r) +
