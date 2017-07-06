@@ -13,10 +13,6 @@ class TestCostFunctions(unittest.TestCase):
                          (1 - self.r) + (1 - self.s) * ((self.theta_r - 1) *
                                                         self.r + 1)), 0)
 
-    def test_phi(self):
-        self.assertEqual(tools.phi(r=self.r, s=self.s, R=self.R, a1=self.a1),
-                         self.R * self.s + self.a1 * self.R * (1 - self.s))
-
     def test_psi(self):
         self.assertEqual(tools.psi(r=self.r, s=self.s), 1 - self.r * self.s)
 
@@ -33,15 +29,15 @@ class TestUtility(unittest.TestCase):
                          (1 - self.x) * ((self.theta_r - 1) * self.r + 1)) \
                                                                 ** (-self.alpha)
 
-        selective_cost = self.R * (1 - self.r) ** (-self.beta) + (1 - self.r) \
-                                * self.F * (1 - self.r * self.x) ** (- self.gamma)
+        selective_cost = (1 - self.r) * self.F * (1 - self.r * self.x) ** (- self.gamma) \
+                                                 * (1 - self.r) ** (- self.beta)
 
         indiscriminate_gain = ((self.theta_r - 1) * self.r + 1) * self.H / \
                               ((self.x * (1 - self.r) + (1 - self.x) *
                                 ((self.theta_r - 1) * self.r + 1))) ** self.alpha
 
-        indiscriminate_cost = self.a1 * self.R * (1 - self.r) ** (-self.beta) \
-                              + self.F / (1 - self.r * self.x) ** self.gamma
+        indiscriminate_cost = self.F * (1 - self.r * self.x) ** (- self.gamma) \
+                                                 * (1 - self.r) ** (- self.beta)
 
         u = self.s * (selective_gain - selective_cost) + \
             (1 - self.s) * (indiscriminate_gain - indiscriminate_cost)
