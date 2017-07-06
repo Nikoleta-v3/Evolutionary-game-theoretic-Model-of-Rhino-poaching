@@ -21,18 +21,6 @@ def theta(r, s, theta_r=theta_r):
     return s * (1 - r) + (1 - s) * ((theta_r - 1) * r + 1)
 
 
-def phi(r, s, R=R, a1=a1):
-    """
-    Returns the risk associated with poaching:
-
-    Parameters
-    ----------
-
-    R < a1*R : constants associated with poaching
-    """
-    return R * s + (a1 * R * (1 - s))
-
-
 def psi(r, s):
     """
     Returns the cost associated with finding a rhino
@@ -47,12 +35,9 @@ def utility(s, x, H=H, r=r, theta_r=theta_r, R=R, a1=a1, F=F, alpha=alpha,
     sigma=(s, 1-s) in a population chi=(x, 1-x)
     """
     selective_utility = theta(r, 1) * H * theta(r, x) ** (- alpha)
-    selective_utility += - phi(r, 1) * (1 - r) ** (- beta)
-    selective_utility += - psi(r, 1) * F * psi(r, x) ** (- gamma)
-
+    selective_utility += - psi(r, 1) * F * psi(r, x) ** (- gamma) * (1 - r) ** (- beta)
     indiscriminate_utility = theta(r, 0) * H * theta(r, x) ** (- alpha)
-    indiscriminate_utility += - phi(r, 0) * (1 - r) ** (- beta)
-    indiscriminate_utility += - psi(r, 0) * F * psi(r, x) ** (- gamma)
+    indiscriminate_utility += - psi(r, 0) * F * psi(r, x) ** (- gamma) * (1 - r) ** (- beta)
 
     return s * selective_utility + (1 - s) * indiscriminate_utility
 
