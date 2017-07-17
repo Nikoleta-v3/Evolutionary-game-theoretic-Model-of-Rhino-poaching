@@ -42,3 +42,15 @@ class TestUtility(unittest.TestCase):
 
         difference = (tools.utility(s=self.s, x=self.x) - u).simplify()
         self.assertEqual(difference, 0)
+
+
+class TestStabilityFunctions(unittest.TestCase):
+    s = sym.symbols("s", positive=True)
+
+    def test_stable_mixed_condition(self):
+        condition = tools.utility(1, self.s) - tools.utility(0, self.s)
+        self.assertEqual(tools.stable_mixed_condition(), condition.simplify())
+
+    def test_s_star_v_r(self):
+        # test default values
+        self.assertEqual(tools.s_star_v_r(), 0.8197348311021695)
