@@ -2,6 +2,7 @@ import unittest
 import tools
 
 import sympy as sym
+import numpy as np
 
 
 class TestUtilityFunctions(unittest.TestCase):
@@ -70,13 +71,15 @@ class TestUtility(unittest.TestCase):
         self.assertEqual(difference, 0)
 
 
-# class TestStabilityFunctions(unittest.TestCase):
-#     s = sym.symbols("s", positive=True)
-#
-#     def test_stable_mixed_condition(self):
-#         condition = tools.utility(1, self.s) - tools.utility(0, self.s)
-#         self.assertEqual(tools.stable_mixed_condition(), condition.simplify())
-#
-#     def test_s_star_v_r(self):
-#         # test default values
-#         self.assertEqual(tools.s_star_v_r(), 0.8197348311021695)
+class TestStabilityFunctions(unittest.TestCase):
+    s = sym.symbols("s", positive=True)
+
+    def test_stable_mixed_condition(self):
+        condition = tools.utility(1, self.s) - tools.utility(0, self.s)
+        self.assertEqual((tools.stable_mixed_condition() -
+                          condition).simplify(), 0)
+
+    def test_s_star_v_r(self):
+        # test default values
+        self.assertTrue(np.isnan(tools.s_star_v_r()))
+

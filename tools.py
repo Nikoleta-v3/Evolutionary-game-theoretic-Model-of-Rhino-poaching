@@ -39,7 +39,7 @@ def gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha):
 
 def cost(s=s, x=x, r=r, F=F, beta=beta, gamma=gamma):
 
-    return 1 / psi(r, s) * F * psi(r, x) ** gamma * (1 - r) ** beta
+    return (1 / psi(r, s)) * F * psi(r, x) ** gamma * (1 - r) ** beta
 
 
 def utility(s=s, x=x, H=H, r=r, theta_r=theta_r, F=F, alpha=alpha, beta=beta,
@@ -57,28 +57,34 @@ def utility(s=s, x=x, H=H, r=r, theta_r=theta_r, F=F, alpha=alpha, beta=beta,
     return s * selective_utility + (1 - s) * indiscriminate_utility
 
 
-# def stable_mixed_condition():
-#     fraction_cost = F * r * (-r + 1) ** beta * (-r * s + 1) ** gamma
-#     fraction_gain = H * r * theta_r * (- r * s * theta_r + r * theta_r - r +
-#                                        1) ** (- alpha)
-#     return fraction_cost - fraction_gain
-#
-#
-# def s_star_v_r(r_val=0.6, gamma_num=0.95, beta_num=0.95, alpha_num=0.95,
-#                theta_r_num=0.2, F_num=10, H_num=100, stable_mixed_condition=stable_mixed_condition()):
-#     """
-#     Numerically solve the condition for mixed
-#     strategy stability for a given value of r.
-#     """
-#     variables = {gamma: gamma_num, beta: beta_num, alpha: alpha_num,
-#                  theta_r: theta_r_num, F: F_num, H: H_num, r: r_val}
-#     condition = stable_mixed_condition.subs(variables)
-#     func = lambda x : condition.subs({s: x})
-#
-#     try:
-#         return brentq(func, a=0, b=1)
-#     except ValueError:
-#         return np.nan
+def stable_mixed_condition():
+    """
+    Returns the stable condition. 
+    """
+    numerator = -r * (-F * (-r + 1) ** beta * (-r * s + 1) ** gamma *
+                      (-r * s * theta_r + r * theta_r - r + 1) ** alpha +
+                      theta_r * (H * r - H)) * \
+                (-r + theta_r * (-r * s + r) + 1) ** (-alpha)
+    denominator = (r - 1)
+    return numerator / denominator
+
+
+def s_star_v_r(r_val=0.6, gamma_num=0.95, beta_num=0.95, alpha_num=0.95,
+               theta_r_num=0.2, F_num=10, H_num=100,
+               stable_condition=stable_mixed_condition()):
+    """
+    Numerically solve the condition for mixed
+    strategy stability for a given value of r.
+    """
+    variables = {gamma: gamma_num, beta: beta_num, alpha: alpha_num,
+                 theta_r: theta_r_num, F: F_num, H: H_num, r: r_val}
+    condition = stable_condition.subs(variables)
+    func = lambda v: condition.subs({s: v})
+
+    try:
+        return brentq(func, a=0, b=1)
+    except ValueError:
+        return np.nan
 
 
 def evolutionary_stability(s, r_val=0.6, gamma_num=0.25, beta_num=0.25,
