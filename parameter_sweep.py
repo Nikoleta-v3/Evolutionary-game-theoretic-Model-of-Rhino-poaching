@@ -13,10 +13,19 @@ import tools
 
 def main(r, theta_r, H, F, gamma, alpha, beta, tol, epsilon, step):
 
-    indiscriminate_evol_stable, selective_evol_stable, mixed_evol_stable = False, False, False
-    indiscriminate_stable = H * theta_r * (theta_r - r + 1) ** (-alpha) <= F *\
-                                                                          (1 - r) ** beta
-    selective_stable = H * theta_r * (1 - r) ** (-alpha) <= F * (1 - r) ** (gamma + beta)
+    indiscriminate_evol_stable, selective_evol_stable = False, False
+    mixed_evol_stable = False
+
+    indiscriminate_stable = tools.stable_indiscriminate_condition(H=H, F=F, r=r,
+                                                                  alpha=alpha,
+                                                                  beta=beta,
+                                                                theta_r=theta_r)
+
+    selective_stable = tools.stable_selective_condition(H=H, F=F, r=r,
+                                                        alpha=alpha, beta=beta,
+                                                        gamma=gamma,
+                                                        theta_r=theta_r)
+
     mixed_stable = tools.s_star_v_r(r_val=r, gamma_num=gamma, beta_num=beta,
                                     alpha_num=alpha, theta_r_num=theta_r,
                                     F_num=F, H_num=H)
@@ -39,8 +48,8 @@ def main(r, theta_r, H, F, gamma, alpha, beta, tol, epsilon, step):
                                 theta_r_num=theta_r, F_num=F, H_num=H,
                                 tol=tol, starting_epsilon=epsilon, step=step)[-1]
 
-    return r, theta_r, H, F, gamma, alpha, beta, indiscriminate_stable, \
-           selective_stable, mixed_stable, indiscriminate_evol_stable, \
+    return r, theta_r, H, F, gamma, alpha, beta, indiscriminate_stable,\
+           selective_stable, mixed_stable, indiscriminate_evol_stable,\
            selective_evol_stable, mixed_evol_stable
 
 if __name__ == "__main__":
@@ -51,10 +60,10 @@ if __name__ == "__main__":
     step = float(sys.argv[4])
 
     rs = np.linspace(0, 1, number_steps)
-    theta_rs = np.linspace(0, 1, number_steps)
-    Hs = np.linspace(0, 500, number_steps)
-    Fs = np.linspace(0, 50, number_steps)
-    gammas = np.linspace(0, 2, number_steps)
+    theta_rs = np.linspace(0.1, 1, number_steps)
+    Hs = np.linspace(1, 500, number_steps)
+    Fs = np.linspace(1, 50, number_steps)
+    gammas = np.linspace(0, 1, number_steps)
     alphas = np.linspace(0, 2, number_steps)
     betas = np.linspace(0, 2, number_steps)
     tols = itertools.repeat(tol, number_steps)

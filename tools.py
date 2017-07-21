@@ -69,7 +69,8 @@ def stable_mixed_condition():
     return numerator / denominator
 
 
-def stable_selective_condition():
+def stable_selective_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
+                               gamma=gamma, theta_r=theta_r):
     """
     Returns the stable condition for selective strategies. 
     """
@@ -81,7 +82,8 @@ def stable_selective_condition():
     return lhs <= rhs
 
 
-def stable_indiscriminate_condition():
+def stable_indiscriminate_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
+                                    theta_r=theta_r):
     """
     Returns the stable condition for indiscriminate strategies.  
     """
@@ -108,7 +110,7 @@ def s_star_v_r(r_val=0.6, gamma_num=0.95, beta_num=0.95, alpha_num=0.95,
 
     try:
         return brentq(func, a=0, b=1)
-    except ValueError:
+    except (ValueError, SystemError):
         return np.nan
 
 
