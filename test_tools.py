@@ -79,6 +79,14 @@ class TestStabilityFunctions(unittest.TestCase):
         self.assertEqual((tools.stable_mixed_condition() -
                           condition).simplify(), 0)
 
+    def test_stable_selective_condition(self):
+        condition = (tools.utility(1, 1) >= tools.utility(0, 1)).simplify()
+        self.assertEqual(tools.stable_selective_condition(), condition)
+
+    def test_stable_indiscriminate_condition(self):
+        condition = (tools.utility(0, 0) >= tools.utility(1, 0)).simplify()
+        self.assertEqual(tools.stable_indiscriminate_condition(), condition)
+
     def test_s_star_v_r(self):
         # test default values
         self.assertTrue(np.isnan(tools.s_star_v_r()))

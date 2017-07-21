@@ -59,7 +59,7 @@ def utility(s=s, x=x, H=H, r=r, theta_r=theta_r, F=F, alpha=alpha, beta=beta,
 
 def stable_mixed_condition():
     """
-    Returns the stable condition. 
+    Returns the stable condition for mixed strategies. 
     """
     numerator = -r * (-F * (-r + 1) ** beta * (-r * s + 1) ** gamma *
                       (-r * s * theta_r + r * theta_r - r + 1) ** alpha +
@@ -67,6 +67,31 @@ def stable_mixed_condition():
                 (-r + theta_r * (-r * s + r) + 1) ** (-alpha)
     denominator = (r - 1)
     return numerator / denominator
+
+
+def stable_selective_condition():
+    """
+    Returns the stable condition for selective strategies. 
+    """
+    lhs = (-r + 1) ** (-alpha) * (-F * (-r + 1) ** (alpha + beta + gamma)
+                                  + H * (r * (theta_r - 1) + 1))
+    rhs = (-r + 1) ** (-alpha - 1) * (-F * (-r + 1) ** (alpha + beta + gamma) +
+                                      H * (r - 1) ** 2)
+
+    return lhs <= rhs
+
+
+def stable_indiscriminate_condition():
+    """
+    Returns the stable condition for indiscriminate strategies.  
+    """
+    lhs = (r * (theta_r - 1) + 1) ** (-alpha) * (F * (-r + 1) ** beta *
+                                                 (r * (theta_r - 1) + 1) ** alpha
+                                                 - H * (r - 1) ** 2)/(r - 1)
+    rhs = (r * (theta_r - 1) + 1) ** (-alpha) * (-F * (-r + 1) ** beta *
+                                                 (r*(theta_r - 1) + 1) ** alpha
+                                                 + H * (r * (theta_r - 1) + 1))
+    return lhs <= rhs
 
 
 def s_star_v_r(r_val=0.6, gamma_num=0.95, beta_num=0.95, alpha_num=0.95,
