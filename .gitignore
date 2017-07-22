@@ -13,3 +13,6 @@
 # notebooks
 */.ipynb_checkpoints/*
 
+# files
+rhino*
+images/
