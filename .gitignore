@@ -16,3 +16,6 @@
 # files
 rhino*
 images/
+
+# data
+data/*csv
