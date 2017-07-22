@@ -48,9 +48,23 @@ def main(r, theta_r, H, F, gamma, alpha, beta, tol, epsilon, step):
                                 theta_r_num=theta_r, F_num=F, H_num=H,
                                 tol=tol, starting_epsilon=epsilon, step=step)[-1]
 
-    return r, theta_r, H, F, gamma, alpha, beta, indiscriminate_stable,\
-           selective_stable, mixed_stable, indiscriminate_evol_stable,\
-           selective_evol_stable, mixed_evol_stable
+
+    # Write data to file
+    key = "-".join(map(str, [r, theta_r, H, F, gamma, alpha, beta]))
+    key = key.replace(".", "_")
+    filename = "./data/{}.csv".format(key)
+    header = ["r", "theta_r", "H", "F", "gamma", "alpha", "beta",
+              "indiscriminate_stable", "selective_stable", "mixed_stable",
+              "indiscriminate_evol_stable", "selective_evol_stable",
+              "mixed_evol_stable"]
+    row = [r, theta_r, H, F, gamma, alpha, beta, indiscriminate_stable,
+           selective_stable, mixed_stable, indiscriminate_evol_stable,
+           selective_evol_stable, mixed_evol_stable]
+
+    with open(filename, "w") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        writer.writerow(row)
 
 if __name__ == "__main__":
 
@@ -74,10 +88,4 @@ if __name__ == "__main__":
                                    gammas, alphas, betas, tols, epsilons, steps)
 
     pool = multiprocessing.Pool(multiprocessing.cpu_count())
-    data = pool.starmap(main, parameters)
-
-    filename = "./data/data_{}_{}.csv".format(number_steps, tol)
-    with open(filename, "w") as f:
-        writer = csv.writer(f)
-        for row in data:
-            writer.writerow(row)
+    pool.starmap(main, parameters)
