@@ -20,8 +20,8 @@ for number_steps, tol, epsilon, step in [(3, 0.0001, 0.001, 0.0001),
 export MPLBACKEND="agg"
 # Run std
 cd /home/c1569433/rsc/Evolutionary-game-theoretic-Model-of-Rhino-poaching/
-/home/c1569433/anaconda3/envs/rhino/bin/python main.py {} {} {} 
-""".format(number_steps, number_steps, number_steps, tol, epsilon, step)
+/home/c1569433/anaconda3/envs/rhino/bin/python parameter_sweep.py {} {} {} {} 
+""".format(number_steps, number_steps, number_steps, number_steps, tol, epsilon, step)
 
     with open("pbs/{}.pbs".format(number_steps), 'w') as f:
         f.write(pbs_file)
