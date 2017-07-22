@@ -74,10 +74,10 @@ if __name__ == "__main__":
     step = float(sys.argv[4])
 
     rs = np.linspace(0, 1, number_steps)
-    theta_rs = np.linspace(0.1, 1, number_steps)
+    theta_rs = np.linspace(0, 1, number_steps)
     Hs = np.linspace(1, 500, number_steps)
     Fs = np.linspace(1, 50, number_steps)
-    gammas = np.linspace(0, 1, number_steps)
+    gammas = np.linspace(1, 3, number_steps)
     alphas = np.linspace(0, 2, number_steps)
     betas = np.linspace(0, 2, number_steps)
     tols = itertools.repeat(tol, number_steps)
