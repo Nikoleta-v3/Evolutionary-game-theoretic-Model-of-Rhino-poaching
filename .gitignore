@@ -18,4 +18,5 @@ rhino*
 images/
 
 # data
+data/raw/*csv
 data/*csv
