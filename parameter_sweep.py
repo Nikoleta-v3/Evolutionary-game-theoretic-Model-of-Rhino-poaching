@@ -75,7 +75,7 @@ if __name__ == "__main__":
     epsilon = float(sys.argv[3])
     step = float(sys.argv[4])
 
-    theta_rs = np.linspace(0, 1, number_steps)
+    theta_rs = np.linspace(0, 1 - tol, number_steps)
     Hs = np.linspace(1, 500, number_steps)
     Fs = np.linspace(1, 50, number_steps)
     gammas = np.linspace(1, 3, number_steps)
