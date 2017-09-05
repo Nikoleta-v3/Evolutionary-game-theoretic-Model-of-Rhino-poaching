@@ -74,10 +74,8 @@ def stable_selective_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
     """
     Returns the stable condition for selective strategies. 
     """
-    lhs = (-r + 1) ** (-alpha) * (-F * (-r + 1) ** (alpha + beta + gamma)
-                                  + H * (r * (theta_r - 1) + 1))
-    rhs = (-r + 1) ** (-alpha - 1) * (-F * (-r + 1) ** (alpha + beta + gamma) +
-                                      H * (r - 1) ** 2)
+    lhs = H * theta_r * r
+    rhs = F * (1 - (1 - r) ** -1) * (1 - r) ** (gamma + beta + alpha)
 
     return lhs <= rhs
 
@@ -87,13 +85,11 @@ def stable_indiscriminate_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
     """
     Returns the stable condition for indiscriminate strategies.  
     """
-    lhs = (r * (theta_r - 1) + 1) ** (-alpha) * (F * (-r + 1) ** beta *
-                                                 (r * (theta_r - 1) + 1) ** alpha
-                                                 - H * (r - 1) ** 2)/(r - 1)
-    rhs = (r * (theta_r - 1) + 1) ** (-alpha) * (-F * (-r + 1) ** beta *
-                                                 (r*(theta_r - 1) + 1) ** alpha
-                                                 + H * (r * (theta_r - 1) + 1))
-    return lhs <= rhs
+    lhs = H * theta_r * r
+    rhs = F * (1 - (1 - r) ** -1) * (1 - r) ** beta * (theta_r * r - r + 1)\
+          ** alpha
+
+    return lhs >= rhs
 
 
 def s_star_v_r(r_val=0.6, gamma_num=0.95, beta_num=0.95, alpha_num=0.95,
