@@ -46,17 +46,20 @@ status symbol of success and wealth. Wild life managers attempt to minimise
 the rhino casualties with approaches such as devaluation of the rhino horn. 
 The  most common strategy of devaluing horns includes dehorning. In~\cite{Lee}
 game theory modelling was used to examined the interaction of poachers and
-wild life managers. The approach described in this paper investigates the interactions 
-between the poachers using evolutionary game theory. Evolutionary game theory,
-allows us to explore the evolutionary stabilities of the strategies available to
-a poacher. Our model is considering the gain and the costs that a poacher
-is exposed to. We result that a wild life manager should spend more of the
-their resources into security as a poacher will always hunt rhinos as long as there 
-is a gain from a horn. 
+wild life managers.  A manager can either `dehorn' their rhinos or let the
+horn attached. Poachers may chose to to behave `selectively' or `indiscriminately'.
+The approach described in this paper builds upon~\cite{Lee} and investigates 
+the interactions  between the poachers using evolutionary game theory. 
+Evolutionary game theory, allows us to explore the evolutionary stabilities 
+of the strategies available to a poacher. The purpose of this work is to discover
+the conditions which best  encourages the poachers to behave selectively, that
+is, they only kill those rhinos with full horns.  The results show that, poachers
+will never chose to behave selectively as long as there is even the slightest
+gain from a partial horn. Thus, we advice wild life managers to spend more of
+ the their resources into security and not in dehorning rhinos.
 \end{abstract}
 
-%============================================================
-
+%=============================================
 \section{Introduction}\label{section:introduction}
 
 The illegal trade in rhino horn supports aggressive poaching syndicates and a 
@@ -109,9 +112,7 @@ We now develop upon this model further using evolutionary game theory. The
 game considered here is not that of two players anymore (manager and poacher)
 but a infinite population game. This allows for interaction between poachers over 
 multiple plays of the game to be explored with the rhino manager being the one 
-that creates the conditions of the population. The purpose of this work is to discover
-the conditions which best encourages the poachers to behave selectively, that is,
-they only kill those rhinos with full horns.
+that creates the conditions of the population. 
 
 \begin{figure}
 \centering
@@ -468,7 +469,7 @@ following section some numerical experiments are preformed.
 \section{Numerical experiments}\label{section:numerical_experiments}
 
 In this section several analytical experiments are performed to gain some insight 
-on the difference possible scenarios. The following values have been chosen as
+on the different possible scenarios. The following values have been chosen as
 appropriate for our model parameters. Note from that \(r\) can not be \(1\), because 
 the denominator of (\ref{eqn:utility}) can not be nullified. Likewise,  \(\theta_r\)
 never reaches \(1\) for the partial horn is being considered in the gain only when 
@@ -502,7 +503,7 @@ practices have been taken into account. The source code is available on line, %u
 accompanied by documentation and automatic tests that ensure the correctness
 of our results.
 
-In total 124522 different scenarios of our problem have been simulated, including
+In total 82825 different scenarios of our problem have been simulated, including
 all the edge values of each parameter. Table~\ref{tbl:descriptive_stats} shows
 the descriptive statistics of the data set.
 
@@ -511,14 +512,14 @@ the descriptive statistics of the data set.
 \begin{tabular}{lrrrrrrrr}
 \toprule {} &              \(r\) &        \(\theta_r\) &              \(H\) &              \(F\) &          \(\gamma\) &          \(\alpha\) &          \(\beta\) &  mixed stable \((s^*)\)\\
 \midrule
-count 		&  124522  &  124522 &     124522 &   124522 &   124522 &      124522 &   124522 & 1.863000e+03 \\
-mean         &      0.499 &     0.577 & 		251 &            25 &       1.89 &       0.89 &            0.86 &    6.004715e-13 \\
-std             &       0.29 &       0.35 &          187 &             18 &       0.77 &       0.77 &            0.78 &     8.556157e-13 \\
-min   		&       0.00 &       0.00 &         1.00 &          1.00 &       1.00 &       0.00 &              0.0 &    0.000000e+00 \\
-\(25\)\%  	&       0.24 &       0.33 &         1.00 &          9.17 &       1.00 &       0.00 &            0.00 &     0.000000e+00 \\
-\(50\)\%  	&       0.49 &       0.45 &     250.50 &        25.50 &       2.00 &       1.00 &            0.66 &      0.000000e+00 \\
-\(75\)\%  	&       0.75 &       0.99 &     416.83 &      41.83 &          2.60&       1.60 &            1.60 &        1.818989e-12 \\
-max   		&       1.00 &       0.99 &     500.00 &      50.00 &         3.00 &       2.00 &           2.00 &          1.818989e-12 \\
+count         &  82825 &  82825 &  82825 &  82825 &  82825 &  82825 &  82825 &   1.333000e+03 \\
+mean         &     0.486 &      0.101 &    208.082 &     24.666 &      1.795 &      0.871 &      0.965 & 8.446770e-13 \\
+std             &       0.299 &      0.188 &    187.728 &     18.698 &      0.795 &      0.740 &      0.762 &      8.556157e-13 \\
+min   		&         0.00 &      0.00 &      1.00 &      1.00 &      1.00 &      0.00 &      0.00 &    0.000000e+00 \\
+\(25\)\%  	&      0.232 &      0.00 &      1.00 &      1.00 &      1.00 &      0.00 &      0.00 &     0.000000e+00 \\
+\(50\)\%  	&      0.475 &      0.00 &    250.50 &     25.50 &      2.00 &      1.00 &      1.00 &      0.000000e+00 \\
+\(75\)\%  	&       0.747 &      0.167 &    333.667 &     41.833 &      2.50 &      1.333 &      2.00 &        1.818989e-12 \\
+max   		&       1.00 &      0.50 &    500.00 &     50.00 &      3.00 &      2.00 &      2.00 &           1.818989e-12 \\
 \bottomrule
 \end{tabular}
       \caption{Descriptive statistics.}
@@ -529,18 +530,13 @@ max   		&       1.00 &       0.99 &     500.00 &      50.00 &         3.00 &    
 The stability of the strategies has been explored using numerical experiments. 
 Mixed strategies, were proven to be stable for 0.014 percentage of our
 experiments. The scenarios where a mixed strategy is stable, as shown in 
-Table~\ref{tbl:descriptive_stats}, is for values \(s^*\)  close to zero.
-
-Note that all selective has been a stable strategy for \(r=0\). Thus, in the case
-where zero rhinos have been dehorned. In these scenarios strategies \((1, 0)\) and
-\((0, 1)\) are overlapping can are considered the same.
-
-Thus, we conclude that in the parameter area that we have covered the only stable
+Table~\ref{tbl:descriptive_stats}, is for values \(s^*\)  close to zero. Thus, we
+conclude that in the parameter area that we have covered the only stable
 strategy seem to be all indiscriminate. 
 
 Secondly, the evolutionary stability was explored. This was done following the condition that 
 (\ref{eqn:evolutionary_stability_difference}) must be greater than a values \(t\) for all \(\epsilon
-\in \bar{\epsilon}\). The following values were chosen, \(t=0.0001\) and \(\epsilon=0.001\). 
+\in \bar{\epsilon}\). The following values were chosen, \(t=0.0000001\) and \(\epsilon=0.0001\). 
 It was shown that, for our experiments only, all indiscriminate is not an ESS. Not being an ESS
 it's an advantage to the wild life manager. Let a population where all individuals chose to behave
 indiscriminate, the manager could nudge the system enough that mutated strategies, more
@@ -636,16 +632,18 @@ to satisfy the evolutionary conditions.
 
 All rhinos behaving indiscriminate is undesirable case. Because the manager can
 not secure the life of the rhinos even if they were to dehorn them. Due the fact 
-that the indiscriminate strategy is stable  we believe that dehorning in not the 
+that the indiscriminate strategy is stable we disagree with Milner-Gulland and
+Leader-Williams (1992). We believe that dehorning in not the 
 solution to the problem and the manager would be better off assigning more 
-security to the ground. This is applied to real life because poachers 
+security to the ground or use modern methods such as using drones
+(\url{https://www.savetherhino.org/rhino_info/thorny_issues/the_use_of_drones_in_rhino_conservation}).
+This is applied to real life because poachers 
 do not always think of the danger and the risk of getting caught.
 They are more interested in the horn even if that means that a full horn will
 not be secured but only a partial. The fact that the indiscriminate is not
 an non ESS strategy will not manage to reject the invasion leaving
 room to introduce more desired strategies.
-Thus the manger could shake  the system by starting dehorning or lowering
-the gain by ensuring that most of the horn is removed. This
+Thus the manger could shake  the system. This
 could introduced enough mutant strategies and the manger would
 hope to minimize the causalities.
 
