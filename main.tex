@@ -1,30 +1,22 @@
 \documentclass[10pt]{article}
 
 \usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
-%% The amssymb package provides various useful mathematical symbols
-\usepackage{verbatim}
-\usepackage{amssymb}
 
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
+\usepackage{amssymb}
 \usepackage{booktabs}
-\usepackage{epsfig}
+\usepackage{caption}
+ \usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{psfrag}
+\usepackage{subcaption}
 \usepackage{ulem}
-\usepackage{todonotes}
-\usepackage{multirow}
-\usepackage{booktabs} %for table in the form Excel2Latex
-\usepackage{bm} %bold Greek letter.
-\newtheorem{theorem}{Theorem}
-\newtheorem{remark}[theorem]{Remark}
 
 \newcommand{\rd}{\mathrm{d}}
 \newcommand{\be}{\begin{eqnarray}}
 \newcommand{\ee}{\end{eqnarray}}
 \usepackage{tabularx} % http://ctan.org/pkg/tabularx
 \renewcommand{\arraystretch}{1.5} % tables have longer cells
-\usepackage{hyperref}
 
 % \journal{Undecided Journal}
 
@@ -33,8 +25,6 @@
 \date{}
 
 \begin{document}
-
-% \listoftodos
 
 \maketitle
 
@@ -46,7 +36,7 @@ status symbol of success and wealth. Wild life managers attempt to minimise
 the rhino casualties with approaches such as devaluation of the rhino horn. 
 The  most common strategy of devaluing horns includes dehorning. In~\cite{Lee}
 game theory modelling was used to examined the interaction of poachers and
-wild life managers.  A manager can either `dehorn' their rhinos or let the
+wild life managers.  A manager can either `dehorn' their rhinos or leave the
 horn attached. Poachers may chose to to behave `selectively' or `indiscriminately'.
 The approach described in this paper builds upon~\cite{Lee} and investigates 
 the interactions  between the poachers using evolutionary game theory. 
@@ -56,7 +46,7 @@ the conditions which best  encourages the poachers to behave selectively, that
 is, they only kill those rhinos with full horns.  The results show that, poachers
 will never chose to behave selectively as long as there is even the slightest
 gain from a partial horn. Thus, we advice wild life managers to spend more of
- the their resources into security and not in dehorning rhinos.
+the their resources into security and not in dehorning rhinos.
 \end{abstract}
 
 %=============================================
@@ -75,8 +65,9 @@ measure was in Damordond,  Namibia, in 1989 (Milner-Gulland and Leader-Williams,
 1992). Other methods of devaluing the horn that have been suggested include
 the insertion of poisons, dyes or GPS trackers (Gill, 2010; Smith, 2013). However, 
 like dehorning, they cannot remove all the potential gain from an intact horn 
-(poison and dyes fade or GPS trackers can be removed). This paper considers 
-the general strategy of devaluing horns, which includes dehorning.
+(poison and dyes fade or GPS trackers can be removed). This paper builds on 
+the work of \cite{Lee} and considers the general strategy of devaluing horns,
+which includes dehorning.
 
 Rhino populations now persist largely in protected areas or on private land, and
 require intensive protection (Ferreira et al., 2014). For wildlife managers law 
@@ -108,18 +99,21 @@ right quadrant of Fig.~\ref{fig:RhinoPic}. The paper concludes that poachers wil
 always choose to behave indiscriminately, and thus the game settles to the top
 left quadrant, i.e., the poachers win.
 
-We now develop upon this model further using evolutionary game theory. The 
-game considered here is not that of two players anymore (manager and poacher)
-but a infinite population game. This allows for interaction between poachers over 
-multiple plays of the game to be explored with the rhino manager being the one 
-that creates the conditions of the population. 
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.2]{images/RhinoPic.pdf}
-\caption{\label{fig:RhinoPic} The game between rhino manager and rhino poachers.
-The system settles to one of two equilibriums, either devaluing is effective or not.}
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.2]{images/RhinoPic.pdf}
+	\caption{\label{fig:RhinoPic} The game between rhino manager and rhino 
+	poachers. The system settles to one of two equilibriums, either devaluing is effective or not.}
 \end{figure}
+
+The work of~\cite{Lee} did not take in to account the population dynamic effect
+of on these strategies. In a population full of selective poachers would their be 
+a benefit to a single poacher becoming indiscriminate or vice versa? This notion 
+is model is explored here using evolutionary game theory~\cite{Smith}. The 
+game not that of two players anymore (manager and poacher) but an infinite
+population of poachers is considered. This allows for interaction between poachers
+over multiple plays of the game to be explored with the rhino manager being the
+one that creates the conditions of the population. 
 
 %============================================================
 \section{The Model}\label{section:the_model}
@@ -131,12 +125,13 @@ not).
 
 Let us first consider the gain to the poacher, where \(\theta\) is the amount of 
 horn taken. We assume rhino horn value is determined by weight only, a 
-reasonable assumption as rhino horn is sold in a grounded form (\url{savetherhino.org}).
+reasonable assumption as rhino horn is sold in a grounded form~\cite{Saverhino}.
 Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of
 horn gained is \(\theta=1\) for both the selective and the indiscriminate poacher.
 If the rhino horn has been devalued, and the poacher is selective, the amount of horn 
 gained is \(\theta=0\) as the poacher does not kill. However, if the poacher is 
-behaving indiscriminately, the amount of horn gained is \(\theta = \theta_r\). 
+behaving indiscriminately, the amount of horn gained is \(\theta = \theta_r\)
+(for some \(0<\theta_r<1\)). 
 Therefore, the amount of horn gained in the general case is
 
 \begin{eqnarray}
@@ -155,12 +150,12 @@ the expected gain for a poacher is
 	H \theta(r,s)^{-\alpha},
 \end{eqnarray}
 
-where \(H\) is a constant associated with the value of a full horn, and 
+where \(H\) is a scaling factor associated with the value of a full horn, and 
 \(\alpha \geq 0\) is a constant that determines the precise relationship between
 the quantity and value of the horn.  Fig.~\ref{fig:GainCurve}, verifies that the 
 gain curve corresponds to a demand curve.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.4\textwidth]{images/gain_curve.pdf}
 \caption{\label{fig:GainCurve} \(H \theta(r, s) ^{- \alpha}\) for values 
@@ -183,11 +178,10 @@ the gain is either
 depending on the chosen strategy of the individual, see Fig.~\ref{fig:RhinoPic}.
 \\
 \\
-Secondly we consider the costs incurred by the poacher.  The cost of seeking a 
-rhino depends on the proportion of rhinos that are `available', which will be denoted
-as \(rs\). For example, if a poacher is selective \(s = 1\) and \(r = 0.2\), then a 
-selective poacher will ignore a fifth of the rhino population and the rhinos `available'
-for a kill to such a poacher is \(0.8 = 1 - rs\).
+Secondly we consider the costs incurred by the poacher. Let us denote the number
+of rhinos that will be considered at risk given \(r\) and \(s\) as \(\phi(r,s)\).
+The rhinos \textbf{not} at risk are the devalued ones 
+that cross the paths of selective poachers. Thus:
 
 \begin{eqnarray}
 	\label{eqn:psi}
@@ -210,8 +204,7 @@ at any given time the expected cost for a poacher is,
 \begin{eqnarray}
 	\label{eqn:individual_cost}
 	\begin{array}{l}
-	F \psi(r, s)^{\gamma} (1 - r)^{\beta} \Rightarrow \\
-	F (1 - rs) ^{\gamma} (1 - r) ^{\beta}
+	F \psi(r, s)^{\gamma} (1 - r)^{\beta} = F (1 - rs) ^{\gamma} (1 - r) ^{\beta}
 	\end{array}
 \end{eqnarray}
 
@@ -221,24 +214,21 @@ such that \(\gamma\) close to zero indicates very sparse rhinos. Fig.
 \ref{fig:CostCurves},  verifies the decreasing relationship between \(r\) and the
 cost.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
     \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{images/gammas_curve.pdf}
-        \caption{\(F (1 - rs)^{\gamma} (1 - r)^{\beta}\) for values of \(s=0.7, 
-        			F=5\) and \(\beta=0.95\).}
+        \caption{For values, \(s=0.7, F=5\) and \(\beta=0.95\).}
     \end{subfigure}
     \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{images/betas_curve.pdf}
-        \caption{\(F(1 - rs)^{\gamma} (1 - r)^{\beta}\) for values of \(s=1, F=5\)
-        		 	and \(\gamma=0.95\).}
+        \caption{For values, \(s=1, F=5\) and \(\gamma=0.95\).}
     \end{subfigure}
 \caption{\(F (1 - rs)^{\gamma} (1 - r)^{\beta}\).}\label{fig:CostCurves}
 \end{center}
 \end{figure}
 
-However, the poachers are exposed to an extra cost depending on them being
-selective or not. Note that for a indiscriminate poachers \(s = 0\) the seeking 
+Note that for a indiscriminate poachers \(s = 0\) the seeking 
 cost (\ref{eqn:risk}) will always be \(1\), thus the cost of finding a rhino is greater
 than the same cost for a selective poacher. However, a selective poacher needs 
 more time to secure an `available' rhino, if they exist at all. Hence, an 
@@ -254,17 +244,17 @@ additional cost that tends to infinity as \(r \rightarrow 1\) must be applied,
 	\end{array} \right.
 \end{eqnarray}
 
-To sum up, the cost incurred by a given individual when interacting with
+To summarise, the cost incurred by a given individual when interacting with
 the population is given by 
 
 \begin{eqnarray}
-\label{eqn:cost}
-\left\{
-\begin{array}{cl}
-\frac{1}{\psi(r,1)}  F(1- rx)^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
-\\
-\frac{1}{\psi(r,0)} F(1 - rx)^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher}
-\end{array} \right.
+	\label{eqn:cost}
+	\left\{
+	\begin{array}{cl}
+	\frac{1}{\psi(r,1)}  F(1- rx)^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
+	\\
+	\frac{1}{\psi(r,0)} F(1 - rx)^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher}
+	\end{array} \right.
 \end{eqnarray}
 
 As a result, the utility of the poachers can now be defined. Let \(\sigma = (s, 1 - s)\)
@@ -276,7 +266,7 @@ gives the utility function for the individual poacher \(\sigma\) in the populati
 
 \begin{eqnarray}
 \label{eqn:utility}
-u(\sigma, \chi) = s u(S,\chi) +(1-s) u(\bar{S},\chi),
+u(\sigma, \chi) = s u(S,\chi) +(1 - s) u(\bar{S},\chi),
 \end{eqnarray}
 where
 
@@ -294,14 +284,14 @@ Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility})
 \begin{eqnarray}
 \label{eqn:tutility2}
 u(\sigma, \chi) &=&
-H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} \\ \nonumber &&
-- F\left(1-s + \frac{s}{1-r} \right)(1-rx)^{\gamma}(1-r)^{\beta} .
+H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(1-s + \frac{s}{1-r} \right)(1-rx)^{\gamma}(1-r)^{\beta} .
 \end{eqnarray}
 
-In the next section, the utilities are being using to investigate stability.
+In the next section, the stability of these two strategies as well as a potential 
+mixed strategy will be investigated.
 
 %=======================================================
-\section{Evolutionary Model}\label{section:evolutionary_model}
+\section{Evolutionary Stability}\label{section:evolutionary_stability}
 
 Using an evolutionary model to study the devaluation of wild rhinos allows us 
 to gain insight on the evolutionary stability of the strategies and their conditions.
@@ -311,7 +301,7 @@ population, cannot be invaded by any alternative strategy
 
 \subsection{Stable Strategies}\label{subsection:stable_strategies}
 
-For a given strategy to be ESS it must first be stable.
+By definition, for a strategy to be an ESS it must first be stable.
 In our model there are three possible stable distributions, 
 
 \begin{itemize} 
@@ -352,9 +342,11 @@ H \theta_r r < F [1 - (1 - r)^{-1}](1 - r)^{\gamma + \beta + \alpha}
 This inequality states that the gain from partial horn available needs to be less
 than a given amount for selectiveness to be a stable strategy, and thus devaluing
 would be  an effective strategy to deter poachers. However, the left-hand size 
-of (\ref{eqn:s1x1_s0x1}) it will always be negative since \(1-(1-r)^{-1} \leq 0\)
-for any \(r\), see Fig.~\ref{fig:Inequality}. Thus being selective is never a stable 
-strategy.
+of (\ref{eqn:s1x1_s0x1}) will always be negative since \(1-(1-r)^{-1} \leq 0\)
+for any \(r\), see Fig.~\ref{fig:Inequality}. \textbf{Thus, being selective is never
+a stable strategy.} Whilst, in~\cite{Lee}, it was identified as an equilibrium for
+the corresponding stage game, we here have shown that it will never be selected
+in a population of poachers.
 
 Similarly, if the utility for a poacher behaving \textbf{indiscriminately} in a population
 of indiscriminate poachers
