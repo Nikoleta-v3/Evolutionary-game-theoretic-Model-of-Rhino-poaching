@@ -128,10 +128,9 @@ def evolutionary_stability(s, r_val=0.6, gamma_num=0.25, beta_num=0.25,
     while epsilon > tol:
         up_s, down_s = min(s + epsilon, 1), max(s - epsilon, 0)
         delta_plus = (utility(s, up_s) - utility(up_s, up_s)).subs(variables)
-        delta_minus = (utility(s, down_s) - utility(down_s, down_s)).subs(
-                                                                      variables)
+        delta_minus = (utility(s, down_s) - utility(down_s, down_s)).subs(variables)
 
-        evol_stable.append((delta_plus > tol) and (delta_minus > tol))
+        evol_stable.append((delta_plus >= 0) and (delta_minus >= 0))
         epsilon -= step
 
     return evol_stable, evol_stable[-1]
