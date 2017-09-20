@@ -3,6 +3,7 @@
 \usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
 
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{caption}
  \usepackage{epsfig}
@@ -11,12 +12,16 @@
 \usepackage{psfrag}
 \usepackage{subcaption}
 \usepackage{ulem}
+\usepackage{standalone}
+\usepackage{tikz}
 
 \newcommand{\rd}{\mathrm{d}}
 \newcommand{\be}{\begin{eqnarray}}
 \newcommand{\ee}{\end{eqnarray}}
 \usepackage{tabularx} % http://ctan.org/pkg/tabularx
 \renewcommand{\arraystretch}{1.5} % tables have longer cells
+
+\newtheorem{theorem}{Theorem}
 
 % \journal{Undecided Journal}
 
@@ -107,21 +112,125 @@ left quadrant, i.e., the poachers win.
 \end{figure}
 
 The work of~\cite{Lee} did not take in to account the population dynamic effect
-of on these strategies. In a population full of selective poachers would their be 
+of  these strategies. In a population full of selective poachers would their be 
 a benefit to a single poacher becoming indiscriminate or vice versa? This notion 
-is model is explored here using evolutionary game theory~\cite{Smith}. The 
-game not that of two players anymore (manager and poacher) but an infinite
+is explored here using evolutionary game theory~\cite{Smith}. The 
+game is not that of two players anymore (manager and poacher) but an infinite
 population of poachers is considered. This allows for interaction between poachers
 over multiple plays of the game to be explored with the rhino manager being the
 one that creates the conditions of the population. 
 
+In evolutionary game theory, we assume infinite populations and in our
+model this will be represented by \(\chi=(x_1, x_2)\) with \(x_1\) proportion of the
+population using a strategy of the first type and \(x_2\) of the second, denoted
+by \(s_1, s_2\) respectively. We assume there is a utility function \(u_1\) and 
+\(u_2\) that maps the population to a fitness for each type,
+
+\[ u_1(\chi)  \qquad u_2(\chi).\] 
+
+In evolutionary game theory these utilities are used to dictate the evolution of
+the population over time, according to the following differential equations,
+
+\begin{eqnarray}
+	\label{eqn:u_differential_eq}
+	\left\{
+	\begin{array}{cl}
+	\dfrac{dx_1}{dt}=x_1(u_1(\chi)-\phi),
+	\\
+	\\
+	\dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi).
+	\end{array} \right.
+\end{eqnarray}
+
+The overall population is assumed to remain stable thus, \(x_1 + x_2 = 1 \)
+and
+
+\begin{eqnarray}
+	\dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
+	 + x_2(u_2(\chi) - \phi)=0.
+\end{eqnarray} 
+
+As follows the average fitness can be written as,
+
+\begin{eqnarray}
+\label{eqn:average_fitness}
+	\phi=x_1u_1(\chi) + x_2u_2(\chi).
+\end{eqnarray}
+
+By substituting (\ref{eqn:average_fitness}) and \(x_2= 1 - x_1\) in (\ref{eqn:u_differential_eq}),
+
+\begin{eqnarray}
+	\label{eqn:u_differential_simplified}
+	\frac{dx_1}{dt}= x_1(1 - x_1)(u_1(\chi) - u_2(\chi)).
+\end{eqnarray}
+
+The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
+are given by,
+
+\begin{itemize}
+	\item \(x_1=0\),
+	\item \(x_1=1\),
+	\item \(x_1 \in (0, 1) \mbox{ for } u_1(\chi)=u_2(\chi)\).
+\end{itemize}
+
+Thereupon, two notions must be checked for the equilibria,
+
+\begin{itemize}
+	\item stability. The notion of stability implies that the underlying differential
+	equation does not move. A strategy is the best response in the population
+	that it generated. Secondly, 
+	\item evolutionary stability. The notion of evolutionary stability implies
+	that the  differential equation ...
+\end{itemize}
+
+The notion of evolutionary stability can be checked only for the stable strategies.
+For a stable strategy to be an evolutionary stable strategy (ESS) it must remain 
+the best response even an mutated population \(\chi_\epsilon\). A mutated population is the post entry population, 
+where a small proportion \(\epsilon\) starts deviating and adopts a different strategy.
+The mutated population can be thought as a nudged.  Assume Fig.
+\ref{fig:stable_ess_driagrams}, is illustrating two stable strategies. In Fig.
+\ref{fig:stable_diagram}, though the population has reached a stable point once 
+a nudge is applied the marble will lose it's position. In contrast, Fig.~\ref{fig:ess_diagram}
+illustrates a strategy that even when nudged the marble will bounce back to it's
+original position, making it ESS.
+
+\begin{figure}[!htbp]
+\begin{center}
+    \begin{subfigure}{0.40\textwidth}
+	\includestandalone[width =\textwidth]{images/stable}
+	\caption{\label{fig:stable_diagram} A diagram of a stable strategy which 
+	is not ESS.}
+    \end{subfigure}
+    \begin{subfigure}{0.40\textwidth}
+	\includestandalone[width = \textwidth]{images/evolutionary_stability}
+	\caption{\label{fig:ess_diagram}A diagram of a stable strategy which is ESS.}
+    \end{subfigure}
+    	\caption{\label{fig:stable_ess_driagrams} Diagrams of stable strategies.}
+\end{center}
+\end{figure}
+
+In the following section~\ref{section:the_model}, we determine expressions
+for \(u_1, u_2\) that correspond to a population of wild rhino poachers and we
+explore the stability of the equilibria identified in~\cite{Lee}. The results
+contained in this paper are proven analytically, and more specifically it is 
+shown that,
+
+\begin{itemize}
+	\item all poachers behaving selectively is not a stable strategy,  
+	\item a mixed population where selective and indiscriminate poachers
+	learn to co exist can not hold and
+	\item finally all poachers adopting a indiscriminate strategy was proven to
+	be stable and an evolutionary stable strategy.
+\end{itemize}
 %============================================================
 \section{The Model}\label{section:the_model}
 
-The poacher incurs a loss from seeking a rhino, and the risk involved. The gain 
-depends upon the value of horn, the proportion of horn remaining after the 
-manager has devalued the rhino horn and the number of rhinos (devalued and
-not).
+A wild rhino poacher can adopt two strategies, to either behave selectively
+or indiscriminately. Calculating the utility for each strategy the gain and cost
+that poachers are exposed to must be taken into account. The poacher incurs a
+loss from seeking a rhino, and the risk involved. The gain depends upon the value
+of horn, the proportion of horn remaining after the manager has devalued the 
+rhino horn and the number of rhinos (devalued and not).
 
 Let us first consider the gain to the poacher, where \(\theta\) is the amount of 
 horn taken. We assume rhino horn value is determined by weight only, a 
@@ -147,7 +256,7 @@ the expected gain for a poacher is
 
 \begin{eqnarray}
 	\label{eqn:individual_gain}
-	H \theta(r,s)^{-\alpha},
+ 	H \theta(r,s)^{-\alpha},
 \end{eqnarray}
 
 where \(H\) is a scaling factor associated with the value of a full horn, and 
@@ -251,9 +360,9 @@ the population is given by
 	\label{eqn:cost}
 	\left\{
 	\begin{array}{cl}
-	\frac{1}{\psi(r,1)}  F(1- rx)^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
+	\frac{1}{1 - r}  F(1- rx)^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
 	\\
-	\frac{1}{\psi(r,0)} F(1 - rx)^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher}
+	F(1 - rx)^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher}
 	\end{array} \right.
 \end{eqnarray}
 
@@ -266,18 +375,18 @@ gives the utility function for the individual poacher \(\sigma\) in the populati
 
 \begin{eqnarray}
 \label{eqn:utility}
-u(\sigma, \chi) = s u(S,\chi) +(1 - s) u(\bar{S},\chi),
+u(\sigma, \chi) = s u_1(\chi) +(1 - s) u_2(\chi),
 \end{eqnarray}
 where
 
 \begin{eqnarray}
 \label{eqn:USchi}
-u(S,\chi) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
-- \frac{1}{\psi(r,1)} F\psi(r, x)^{\gamma} (1-r)^{\beta} ,
+u_1(\chi) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
+- \frac{1}{1- r} F\psi(r, x)^{\gamma} (1-r)^{\beta} ,
 \\
 \label{eqn:UnotSchi}
-u(\bar{S},\chi) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
-- \frac{1}{\psi(r,0)} F\psi(r, x)^{\gamma}  (1-r)^{\beta}.
+u_2(\chi) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
+- F\psi(r, x)^{\gamma}  (1-r)^{\beta}.
 \end{eqnarray}
 Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) gives
 
@@ -287,7 +396,8 @@ u(\sigma, \chi) &=&
 H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(1-s + \frac{s}{1-r} \right)(1-rx)^{\gamma}(1-r)^{\beta} .
 \end{eqnarray}
 
-In the next section, the stability of these two strategies as well as a potential 
+In section~\ref{section:evolutionary_stability}, the notions of stability
+and evolutionary stability of these two strategies as well as a potential 
 mixed strategy will be investigated.
 
 %=======================================================
@@ -295,14 +405,9 @@ mixed strategy will be investigated.
 
 Using an evolutionary model to study the devaluation of wild rhinos allows us 
 to gain insight on the evolutionary stability of the strategies and their conditions.
-An evolutionarily stable strategy (ESS) is a strategy which, if adopted by the 
-population, cannot be invaded by any alternative strategy 
-\cite{nowak2006evolutionary}.
-
-\subsection{Stable Strategies}\label{subsection:stable_strategies}
-
 By definition, for a strategy to be an ESS it must first be stable.
-In our model there are three possible stable distributions, 
+In our model there are three possible stable distributions based on the
+equilibria of equation (\ref{eqn:u_differential_simplified}),
 
 \begin{itemize} 
 	\item All poachers are selective \(s=1\);
@@ -310,152 +415,185 @@ In our model there are three possible stable distributions,
 	\item Mixed population of selective and indiscriminate poachers.
 \end{itemize}
 
-For a strategy \(\sigma=(s, 1- s)\) to be stable, it must be a best response in 
-the population it generates.  So if the utility for a poacher behaving 
-\textbf{selectively} in a population of selective poachers
-% In this section we identify all the stable strategies of our population game. Poachers behaving 
-% selectively implies that devaluing rhino horn is worthwhile, and thus the rhino manager can win the
-% game. Poachers behaving indiscriminately implies that devaluing rhino horn is a waste of resources, 
-% and thus not a useful strategy for the rhino manager.
+Each of the equilibria is being examined is the following subsections.
 
-\begin{eqnarray}
-\label{eqn:s1x1}
- u((1, 0),(1, 0)) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
+\subsubsection{All poachers are selective \(s=1\)}
+
+All \textbf{selective}, \(\sigma=(1, 0)\) is proven to be unstable strategy.
+
+\begin{theorem}
+	For \(\sigma=(1, 0)\) to be stable the utility of behaving selectively in 
+	a population of selective poachers 	must be greater than the utility of a 
+	poacher behaving indiscriminately in a population of selective poachers,
+
+	\begin{equation}
+	u((1, 0),(1, 0)) > u((0, 1),(1, 0))
+	\end{equation}
+
+	where,
+	\begin{eqnarray}
+	\label{eqn:s1x1}
+ 	u((1, 0),(1, 0)) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
+	\end{eqnarray}
+
+	\begin{eqnarray}
+	\label{eqn:s0x1}
+	u((0, 1),(1, 0)) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} .
+	\end{eqnarray}
+
+	Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives,
+
+	\begin{eqnarray}
+	\label{eqn:s1x1_s0x1}
+	H \theta_r r < F [1 - (1 - r)^{-1}](1 - r)^{\gamma + \beta + \alpha}
+	\end{eqnarray}
+
+
+	This inequality states that the gain from partial horn available needs to be less
+	than a given amount for selectiveness to be a stable strategy, and thus devaluing
+	would be  an effective strategy to deter poachers.
+
+	Note that the left-hand size  will always be negative since \(1-(1-r)^{-1} \leq 0\)
+	for any \(r\), on the other hand the right-hand side is always positive.
+	Thus, (\ref{eqn:s1x1_s0x1}) can never hold, thus being selective is never
+	a stable strategy.
+\end{theorem}
+
+Whilst, in~\cite{Lee}, it was identified as an equilibrium for the corresponding
+stage game, we here have shown that it will never be selected in a population 
+of poachers. Due the luck of stability evolutionary stability has not be examined
+in this case.
+
+\subsubsection{All poachers are indiscriminate \(s=0\)}
+
+Similarly, all \textbf{indiscriminately}the stability is examined.
+
+\begin{theorem}
+	For \(\sigma=(0, 1)\) to be stable the utility of a poacher behaving 
+	indiscriminately in a population of indiscriminate poachers must be greater
+	than the utility of a poacher behaving selectively in a population of 
+	indiscriminate poachers,
+
+	\begin{equation}
+	u((0, 1),(0, 1)) > u((1, 0),(0, 1)),
+	\end{equation}
+
+	where,
+
+	\begin{eqnarray}
+	\label{eqn:s0x0}
+ 	u((0, 1), (0, 1)) = H(\theta_r r + 1 - r)(\theta_r r + 1 - r)^{-\alpha}  - F(1 - r)^{\beta},
+	\end{eqnarray}
+
+	\begin{eqnarray}
+	\label{eqn:s1x0}
+	u((1, 0),(0, 1)) = H(1 - r)(\theta_r r + 1 - r)^{-\alpha} - F(1 - r)^{\beta-1}.
+	\end{eqnarray}
+
+	Setting~(\ref{eqn:s0x0}) to be greater than~(\ref{eqn:s1x0}) gives,
+
+	\begin{eqnarray}
+	\label{eqn:s0x0_s1x0}
+	H \theta_r r  > F [1 - (1 - r)^{-1}](1 - r)^{\beta}(\theta_r r - r + 1)^{\alpha}.
+	\end{eqnarray}
+
+	This inequality states that for indiscriminate behaviour to be stable, the value of
+	a partial rhino horn available needs to be greater than a given amount. 
+
+	Since \(1-(1-r)^{-1} \leq 0\), the righ-hand side of the inequality is always
+	negative and the left-hand side is always positive. Thus, inequality 
+	(\ref{eqn:s0x0_s1x0}) holds for any \(r\). So all indiscriminate
+	is proven to be stable.
+\end{theorem}
+
+Thereupon, the evolutionary stability of the strategy can now be explored as
+well. 
+
+\begin{theorem}
+	In order for all indiscriminate \(\sigma=(0,1)\) to be an ESS it must
+	remain the best response in a mutated population, thus,
+
+	\begin{equation}\label{eqn:evolutionary_stability}
+		u((0, 1), \chi_\epsilon) > u(\chi_\epsilon, \chi_\epsilon),
+	\end{equation}
+
+	must hold. Where, 
+
+	\begin{eqnarray}
+		\label{eqn:u_indiscriminate_ess}
+		u((0, 1), \chi_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
+		- F(1 - \chi_\epsilon) ^ {\gamma} (1- r) ^ {\beta},
+		\\
+		\label{eqn:u_mutated_ess}
+		u(\chi_\epsilon, \chi_\epsilon) &=& H(\theta_rr - r(1 - x_\epsilon))+ 1)\theta(r,
+		x_\epsilon) ^{-\alpha} - F(1 - x_\epsilon) ^ {\gamma} (1- r) ^ {\beta}(1 - 
+		x_\epsilon + \frac{x_\epsilon}{1- r}).
 \end{eqnarray}
 
-is greater than the utility for a poacher behaving indiscriminately in a population
-of selective poachers,
+	Let the difference of (\ref{eqn:u_indiscriminate_ess}) and (\ref{eqn:u_mutated_ess})
+	be denoted as, 
 
-\begin{eqnarray}
-\label{eqn:s0x1}
-u((0, 1),(1, 0)) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} ,
-\end{eqnarray}
+	\begin{eqnarray}
+		\label{eqn:delta}
+	 	\delta &=& u((0, 1), \chi_\epsilon) - u(\chi_\epsilon, \chi_\epsilon),
+	 	\\
+	 	\label{eqn:sub_to_delta}
+	 	\delta &=& H\theta(r, \chi_\epsilon) ^{-\alpha} \theta_r r x_\epsilon -
+	 	F(1 - x_\epsilon) ^ {\gamma} (1- r) ^ {\beta}(x_\epsilon - \frac{x_\epsilon}{1- r})
+	\end{eqnarray}
 
-then \(\sigma = (1, 0)\) is stable. Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1})
-gives
+	all indiscriminate will be an ESS if and only if \(\delta >0 \) for any small 
+	value of \(\epsilon\). Thus,
 
-\begin{eqnarray}
-\label{eqn:s1x1_s0x1}
-H \theta_r r < F [1 - (1 - r)^{-1}](1 - r)^{\gamma + \beta + \alpha}
-\end{eqnarray}
+	\begin{equation}
+	\label{eqn:ess_inequality}
+		H\theta(r, \chi_\epsilon) ^{-\alpha} \theta_r r x_\epsilon > F
+	 	(1 - x_\epsilon) ^ {\gamma} (1- r) ^ {\beta} x_\epsilon(\frac{-r}{1- r})
+	\end{equation}
 
-This inequality states that the gain from partial horn available needs to be less
-than a given amount for selectiveness to be a stable strategy, and thus devaluing
-would be  an effective strategy to deter poachers. However, the left-hand size 
-of (\ref{eqn:s1x1_s0x1}) will always be negative since \(1-(1-r)^{-1} \leq 0\)
-for any \(r\), see Fig.~\ref{fig:Inequality}. \textbf{Thus, being selective is never
-a stable strategy.} Whilst, in~\cite{Lee}, it was identified as an equilibrium for
-the corresponding stage game, we here have shown that it will never be selected
-in a population of poachers.
+	The right-hand of inequality (\ref{eqn:ess_inequality}) is always negative
+	since \((\frac{-r}{1- r}) < 0\)  for all \(r\). On the contrary, the right-hand 
+	side is always positive for all \(r\), thus the inequality holds. 
+	It is proven that all indiscriminate is an evolutionary stable strategy.
+\end{theorem}
 
-Similarly, if the utility for a poacher behaving \textbf{indiscriminately} in a population
-of indiscriminate poachers
+\subsubsection{Mixed population of selective and indiscriminate poachers}
 
-\begin{eqnarray}
-\label{eqn:s0x0}
- u((0, 1), (0, 1)) = H(\theta_r r + 1 - r)(\theta_r r + 1 - r)^{-\alpha}  - F(1 - r)^{\beta},
-\end{eqnarray}
+The third potential stable solution is that of a \textbf{mixed population}.
 
-is greater than the utility for a poacher behaving selectively in a population of 
-indiscriminate poachers,
+\begin{theorem}
+	A mixed population \(\sigma = (s^*, 1 - s^*)\), is the solution to,
 
-\begin{eqnarray}
-\label{eqn:s1x0}
-u((1, 0),(0, 1)) = H(1 - r)(\theta_r r + 1 - r)^{-\alpha} - F(1 - r)^{\beta-1},
-\end{eqnarray}
+	\begin{eqnarray}
+	\label{eqn:s1xs_s0xs}
+	u((1, 0),(s^*, 1 - s^*)) = u((0, 1),(s^*, 1 - s^*)).
+	\end{eqnarray}
 
-then \(\sigma = (0, 1)\) is stable. Setting~(\ref{eqn:s0x0}) to be greater 
-than~(\ref{eqn:s1x0}) gives
+	The left-hand side is,
 
-\begin{eqnarray}
-\label{eqn:s0x0_s1x0}
-H \theta_r r  > F [1 - (1 - r)^{-1}](1 - r)^{\beta}(\theta_r r - r + 1)^{\alpha}.
-\end{eqnarray}
-This inequality states that for indiscriminate behaviour to be stable, the value of
-a partial rhino horn available needs to be greater than a given amount. Since 
-\(1-(1-r)^{-1} \leq 0\), the inequality holds for any \(r\), see 
-Fig.~\ref{fig:Inequality}.
+	\begin{eqnarray} \nonumber
+	u((1, 0),(s^*, 1 - s^*)) =
+	H(1 - r) \theta(r, s^*)^{-\alpha} - F (1 - r)(1 - rs^*)^{\gamma}(1 - r)^{\beta} .
+	\end{eqnarray}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width = 0.4\textwidth]{images/SelectiveInequality}
-\includegraphics[width = 0.4\textwidth, height=.275\textwidth]{images/IndiscriminateInequality}
-\caption{\label{fig:Inequality} Left: \(\frac{H \theta_r r}{F}\) needs to be less 
-than this for selectiveness to be a stable strategy. Right:  \(\frac{H \theta_r r}{F}\)
-needs to be greater than this for indiscriminate behaviour to be stable 
-(shown with \(\theta_r=0.2\)).}
-\end{figure}
+	The right-hand side is
 
-% Comparing the left-hand side of~(\ref{eqn:s1x1_s0x1}) with (\ref{eqn:s0x0_s1x0}), we see that 
-% when \(r=0\), it is easier for the inequality to hold when \(s=0\). That is, when no rhinos are devalued,
-% whilst both \(s=1\) and \(s=0\) are stable, the ratio of \(H \theta_r/ F\) is not required to be as large for
-% all indiscriminate poachers to be stable (provided \(\theta_r>0\)). Conversely, when \(r=1\), it is easier
-% for the inequality to hold when \(s=1\). Meaning that if all rhinos are devalued, the ratio of \(H \theta_r/ F\) 
-% is not required to be as large for all selective poachers to be stable. For general \(r\), and 
-% \(\theta_r  \rightarrow 0\), the case where all poachers are selective \(s=1\) is easier to satisfy provided 
-% \((1-r)^\gamma <1\). 
+	\begin{eqnarray} \nonumber
+	u((0, 1),(s^*, 1 - s^*)) =
+	H(\theta_r + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta} .
+	\end{eqnarray}
 
-The third potential stable solution is that of a \textbf{mixed population}, 
-\(\sigma = (s^*, 1 - s^*)\), where \(s^*\) is the solution to
+	Substituting these into~(\ref{eqn:s1xs_s0xs}) gives an expression to solve 
+	for \(s^*\),
 
-\begin{eqnarray}
-\label{eqn:s1xs_s0xs}
-u((1, 0),(s^*, 1 - s^*)) = u((0, 1),(s^*, 1 - s^*)).
-\end{eqnarray}
+	\begin{eqnarray}
+	\label{eqn:stablemixed}
+	- H \theta_r r \theta(r, s^*)^{-\alpha}  + F r (1 - rs^*)^{\gamma}(1 - r)^{\beta} = 0.
+	\end{eqnarray}
 
-The left-hand side is
+\end{theorem}
 
-\begin{eqnarray} \nonumber
-u((1, 0),(s^*, 1 - s^*)) =
-H(1 - r) \theta(r, s^*)^{-\alpha} - F (1 - r)(1 - rs^*)^{\gamma}(1 - r)^{\beta} .
-\end{eqnarray}
-
-The right-hand side is
-
-\begin{eqnarray} \nonumber
-u((0, 1),(s^*, 1 - s^*)) =
-H(\theta_r + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta} .
-\end{eqnarray}
-
-Substituting these into~(\ref{eqn:s1xs_s0xs}) gives an expression to solve for \(s^*\),
-
-\begin{eqnarray}
-\label{eqn:stablemixed}
-- H \theta_r r \theta(r, s^*)^{-\alpha}  + F r (1 - rs^*)^{\gamma}(1 - r)^{\beta} = 0.
-\end{eqnarray}
-
-However, this is not possible to solve analytically, in section~\ref{section:numerical_experiments}
-we consider numerical solutions.
-
-\subsection{Evolutionary Stable Strategies}\label{subsection:evolutionary_stable_strategies}
-
-Following subsection~\ref{subsection:stable_strategies}, we now examine the evolutionary
-stability of the stable strategies. All poachers behaving selectively was proven to be a non stable
-strategy, thus it will not be considered in this section.  
-
-An ESS, is a stable strategy that will remain the best response in a mutated population.
-A mutated population  is the post entry population, where a small proportion
-\(\epsilon\) starts deviating and adopts a different strategy.  Let a strategy 
-\(\sigma^*\) be stable and let the mutation population be \(\sigma = \sigma^*
-\pm \epsilon\).  Let, 
-
-\begin{equation}\label{eqn:evolutionary_stability}
-	u(\sigma^*, \sigma) > u(\sigma, \sigma)  \mbox{ for all }  0 < \epsilon < \bar{\epsilon},
-\end{equation}
-
-an let the difference between right-hand side and the left-hand size be, 
-
-\begin{equation}\label{eqn:evolutionary_stability_difference}
-	 \delta_{\pm} = u(\sigma^*, \sigma) - u(\sigma, \sigma).
-\end{equation}
-
-Strategy \(\sigma^*\) is said to be evolutionary stable if and only if there exists
-an \(\bar{\epsilon}\) for which (\ref{eqn:evolutionary_stability_difference}) is
-smaller than a given tolerance \(t \rightarrow 0\).  For our model \(\sigma^*\) 
-corresponds to \((0, 1), (s^*, 1 - s^*)\).
-
-The evolutionary stability can not be examined analytically any further. In the 
-following section some numerical experiments are preformed. 
+In this section we have proven analytically that. 
 
 %=============================================================
 \section{Numerical experiments}\label{section:numerical_experiments}
@@ -467,25 +605,35 @@ the denominator of (\ref{eqn:utility}) can not be nullified. Likewise,  \(\theta
 never reaches \(1\) for the partial horn is being considered in the gain only when 
 \(r>0\) (\ref{eqn:gain}). 
 
-\begin{table}[!hbtp]
-	\begin{center}
-      \begin{tabular}{lrr}
-            \toprule
-            Parameter    	& Lower bound & Upper bound\\
-            \midrule
-            \(r\)				& 0				& \(< 1\)		\\
-            \(\theta_r\)    	& 0				&  \(< 1\)		\\
-            \(H\)              	& 1				& 500			\\
-            \(F\)              	& 1				& 50			\\
-            \(\alpha\)      	& 0				& 2				\\
-            \(\beta\)        	& 0  	            & 2				\\
-            \(\gamma\)  	& 1				& 3				\\
-            \bottomrule
-      \end{tabular}
-      \caption{Parameter ranges for numerical experiments.}
-      \label{tbl:paremeters}
-  	\end{center}
-\end{table}
+\begin{itemize}
+\item \(0 \leq r < 1\)
+\item \(0 \leq \theta_r < 1\)
+\item \(1 \leq H \leq 500\)
+\item \(1 \leq F \leq 50\)
+\item \(0 \leq \alpha \leq 2\)
+\item \(0 \leq \beta \leq 2\)
+\item \(1 \leq \gamma \leq 3\)
+\end{itemize}
+
+% \begin{table}[!hbtp]
+% 	\begin{center}
+%       \begin{tabular}{lrr}
+%             \toprule
+%             Parameter    	& Lower bound & Upper bound\\
+%             \midrule
+%             \(r\)				& 0				& \(< 1\)		\\
+%             \(\theta_r\)    	& 0				&  \(< 1\)		\\
+%             \(H\)              	& 1				& 500			\\
+%             \(F\)              	& 1				& 50			\\
+%             \(\alpha\)      	& 0				& 2				\\
+%             \(\beta\)        	& 0  	            & 2				\\
+%             \(\gamma\)  	& 1				& 3				\\
+%             \bottomrule
+%       \end{tabular}
+%       \caption{Parameter ranges for numerical experiments.}
+%       \label{tbl:paremeters}
+%   	\end{center}
+% \end{table}
 
 The data set used in the following analysis have been generated using the 
 computational facilities of the Advanced Research Computing @ Cardiff (ARCCA) 
