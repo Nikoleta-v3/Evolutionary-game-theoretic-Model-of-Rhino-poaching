@@ -152,7 +152,7 @@ and
 	 + x_2(u_2(\chi) - \phi)=0.
 \end{eqnarray} 
 
-As follows the average fitness can be written as,
+Thus the average fitness can be written as,
 
 \begin{eqnarray}
 \label{eqn:average_fitness}
@@ -172,28 +172,23 @@ are given by,
 \begin{itemize}
 	\item \(x_1=0\),
 	\item \(x_1=1\),
-	\item \(x_1 \in (0, 1) \mbox{ for } u_1(\chi)=u_2(\chi)\).
+	\item \(0<x_1<1 \mbox{ for } u_1(\chi)=u_2(\chi)\).
 \end{itemize}
 
-Thereupon, two notions must be checked for the equilibria,
-
-\begin{itemize}
-	\item stability. The notion of stability implies that the underlying differential
-	equation does not move. Secondly, 
-	\item evolutionary stability. The notion of evolutionary stability implies
-	that the  differential equation ...
-\end{itemize}
+These equilibria correspond to stability of the population: the differential 
+equation (~\ref{eqn:u_differential_simplified}) no longer changes. Further to
+this, evolutionary game theory aims to qualify these equilibria subject to 
+evolutionary changes.
 
 The notion of evolutionary stability can be checked only for the stable strategies.
 For a stable strategy to be an evolutionary stable strategy (ESS) it must remain 
-the best response even an mutated population \(\chi_\epsilon\). A mutated population is the post entry population, 
+the best response even in a mutated population \(\chi_\epsilon\). A mutated population is the post entry population, 
 where a small proportion \(\epsilon\) starts deviating and adopts a different strategy.
-The mutated population can be thought as a nudged.  Assume Fig.
-\ref{fig:stable_ess_driagrams}, is illustrating two stable strategies. In Fig.
-\ref{fig:stable_diagram}, though the population has reached a stable point once 
-a nudge is applied the marble will lose it's position. In contrast, Fig.~\ref{fig:ess_diagram}
-illustrates a strategy that even when nudged the marble will bounce back to it's
-original position, making it ESS.
+Fig.~\ref{fig:stable_ess_driagrams} illustrates two potential strategies: without 
+outside stimulation neither marble would move. In Fig.~\ref{fig:ess_diagram}
+however the stability can be described as "stronger": with a small nudge the marble
+would return to its stable position. In Fig.~\ref{fig:stable_diagram} any non zero
+nudge would move the marble out of its equilibria.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -217,12 +212,16 @@ contained in this paper are proven analytically, and more specifically it is
 shown that,
 
 \begin{itemize}
-	\item all poachers behaving selectively is not a stable strategy,  
+	\item all poachers behaving selectively is trivially unstable,  
 	\item a mixed population where selective and indiscriminate poachers
-	learn to co exist can not hold and
-	\item finally all poachers adopting a indiscriminate strategy was proven to
-	be a stable and an evolutionary stable strategy.
+	learn to co exist can not hold in sensible scenarios,
+	\item all poachers adopting a indiscriminate strategy is an evolutionary 
+	stable strategy.
 \end{itemize}
+
+This implies that under almost all conditions, no matter what the current proportion of
+a population of poachers is acting selectively it will eventually turn in to a population
+of only indiscriminate poachers.
 %============================================================
 \section{The Model}\label{section:the_model}
 
