@@ -472,7 +472,7 @@ for selective poachers.
 
 \subsubsection{All poachers are indiscriminate \(s=0\)}
 
-Similarly, the stability of all \textbf{indiscriminately} is examined.
+Similarly, the stability of all \textbf{indiscriminate} is examined.
 
 \begin{theorem}
 	For \(\sigma=(0, 1)\) to be stable the utility of a poacher behaving 
@@ -618,71 +618,48 @@ be stable.
 
 In this section we have studied analytically the stability of all the possible
 equilibria. We have proven the instability of the selective and mixed strategies
-and the evolutionary stability of the indiscriminate behaviour. In the following
-section, section~\ref{section:discussion}, we discuss some of the insights we
+and the evolutionary stability of the indiscriminate behaviour. In the section
+\ref{section:discussion}, we discuss some of the insights we
 gain from the results of this section.
 
 %=============================================================
 \section{Discussion and Conclusions}
 \label{section:discussion}
 
-Wild life managers are faced with the increased demand for rhino horns endangering
-the life of the rhinos. On an attempt to rescue wild rhinos, devaluating their horn
-is a commonly used in recent year.  More specifically, one of the approaches 
-includes removing the rhino horn permanently.  A poacher can either
-ignore the dehorned rhino, for the reason that the gain from a partial horn does
-not exceed the cost, or behave indiscriminate attach the animal securing even
-the slightest proportion of horn.  On the contrary, a wild
-life manager can chose how to distributed their annual resources. Either
-on devaluation of the rhino horns or on ground security. The interactions
-between manager and poachers can be represented using game theory. This
-was done by~\cite{Lee} and their work the identified the possible solutions
-to the game.
+In this section we discuss the insights of your findings. Our results question
+the effectiveness of how wild life managers have been dealing with poachers
+for more than 20 years. 
 
-Evolutionary game theory, does not examine the interaction of players but the
-interactions of strategies, such as the strategies of the poachers. More detailed,
-if a given population is consists of a number of selective and a number of 
-indiscriminate poachers is it possible for these strategies to co-exist? or 
-is a strategy more dominant than the other? The model described in this
-work captures this behaviour.  Several parameters are introduced. Some of
-the parameters are controlled by the manager, percentage of dehorned rhinos,
-the risk of being caught due to security. The gain of full and partial horn are
-introduce, as well as the costs of seeking a rhino and the risk of securing 
-a horn.  Demand and supply arguments have also been taken into account.
+Dehorning wild rhinos was introduced in 1989 as a mean of securing the
+safety of the animal. However, dehorning can be effective if and only if
+poachers chose to behave in a selective manner. Exploring the
+dynamics of a selective population it was proven than being selective is not
+a best response not even in a population where everyone is behaving selectively.
+More specifically, even a mixed population with a small percentage of the 
+population behaving selectively will never exist. Thus, a poacher would never
+adopt a selective strategy. 
 
-The main goal of this works is to explore stability. A stable strategy is a strategy
-which is the best strategy to adopt in a population of players of that strategy. A mixed
-population can be also be stable, a mixed population consists of a proportion
-of selective and indiscriminate poachers that learned to co-exist. Though stability
-is important, a far more interesting concept is that of an evolutionary stability.
-An  ESS is a population that did not only achieved stability but  if a strategy
-was to be introduced it would fast be rejected by the population.  
+The only strategy that was proven to be stable is the indiscriminate one.
+Moreover, it was proven that to be evolutionary stable as well. Meaning, 
+that for any given starting population, the poachers would start adopting an
+indiscriminating behaviour until the take over the population and that population
+would be robust. As shown in Fig.~\ref{fig:indiscriminate_ess}.
 
-In this work it was proven analytically that a selective strategy is never stable. 
-On the other hand being indiscriminate is. There have been conditions
-that could not be studied analytically, such as the stability of a mixed 
-population and the evolutionary stability. In search of answers several
-numerical experiments were simulated using modern software best 
-practices. In the data set that has been explored though this work no stable
-mixed strategies were identified. Furthermore, the only stable strategy, failed
-to satisfy the evolutionary conditions. 
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/IndiscriminateESS.pdf}
+	\caption{\label{fig:indiscriminate_ess} The change of the population over 
+	time with different starting populations. For values, \(F=5, H=50, r=0.65, 
+	\alpha=2, \beta=2, \gamma=1, \theta_r=0.6\).}
+\end{figure}
 
-All rhinos behaving indiscriminate is undesirable case. Because the manager can
-not secure the life of the rhinos even if they were to dehorn them. Due the fact 
-that the indiscriminate strategy is stable we disagree with Milner-Gulland and
-Leader-Williams (1992). We believe that dehorning in not the 
-solution to the problem and the manager would be better off assigning more 
-security to the ground or use modern methods such as using drones
-(\url{https://www.savetherhino.org/rhino_info/thorny_issues/the_use_of_drones_in_rhino_conservation}).
-This is applied to real life because poachers 
-do not always think of the danger and the risk of getting caught.
-They are more interested in the horn even if that means that a full horn will
-not be secured but only a partial. The fact that the indiscriminate is not
-an non ESS strategy will not manage to reject the invasion leaving
-room to introduce more desired strategies.
-Thus the manger could shake  the system. This
-could introduced enough mutant strategies and the manger would
-hope to minimize the causalities.
+Poachers behaving indiscriminate is an undesirable case and the life of
+wild rhinos cannot be secured by dehorning. Our results disagree with the
+claim of Milner-Gulland and Leader-Williams (1992) that managers should dehorn
+as many rhinos as possible. We believe that the money of the wild farm 
+so be assigned to security. Also we believe that new modern methods such as
+using drones for scouting the area~\cite{Saverhino}(`The use of drones in rhino
+conservation') should start being adopted instead of devaluating methods.
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
