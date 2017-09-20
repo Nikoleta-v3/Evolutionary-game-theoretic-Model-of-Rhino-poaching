@@ -4,6 +4,7 @@
 
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{caption}
  \usepackage{epsfig}
@@ -403,9 +404,8 @@ mixed strategy will be investigated.
 %=======================================================
 \section{Evolutionary Stability}\label{section:evolutionary_stability}
 
-Using an evolutionary model to study the devaluation of wild rhinos allows us 
-to gain insight on the evolutionary stability of the strategies and their conditions.
-By definition, for a strategy to be an ESS it must first be stable.
+By definition, for a strategy to be an ESS must first be a best response to an 
+environment where the entire population is playing the same strategy
 In our model there are three possible stable distributions based on the
 equilibria of equation (\ref{eqn:u_differential_simplified}),
 
@@ -415,16 +415,19 @@ equilibria of equation (\ref{eqn:u_differential_simplified}),
 	\item Mixed population of selective and indiscriminate poachers.
 \end{itemize}
 
-Each of the equilibria is being examined is the following subsections.
+Each of the equilibria will be examined is the following subsections.
 
 \subsubsection{All poachers are selective \(s=1\)}
 
-All \textbf{selective}, \(\sigma=(1, 0)\) is proven to be an unstable strategy.
-
 \begin{theorem}
-	For \(\sigma=(1, 0)\) to be stable the utility of behaving selectively in 
-	a population of selective poachers 	must be greater than the utility of a 
-	poacher behaving indiscriminately in a population of selective poachers,
+Using the utility model descried in section~\ref{section:the_model}, 
+a population of selective poachers (\(\sigma=(1, 0)\)) is unstable.
+\end{theorem}
+
+\begin{proof}
+	For \(\sigma=(1, 0)\) to be a best response to itself the utility of behaving 
+	selectively in a population of selective poachers must be greater than the utility
+	of a poacher behaving indiscriminately in a population of selective poachers,
 
 	\begin{equation}
 	u((1, 0),(1, 0)) > u((0, 1),(1, 0))
@@ -452,7 +455,6 @@ All \textbf{selective}, \(\sigma=(1, 0)\) is proven to be an unstable strategy.
 	H \theta_r r < F [1 - (1 - r)^{-1}](1 - r)^{\gamma + \beta + \alpha}
 	\end{eqnarray}
 
-
 	This inequality states that the gain from partial horn available needs to be less
 	than a given amount for selectiveness to be a stable strategy, and thus devaluing
 	would be  an effective strategy to deter poachers.
@@ -461,60 +463,63 @@ All \textbf{selective}, \(\sigma=(1, 0)\) is proven to be an unstable strategy.
 	for any \(r\), on the other hand the right-hand side is always positive.
 	Thus, (\ref{eqn:s1x1_s0x1}) can never hold, thus being selective is never
 	a stable strategy.
-\end{theorem}
+\end{proof}
 
-Whilst, in~\cite{Lee}, it was identified as an equilibrium for the corresponding
-stage game, we here have shown that it will never be selected in a population 
-of poachers. Due the luck of stability evolutionary stability will not be examined
-for selective poachers.
+This implies that whilst~\cite{Lee} identified the individual poachers 
+acting selectively as an equilibrium it is an extremely week equilibrium from 
+the point of view of population stability: a slight change and the population 
+will change.
 
 \subsubsection{All poachers are indiscriminate \(s=0\)}
 
-Similarly, the stability of all \textbf{indiscriminate} is examined.
-
 \begin{theorem}
-	For \(\sigma=(0, 1)\) to be stable the utility of a poacher behaving 
-	indiscriminately in a population of indiscriminate poachers must be greater
-	than the utility of a poacher behaving selectively in a population of 
-	indiscriminate poachers,
-
-	\begin{equation}
-	u((0, 1),(0, 1)) > u((1, 0),(0, 1)),
-	\end{equation}
-
-	where,
-
-	\begin{eqnarray}
-	\label{eqn:s0x0}
- 	u((0, 1), (0, 1)) = H(\theta_r r + 1 - r)(\theta_r r + 1 - r)^{-\alpha}  - F(1 - r)^{\beta},
-	\end{eqnarray}
-
-	and 
-
-	\begin{eqnarray}
-	\label{eqn:s1x0}
-	u((1, 0),(0, 1)) = H(1 - r)(\theta_r r + 1 - r)^{-\alpha} - F(1 - r)^{\beta-1}.
-	\end{eqnarray}
-
-	Setting~(\ref{eqn:s0x0}) to be greater than~(\ref{eqn:s1x0}) gives,
-
-	\begin{eqnarray}
-	\label{eqn:s0x0_s1x0}
-	H \theta_r r  > F [1 - (1 - r)^{-1}](1 - r)^{\beta}(\theta_r r - r + 1)^{\alpha}.
-	\end{eqnarray}
-
-	This inequality states that for indiscriminate behaviour to be stable, the value of
-	a partial rhino horn available needs to be greater than a given amount. 
-
-	Since \(1-(1-r)^{-1} \leq 0\), the righ-hand side of the inequality is always
-	negative where the left-hand side is always positive. Thus, inequality 
-	(\ref{eqn:s0x0_s1x0}) holds for any \(r\). So all indiscriminate
-	is proven to be stable.
+Using the utility model descried in section~\ref{section:the_model}, a population 
+of indiscriminate poachers (\(\sigma=(0, 1)\)) is evolutionarily stable.
 \end{theorem}
 
-Thereupon, the evolutionary stability of the strategy can now be explored. 
+% \begin{theorem}
+% 	For \(\sigma=(0, 1)\) to be stable the utility of a poacher behaving 
+% 	indiscriminately in a population of indiscriminate poachers must be greater
+% 	than the utility of a poacher behaving selectively in a population of 
+% 	indiscriminate poachers,
 
-\begin{theorem}
+% 	\begin{equation}
+% 	u((0, 1),(0, 1)) > u((1, 0),(0, 1)),
+% 	\end{equation}
+
+% 	where,
+
+% 	\begin{eqnarray}
+% 	\label{eqn:s0x0}
+%  	u((0, 1), (0, 1)) = H(\theta_r r + 1 - r)(\theta_r r + 1 - r)^{-\alpha}  - F(1 - r)^{\beta},
+% 	\end{eqnarray}
+
+% 	and 
+
+% 	\begin{eqnarray}
+% 	\label{eqn:s1x0}
+% 	u((1, 0),(0, 1)) = H(1 - r)(\theta_r r + 1 - r)^{-\alpha} - F(1 - r)^{\beta-1}.
+% 	\end{eqnarray}
+
+% 	Setting~(\ref{eqn:s0x0}) to be greater than~(\ref{eqn:s1x0}) gives,
+
+% 	\begin{eqnarray}
+% 	\label{eqn:s0x0_s1x0}
+% 	H \theta_r r  > F [1 - (1 - r)^{-1}](1 - r)^{\beta}(\theta_r r - r + 1)^{\alpha}.
+% 	\end{eqnarray}
+
+% 	This inequality states that for indiscriminate behaviour to be stable, the value of
+% 	a partial rhino horn available needs to be greater than a given amount. 
+
+% 	Since \(1-(1-r)^{-1} \leq 0\), the righ-hand side of the inequality is always
+% 	negative where the left-hand side is always positive. Thus, inequality 
+% 	(\ref{eqn:s0x0_s1x0}) holds for any \(r\). So all indiscriminate
+% 	is proven to be stable.
+% \end{theorem}
+
+% Thereupon, the evolutionary stability of the strategy can now be explored. 
+
+\begin{proof}
 	In order for all indiscriminate \(\sigma=(0,1)\) to be an ESS it must
 	remain the best response in a mutated population, thus,
 
@@ -547,8 +552,8 @@ Thereupon, the evolutionary stability of the strategy can now be explored.
 	 	F(1 - x_\epsilon) ^ {\gamma} (1- r) ^ {\beta}x_\epsilon(\frac{-r}{1- r})
 	\end{eqnarray}
 
-	all indiscriminate will be an ESS if and only if \(\delta >0 \) for any small 
-	value of \(\epsilon\). Thus if and only if,
+	all indiscriminate will be an ESS only if \(\delta >0 \) for any small 
+	value of \(\epsilon\). Thus only if,
 
 	\begin{equation}
 	\label{eqn:ess_inequality}
@@ -560,20 +565,23 @@ Thereupon, the evolutionary stability of the strategy can now be explored.
 	since \((\frac{-r}{1- r}) < 0\)  for all \(r\). On the contrary, the right-hand 
 	side is always positive for all \(r\), thus the inequality holds. 
 	It is proven that all indiscriminate is an evolutionary stable strategy.
-\end{theorem}
+\end{proof}
 
-Whilst, the equilibrium where  poachers win in~\cite{Lee}, has been shown here
-to be stable and robust.
+This shows that the a population of indiscriminate poachers 
+not only corresponds to the equilibrium of the individual based 
+game identified in~\cite{Lee} but also is a very robust and attractive 
+equilibrium at the population level.
 
 \subsubsection{Mixed population of selective and indiscriminate poachers}
 
-The third potential stable solution is that of a \textbf{mixed population}.
-It is proven that for any reasonable scenarios a mixed population can never 
-be stable.
+\begin{theorem}	
+Using the utility model descried in section~\ref{section:the_model}, a mixed
+stable strategy (\(\sigma=(s^*, 1 - s^*)\)) exists only if \(F > H\).  
+\end{theorem}
 
-\begin{theorem}
+\begin{proof}
 	A mixed population \(\sigma = (s^*, 1 - s^*)\) is said to be stable for a
-	given \(s^*\) if and only if,
+	given \(s^*\) only if,
 
 	\begin{eqnarray}
 	\label{eqn:s1xs_s0xs}
@@ -606,13 +614,19 @@ be stable.
 	(1- r) ^ {\beta} r (1- s)}
 	\end{eqnarray}
 
-	Note that for any rational scenario \(\frac{F}{H}\) should always be smaller
-	than \(1\). \(F\) denotes the cost where \(H\) denotes the gain and for any
-	reasonable scenario the cost of retrieving a horn should be smaller than it's
-	value. On the contrary, the right-hand side of equation (\ref{eqn:stable_mixed_final})
-	if always greater to \(1\). Due \(\frac{1}{(1 - rs) ^ \gamma(1- r) ^ {\beta} 
-	r (1- s)} \geq 1\). Thus the stable condition can never hold for any \(s^*\).
-\end{theorem}
+	Note that the right-hand side of equation (\ref{eqn:stable_mixed_final})
+	if always greater to \(1\), since \(\frac{1}{(1 - rs) ^ \gamma(1- r) ^ {\beta} 
+	r (1- s)} \geq 1\). Thus for a mixed stable strategy to exists \(F\) must be
+	greater or equal to \(H\).
+\end{proof}
+
+A rhino horn is extremely valuable and based on an assumption that the current
+high demand will continue indefinitely, their future market value will not decrease.
+Undeniable, the high value of the horn is the reason of the large scaled growth
+of poaching in African countries and we argue that the cost of securing a horn
+will never surpass it's extreme value. Thus, for a given scenario of our model
+to be reasonable \(F\) will always be smaller than \(H\). Thus, a mixed strategy
+can not stable.
 
 In this section we have studied analytically the stability of all the possible
 equilibria. We have proven the instability of the selective and mixed strategies
