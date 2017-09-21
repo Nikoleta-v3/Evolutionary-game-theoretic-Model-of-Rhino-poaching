@@ -13,7 +13,6 @@ import tools
 
 def main(theta_r, H, F, gamma, alpha, beta, tol, epsilon, step):
 
-
     for r in np.linspace(0, 1, 100):
         indiscriminate_evol_stable, selective_evol_stable = False, False
         mixed_evol_stable = False
