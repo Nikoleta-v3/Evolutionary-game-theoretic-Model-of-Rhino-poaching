@@ -3,6 +3,9 @@
 *.fls
 *.log
 *.tdo
+*.out 
+*.bbl
+*.blg
 
 # py charm files
 .idea/*
@@ -15,4 +18,7 @@
 
 # files
 rhino*
-images/
+
+# data
+data/raw/*csv
+data/*csv
