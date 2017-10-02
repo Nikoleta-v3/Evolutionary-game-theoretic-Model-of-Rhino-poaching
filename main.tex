@@ -26,7 +26,7 @@
 
 % \journal{Undecided Journal}
 
-\title{An evolutionary game theory model for devaluing rhinos}
+\title{An evolutionary game theory model for devaluing rhinos - TEL 1 Oct 2017}
 \author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
 \date{}
 
@@ -64,7 +64,7 @@ black market~\cite{Nowell1992}. This lucrative market entices people to invest
 their time and energy to gain a `winfall' in the form of a rhino horn, through the 
 poaching of rhinos. In recent years poaching has escalated to an unpresidented 
 level resulting in concerns over their future existence~\cite{Smith1993}. In 
-response, rhino conservation has seen increased  ilitarisation with `boots on the 
+response, rhino conservation has seen increased  militarisation with `boots on the 
 ground' and `eyes in the sky'~\cite{duffy_st}. An alternative method is to 
 devalue the horn itself, one of the main  methods being the removal so that only
 a stub is left. The first attempt at large-scale rhino dehorning as an anti-poaching
@@ -94,15 +94,15 @@ rhino manager.  A manager is assumed to have standard yearly resources which
 can be allocated on devaluing a proportion of their rhinos or spent on security. 
 It is assumed that all rhinos initially have intact horns. Poachers may either only
 kill rhinos with full horns, `selective poachers', or kill all rhinos they encounter, 
-`indiscriminate poachers'. If all rhinos are left by the rhino manager with their 
+`indiscriminate poachers'. This strategy may be preferred to avoid tracking a devalued rhino again, and/or to gain the value from the partial horn. If all rhinos are left by the rhino manager with their 
 intact horns, it does not pay poachers to be selective so they will chose to be 
-indiscriminate. Conversely, if all poachers are selective, it pays rhino managers 
+indiscriminate since being selective incurs an additional cost to discern the status of the rhino. Conversely, if all poachers are selective, it pays rhino managers 
 to invest in devaluing their rhinos. This dynamic is represented in Fig.~\ref{fig:RhinoPic}.
 Assuming poachers and managers will always behave so as to maximise their 
-payoff, there are two equilibriums: either all devalued and all poachers selective;
-or all horns intact and all poachers indiscriminate. Essentially, either the managers 
+payoff, there are two equilibriums: either all rhinos are devalued and all poachers are selective;
+or all horns are intact and all poachers are indiscriminate. Essentially, either the managers 
 win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers win, the bottom
-right quadrant of Fig.~\ref{fig:RhinoPic}. The paper concludes that poachers will
+right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee} concludes that poachers will
 always choose to behave indiscriminately, and thus the game settles to the top
 left quadrant, i.e., the poachers win.
 
@@ -114,19 +114,18 @@ left quadrant, i.e., the poachers win.
 \end{figure}
 
 The work of~\cite{Lee} did not take in to account the population dynamic effect
-of  these strategies. In a population full of selective poachers would their be 
+of  these strategies. In a population full of selective poachers would there be 
 a benefit to a single poacher becoming indiscriminate or vice versa? This notion 
 is explored here using evolutionary game theory~\cite{Smith}. The 
-game is not that of two players anymore (manager and poacher) but an infinite
-population of poachers is considered. This allows for the interaction between poachers
+game is not that of two players anymore (manager and poacher) but now the players are an infinite
+population of poachers. This allows for the interaction between poachers
 over multiple plays of the game to be explored with the rhino manager being the
 one that creates the conditions of the population. 
 
 In evolutionary game theory, we assume infinite populations and in our
 model this will be represented by \(\chi=(x_1, x_2)\) with \(x_1\) proportion of the
-population using a strategy of the first type and \(x_2\) of the second, denoted
-by \(s_1, s_2\) respectively. We assume there is a utility function \(u_1\) and 
-\(u_2\) that maps the population to a fitness for each type,
+population using a strategy of the first type and \(x_2\) of the second. In our case $x_1$ represents selective poachers and $x_2$ represents indiscriminate poachers. We assume there is a utility function \(u_1\) and 
+\(u_2\) that maps the population to a fitness for each strategy,
 
 \[ u_1(\chi)  \qquad u_2(\chi).\] 
 
@@ -140,49 +139,44 @@ the population over time, according to the following differential equations,
     \dfrac{dx_1}{dt}=x_1(u_1(\chi)-\phi),
     \\
     \\
-    \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi).
+    \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi),
     \end{array} \right.
 \end{eqnarray}
-
-The overall population is assumed to remain stable thus, \(x_1 + x_2 = 1 \)
+where $\phi$ is the average fitness of the whole population. Here, the overall population is assumed to remain stable thus, \(x_1 + x_2 = 1 \)
 and
 
 \begin{eqnarray}
     \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
      + x_2(u_2(\chi) - \phi)=0.
-\end{eqnarray} 
-
+\end{eqnarray} % Leaving a line after the eqn indents the text underneath - since it is often not a new paragraph, I´m removing the line.
 Thus the average fitness can be written as,
 
 \begin{eqnarray}
 \label{eqn:average_fitness}
     \phi=x_1u_1(\chi) + x_2u_2(\chi).
 \end{eqnarray}
-
-By substituting (\ref{eqn:average_fitness}) and \(x_2= 1 - x_1\) 
-in (\ref{eqn:u_differential_eq}),
+By substituting (\ref{eqn:average_fitness}) and \(x=x_1= 1 - x_2\) 
+in the first part of (\ref{eqn:u_differential_eq}),
 
 \begin{eqnarray}
     \label{eqn:u_differential_simplified}
-    \frac{dx_1}{dt}= x_1(1 - x_1)(u_1(\chi) - u_2(\chi)).
+    \frac{dx}{dt}= x(1 - x)(u_1(\chi) - u_2(\chi)).
 \end{eqnarray}
-
+% Changed notation to make it all in terms of x to link in with next section.
 The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
-are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1 \mbox{ for } u_1(\chi)=u_2(\chi)\).
-
+are given by, \(x=1\) (all poachers are selective), \(x=1\) (all poachers are indiscriminate), and \(0<x<1\) (a mix of poachers) for \(u_1(\chi)=u_2(\chi)\).
 These equilibria correspond to stability of the population: the differential 
-equation (\ref{eqn:u_differential_simplified}) no longer changes. Further to
-this, evolutionary game theory aims to qualify these equilibria subject to 
-evolutionary changes.
+equation (\ref{eqn:u_differential_simplified}) no longer changes. 
+%Further to this, evolutionary game theory aims to qualify these equilibria subject to evolutionary changes.
 
-The notion of evolutionary stability can be checked only for the stable strategies.
+The notion of evolutionary stability can be checked only for these stable strategies.
 For a stable strategy to be an Evolutionary Stable Strategy (ESS) it must remain 
 the best response even in a mutated population \(\chi_\epsilon\). A mutated population 
 is the post entry population 
 where a small proportion \(\epsilon\) starts deviating and adopts a different strategy.
 Fig.~\ref{fig:stable_ess_driagrams} illustrates two potential strategies: without 
 outside stimulation neither marble would move. In Fig.~\ref{fig:ess_diagram}
-however the stability can be described as "stronger": with a small nudge the marble
+however the stability can be described as ``stronger": with a small nudge the marble
 would return to its stable position. In Fig.~\ref{fig:stable_diagram} any non zero
 nudge would move the marble out of its equilibria.
 
@@ -223,9 +217,9 @@ population of only indiscriminate poachers.
 %============================================================
 \section{The Utility Model}\label{section:the_model}
 
-As discussed briefly in Section~\ref{section:introduction}, a wild rhino poacher
+As discussed briefly in Section~\ref{section:introduction}, a rhino poacher
 can adopt two strategies, to either behave selectively
-or indiscriminately. Calculating the utility for each strategy, the gain and cost
+or indiscriminately. To calculate the utility for each strategy, the gain and cost
 that poachers are exposed to must be taken into account. The poacher incurs a
 loss from seeking a rhino, and the risk involved. The gain depends upon the value
 of horn, the proportion of horn remaining after the manager has devalued the 
@@ -246,18 +240,16 @@ Therefore, the amount of horn gained in the general case is
     \label{eqn:theta}
     \theta(r, s) = s (1 - r) + (1 - s) ((\theta_r - 1) r + 1),
 \end{eqnarray}
-
 where \(r\) is the proportion of rhinos that have been devalued, and \(s\) is the 
 proportion of selective poachers. Note that since \(\theta_r, r, s  \in [0, 1]\), then
-\(\theta(r, s) > 0\). Standard supply and demand arguments imply that the value
-of rhino horn decreases as the quantity of horn increases~\cite{mankiw2010}.
+\(\theta(r, s) > 0\), that is, some horn will be taken. Standard supply and demand arguments imply that the value
+of rhino horn decreases as the quantity of horn available increases~\cite{mankiw2010}.
 Thus at any given time the expected gain for a poacher is
 
 \begin{eqnarray}
     \label{eqn:individual_gain}
     H \theta(r,s)^{-\alpha},
 \end{eqnarray}
-
 where \(H\) is a scaling factor associated with the value of a full horn, and 
 \(\alpha \geq 0\) is a constant that determines the precise relationship between
 the quantity and value of the horn.  Fig.~\ref{fig:GainCurve}, verifies that the 
@@ -270,9 +262,9 @@ gain curve corresponds to a demand curve.
 \(H = 10, \theta_r = 0.3\) and \(s = 0.2.\)}
 \end{figure}
 
-An individual interacts with the population, denoted as \(\chi=(x, 1 -x )\). Thus,
+An individual interacts with the population, denoted as \(\chi=(x,1-x)\) where $x$ is the proportion of selective poachers, and $1-x$ is the proportion of indiscriminate poachers. For simplicity, from herein the population $\chi$ is referred to in terms of the proportion of selective poachers only, $\chi=x$. Thus,
 the gain is either
-
+% This is the beginning of some notation changes - if you don´t like this change, please change back... but be warned.... it´s everywhere!
 \begin{eqnarray}
     \label{eqn:gain}
     \left\{
@@ -282,13 +274,12 @@ the gain is either
     \theta(r, 0) H \theta(r, x)^{-\alpha} & \mbox{ indiscriminate poacher}
     \end{array} \right.
 \end{eqnarray}
-
 depending on the chosen strategy of the individual, see Fig.~\ref{fig:RhinoPic}.
 
 Secondly we consider the costs incurred by the poacher. Let us denote the number
 of rhinos that will be considered at risk given \(r\) and \(s\) as \(\psi(r,s)\).
 The rhinos \textbf{not} at risk are the devalued ones 
-that cross the paths of selective poachers. Thus:
+that cross the paths of selective poachers. Thus the cost to seek a rhino depends on $r$ and $s$ by,
 
 \begin{eqnarray}
     \label{eqn:psi}
@@ -296,14 +287,13 @@ that cross the paths of selective poachers. Thus:
 \end{eqnarray}
 
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
-the opposite of the proportion of rhinos devalued \(r\), since the rhino manager
+the directly related to the proportion of rhinos not devalued, \(1-r\), since the rhino manager
 can spend more on security if the cost of devaluing is low.
 
 \begin{eqnarray}
     \label{eqn:risk}
     (1 - r)^{\beta},
 \end{eqnarray}
-
 where \(\beta \geq 0\) is a constant that determines the precise relationship between
 the proportion of rhinos not devalued and the security on the grounds. Therefore,
 at any given time the expected cost for a poacher is, 
@@ -314,7 +304,6 @@ at any given time the expected cost for a poacher is,
     F \psi(r, s)^{\gamma} (1 - r)^{\beta} = F (1 - rs) ^{\gamma} (1 - r) ^{\beta}
     \end{array}
 \end{eqnarray}
-
 where \(F\) and \(\gamma \geq 0\) are constants that determine the precise relationship
 between the proportion of vulnerable rhinos and the probability of finding a rhino,
 such that \(\gamma\) close to zero indicates very sparse rhinos. Fig.
@@ -336,10 +325,10 @@ cost.
 \end{figure}
 
 Note that for a indiscriminate poachers \(s = 0\) the seeking 
-cost (\ref{eqn:risk}) will always be \(1\), thus the cost of finding a rhino is greater
+cost (\ref{eqn:psi}) will always be at the maximum of \(1\), thus the cost of finding a rhino is greater
 than the same cost for a selective poacher. However, a selective poacher needs 
-more time to secure an `available' rhino, if they exist at all. Hence, an 
-additional cost that tends to infinity as \(r \rightarrow 1\) must be applied, 
+more time to secure an `available' rhino, if they exist at all. Hence, there is an 
+additional cost that tends to infinity as \(r \rightarrow 1\), 
 
 \begin{eqnarray}
     \label{eqn:selective_cost}
@@ -351,40 +340,38 @@ additional cost that tends to infinity as \(r \rightarrow 1\) must be applied,
     \end{array} \right.
 \end{eqnarray}
 
-To summarise, the cost incurred by a given individual when interacting with
-the population is given by 
+To summarise, the cost incurred by a given individual poacher when interacting with
+the population $x$ is given by 
 
 \begin{eqnarray}
     \label{eqn:cost}
     \left\{
     \begin{array}{cl}
-    \frac{1}{1 - r}  F(1- rx)^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
+    \frac{1}{1 - r}  F\psi^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
     \\
-    F(1 - rx)^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher}
+    F\psi^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher}
     \end{array} \right.
 \end{eqnarray}
+% (12) is the loss equivalent to (7), which is given in terms of theta, so I made this in terms of psi for consistency.
 
-As a result, the utility of the poachers can now be defined. Let \(\sigma = (s, 1 - s)\)
-denote the strategy of an individual. Thus \(\sigma = (1, 0)\) represent an
-individual poacher who is selective and \(\sigma = (0, 1)\) represent an individual
-poacher who is indiscriminate. Combining~(\ref{eqn:gain}) and (\ref{eqn:cost})
-gives the utility function for the individual poacher \(\sigma\) in the population
-\(\chi\),
-
-\begin{eqnarray}
-\label{eqn:utility}
-u(\sigma, \chi) = s u_1(\chi) +(1 - s) u_2(\chi),
-\end{eqnarray}
-where
-
-\begin{eqnarray}
+Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility functions for selective poachers, $u_1(x)$, and indiscriminate poachers, $u_2(x)$, 
+\begin{eqnarray} % not sure whether to use chi or x for lefthand side here
 \label{eqn:USchi}
-u_1(\chi) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
+u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
 - \frac{1}{1- r} F\psi(r, x)^{\gamma} (1-r)^{\beta} ,
 \\
 \label{eqn:UnotSchi}
-u_2(\chi) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
+u_2(x) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
 - F\psi(r, x)^{\gamma}  (1-r)^{\beta}.
+\end{eqnarray}
+% s denotes the proportion of selective, and sigma denotes the individual.
+Let $\sigma$ denote the strategy of an individual where $\sigma =1$ represents a selective poacher, and $\sigma=0$ represents an indiscriminate poacher. Thus the general utility function for an individual poacher in the population with a proportion of $0 \leq x \leq 1$ selective poachers is
+
+%As a result, the utility of the poachers can now be defined. Let \(\sigma = (s, 1 - s)\) denote the strategy of an individual. Thus \(\sigma = (1, 0)\) represent an individual poacher who is selective and \(\sigma = (0, 1)\) represent an individual poacher who is indiscriminate. Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility function for the individual poacher \(\sigma\) in the population \(\chi\),
+
+\begin{eqnarray}
+\label{eqn:utility}
+u(\sigma, x) = \sigma u_1(x) +(1 - \sigma) u_2(x).
 \end{eqnarray}
 Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) gives,
 
@@ -418,30 +405,28 @@ Each of the equilibria will be examined in the following subsections.
 
 \begin{theorem}
 Using the utility model described in Section~\ref{section:the_model}, 
-a population of selective poachers (\(\sigma=(1, 0)\)) is unstable.
+a population of selective poachers (\(s=1\)) is unstable.
 \end{theorem}
 
 \begin{proof}
-    For \(\sigma=(1, 0)\) to be a best response to itself the utility of behaving 
+    For \(\sigma=1\) to be a best response to itself the utility of behaving 
     selectively in a population of selective poachers must be greater than the utility
     of a poacher behaving indiscriminately in a population of selective poachers,
 
     \begin{equation}
-    u((1, 0),(1, 0)) > u((0, 1),(1, 0)),
-    \end{equation}
-    
+    u(1,1) > u(0,1),
+    \end{equation}    
     where
     
     \begin{eqnarray}
     \label{eqn:s1x1}
-    u((1, 0),(1, 0)) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
-    \end{eqnarray}
-    
+    u(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
+    \end{eqnarray}    
     and 
     
     \begin{eqnarray}
     \label{eqn:s0x1}
-    u((0, 1),(1, 0)) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} .
+    u(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} .
     \end{eqnarray}
 
     Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the 
@@ -449,12 +434,14 @@ a population of selective poachers (\(\sigma=(1, 0)\)) is unstable.
 
     \begin{eqnarray}
     \label{eqn:s1x1_s0x1}
-    H \theta_r r < F [1 - (1 - r)^{-1}](1 - r)^{\gamma + \beta + \alpha}
+    &&H \theta_r r < F [1 - (1 - r)^{-1}](1 - r)^{\gamma + \beta + \alpha}.\:\:\mbox{correct? See below}
+    \\
+    &&H \theta_r r < -Fr(1 - r)^{\gamma + \beta + \alpha} \:\: \mbox{I get this. Note (1-r) not to power of -1, please check because I don´t have a computer!}
     \end{eqnarray}
 
-    The left-hand size  will always be negative since \(1-(1-r)^{-1} \leq 0\)
-    for any \(r\), on the other hand the right-hand side is always positive.
-    Thus, (\ref{eqn:s1x1_s0x1}) can never hold.
+    The right-hand size  will always be negative since \(1-(1-r)^{-1} \leq 0\)
+    for any \(r\), on the other hand the left-hand side is always positive.
+    Thus, (\ref{eqn:s1x1_s0x1}) can never hold. % This still holds which ever is correct. 
 \end{proof}
 
 This implies that whilst~\cite{Lee} identified the individual poachers 
@@ -466,7 +453,7 @@ will change.
 
 \begin{theorem}
 Using the utility model described in Section~\ref{section:the_model}, a population 
-of indiscriminate poachers (\(\sigma=(0, 1)\)) is evolutionarily stable.
+of indiscriminate poachers (\(s=0\)) is evolutionarily stable.
 \end{theorem}
 
 % \begin{theorem}
@@ -512,25 +499,31 @@ of indiscriminate poachers (\(\sigma=(0, 1)\)) is evolutionarily stable.
 % Thereupon, the evolutionary stability of the strategy can now be explored. 
 
 \begin{proof}
-    In order for all indiscriminate \(\sigma=(0,1)\) to be an ESS it must
-    remain the best response in a mutated population, thus,
+    In order for all indiscriminate \(s=0\) to be an ESS it must
+    remain the best response in a mutated population $\chi_\epsilon$, where $\chi_{\epsilon}=(x_\epsilon, 1 - x_\epsilon) = x_\epsilon$ is only slightly different from the population $\chi=(x, 1-x) =x$. Thus,
 
     \begin{equation}\label{eqn:evolutionary_stability}
-        u((0, 1), \chi_\epsilon) > u(\chi_\epsilon, \chi_\epsilon),
+        u(0, \chi_\epsilon) > u(x_\epsilon, x_\epsilon),
     \end{equation}
-
-    must hold. Where \(\chi_{\epsilon}=(\epsilon, 1 - \epsilon)\) giving:
+    must hold. From (\ref{eqn:tutility2},
 
     \begin{eqnarray}
         \label{eqn:u_indiscriminate_ess}
-        u((0, 1), \chi_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
-        - F(1 - \chi_\epsilon) ^ {\gamma} (1- r) ^ {\beta},
+        u(0, x_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
+        - F(1 - x_\epsilon) ^ {\gamma} (1- r) ^ {\beta},\:\:\mbox{correct? See below}
+        \\u(0, x_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
+        - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^ {\beta}, \:\:\mbox{missing r?}
         \\
         \label{eqn:u_mutated_ess}
         u(\chi_\epsilon, \chi_\epsilon) &=& H(\theta_rr - r(1 - x_\epsilon))+ 1)\theta(r,
         x_\epsilon) ^{-\alpha} - F(1 - x_\epsilon) ^ {\gamma} (1- r) ^
         {\beta}\left(1 - 
-        x_\epsilon + \frac{x_\epsilon}{1- r}\right).
+        x_\epsilon + \frac{x_\epsilon}{1- r}\right).\:\:\mbox{correct? See below}
+        \\
+         u(\chi_\epsilon, x_\epsilon) &=& H(\theta_rr(1 - x_\epsilon)-r+ 1)\theta(r,
+        x_\epsilon) ^{-\alpha} - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^
+        {\beta}\left(1 - 
+        x_\epsilon + \frac{x_\epsilon}{1- r}\right).\:\:\mbox{first term and missing r?}
 \end{eqnarray}
 
     Let the difference of (\ref{eqn:u_indiscriminate_ess}) and (\ref{eqn:u_mutated_ess})
@@ -538,14 +531,17 @@ of indiscriminate poachers (\(\sigma=(0, 1)\)) is evolutionarily stable.
 
     \begin{eqnarray}
         \label{eqn:delta}
-        \delta &=& u((0, 1), \chi_\epsilon) - u(\chi_\epsilon, \chi_\epsilon),
+        \delta &=& u(0, \chi_\epsilon) - u(\chi_\epsilon, \chi_\epsilon),
         \\
         \label{eqn:sub_to_delta}
-        \delta &=& H\theta(r, \chi_\epsilon) ^{-\alpha} \theta_r r x_\epsilon -
+         &=& H\theta(r, \chi_\epsilon) ^{-\alpha} \theta_r r x_\epsilon -
         F(1 - x_\epsilon) ^ {\gamma} (1- r) ^
-        {\beta}x_\epsilon\left(\frac{-r}{1- r}\right)
+        {\beta}x_\epsilon\left(\frac{-r}{1- r}\right)\:\:\mbox{correct? See below}
+          \\
+         &=& H\theta(r, \chi_\epsilon) ^{-\alpha} \theta_r r x_\epsilon -
+        F(1 - r x_\epsilon) ^ {\gamma} (1- r) ^
+        {\beta}x_\epsilon\left(\frac{-r}{1- r}\right)\:\:\mbox{same missing r?}
     \end{eqnarray}
-
     all indiscriminate will be an ESS only if \(\delta >0 \) for any small 
     value of \(\epsilon\). Thus only if,
 
@@ -559,54 +555,64 @@ of indiscriminate poachers (\(\sigma=(0, 1)\)) is evolutionarily stable.
     The right-hand of inequality (\ref{eqn:ess_inequality}) is always negative
     since \((\frac{-r}{1- r}) < 0\)  for all \(r\). On the contrary, the left-hand 
     side is always positive for all \(r\), thus the inequality always holds.
-    It is proven that all indiscriminate is an evolutionary stable strategy.
+    Therefore, it is proven that all indiscriminate poachers is an evolutionary stable strategy.
 \end{proof}
 
 This shows that a population of indiscriminate poachers 
 not only corresponds to the equilibrium of the individual based 
-game identified in~\cite{Lee} but also is a very robust and attractive 
+game identified in~\cite{Lee} but also is a very robust and an attractive 
 equilibrium at the population level.
 
 \subsection{Mixed population of selective and indiscriminate poachers}
 
 \begin{theorem} 
 Using the utility model described in section~\ref{section:the_model}, a mixed
-stable strategy (\(\sigma=(s^*, 1 - s^*)\)) exists only if \(F > H\).  
+stable strategy (\(s=s^*\)) exists only if \(F > H\).  
 \end{theorem}
 
 \begin{proof}
-    A mixed population \(\sigma = (s^*, 1 - s^*)\) is said to be stable for a
+    A mixed population \(s = s^*\) is said to be stable for a
     given \(s^*\) only if,
 
     \begin{eqnarray}
     \label{eqn:s1xs_s0xs}
-    u((1, 0),(s^*, 1 - s^*)) = u((0, 1),(s^*, 1 - s^*)).
+    u(1,s^*) = u(0,s^*).
     \end{eqnarray}
-
     The left-hand side is,
 
     \begin{eqnarray} \nonumber
-    u((1, 0),(s^*, 1 - s^*)) =
+    u(1,s^*)&=&
     H(1 - r) \theta(r, s^*)^{-\alpha} - F (1 - r)(1 - rs^*)^{\gamma}(1 - r)^{\beta} .
+    \:\:\mbox{correct? See below}
+          \\
+u(1,s^*)&=&
+    H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta} 
     \end{eqnarray}
-
     The right-hand side is
 
     \begin{eqnarray} \nonumber
-    u((0, 1),(s^*, 1 - s^*)) =
+     u(0,s^*)&=&
     H(\theta_r + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta} .
+    \:\:\mbox{correct? See below}
+          \\
+    u(0,s^*)&=&
+    H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta} .      
     \end{eqnarray}
-
-    Substituting these into~(\ref{eqn:s1xs_s0xs}) gives an expression to solve 
-    for \(s^*\),
+    Substituting these into~(\ref{eqn:s1xs_s0xs}) gives %an expression to solve for \(s^*\),
 
     \begin{eqnarray}
     \label{eqn:stablemixed}
-    - H \theta_r r \theta(r, s^*)^{-\alpha}  + F r (1 - rs^*)^{\gamma}(1 - r)^{\beta} = 0.
-    \\
+    - H \theta_r r \theta(r, s^*)^{-\alpha}  + F r (1 - rs^*)^{\gamma}(1 - r)^{\beta} &=& 0.
+     \:\:\mbox{correct? See below}
+          \\
+            - H \theta_r r \theta(r, s^*)^{-\alpha}  + F  \frac{r}{(1 - r)} (1 - rs^*)^{\gamma}(1 - r)^{\beta}&=& 0.
+            \end{eqnarray}
+            Which can be arranged so that in terms of the ratio of the constants related to loss and gain for a poacher, 
+    \begin{eqnarray}
     \label{eqn:stable_mixed_final}
-    \frac{F}{H} = \frac{\theta_r}{(1 - rs) ^ {\gamma}} + \frac{1}{(1 - rs) ^ \gamma
+    \frac{F}{H} &=& \frac{\theta_r}{(1 - rs) ^ {\gamma}} + \frac{1}{(1 - rs) ^ \gamma
     (1- r) ^ {\beta} r (1- s)}
+    \:\:\mbox{correct due to above?}
     \end{eqnarray}
 
     Note that the right-hand side of equation (\ref{eqn:stable_mixed_final})
@@ -616,7 +622,7 @@ stable strategy (\(\sigma=(s^*, 1 - s^*)\)) exists only if \(F > H\).
 \end{proof}
 
 For poaching to be a rational option the cost associated with securing a horn
-will never surpass it's value: if it did then there would be no poaching.
+will never surpass it's value.
 Thus, for a given scenario of our model
 to be reasonable \(F\) will always be smaller than \(H\). Thus, a mixed strategy
 can not stable.
@@ -637,7 +643,7 @@ gain from the results of this section.
 \label{section:discussion}
 
 In this section we discuss the insights of our findings. Our results question
-the effectiveness of how wild life managers have been dealing with poachers
+the effectiveness of a key strategy used by wild life managers to deter poachers
 for more than 20 years. 
 
 Dehorning wild rhinos was introduced in 1989 as a mean of securing the
@@ -651,7 +657,7 @@ adopt a selective strategy.
 
 For a realistic and generic utility model it was found that
 the only strategy that was proven to be stable is the indiscriminate one.
-Moreover, it was proven that to be evolutionary stable as well. Meaning, 
+Moreover, it was proven to be evolutionary stable as well. Meaning, 
 that for any given starting population, the poachers would evolve to adopt an
 indiscriminate behaviour. This is illustrated in 
 Fig.~\ref{fig:indiscriminate_ess} ((\ref{eqn:u_differential_simplified}) is 
