@@ -238,28 +238,23 @@ horn gained is \(\theta=1\) for both the selective and the indiscriminate poache
 If the rhino horn has been devalued, and the poacher is selective, the amount of horn 
 gained is \(\theta=0\) as the poacher does not kill. However, if the poacher is 
 behaving indiscriminately, the amount of horn gained is \(\theta = \theta_r\)
-(for some \(0<\theta_r<1\)). 
-
-A poacher interacts with the population, denoted as \(\chi=(x,1-x)\) where \(x\)
-is the proportion of selective poachers, and \(1-x\) is the proportion of indiscriminate
-poachers. For simplicity, from herein the population \(\chi\) is referred to in terms
-of the proportion of selective poachers only, \(\chi=x\). Therefore, the amount
-of horn gained in the general case is
+(for some \(0<\theta_r<1\)). Therefore, the amount of horn gained in the 
+general case is
 
 \begin{eqnarray}
     \label{eqn:theta}
-    \theta(r, x) = x (1 - r) + (1 - x) ((\theta_r - 1) r + 1),
+    \theta(r, s) = s (1 - r) + (1 - s) ((\theta_r - 1) r + 1),
 \end{eqnarray}
-where \(r\) is the proportion of rhinos that have been devalued, and \(x\) is the 
-proportion of selective poachers. Note that since \(\theta_r, r, x  \in [0, 1]\), then
-\(\theta(r, x) > 0\), that is, some horn will be taken. Standard supply and demand
+where \(r\) is the proportion of rhinos that have been devalued, and \(s\) is the 
+percentage of behaving selectively. Note that since \(\theta_r, r, s  \in [0, 1]\), then
+\(\theta(r, s) > 0\), that is, some horn will be taken. Standard supply and demand
 arguments imply that the value
 of rhino horn decreases as the quantity of horn available increases~\cite{mankiw2010}.
 Thus at any given time the expected gain is
 
 \begin{eqnarray}
     \label{eqn:individual_gain}
-    H \theta(r, x)^{-\alpha},
+    H \theta(r, s)^{-\alpha},
 \end{eqnarray}
 where \(H\) is a scaling factor associated with the value of a full horn, and 
 \(\alpha \geq 0\) is a constant that determines the precise relationship between
@@ -269,15 +264,15 @@ gain curve corresponds to a demand curve.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.4\textwidth]{images/gain_curve.pdf}
-\caption{\label{fig:GainCurve} \(H \theta(r, x) ^{- \alpha}\) for values 
-\(H = 10, \theta_r = 0.3\) and \(x = 0.2.\)}
+\caption{\label{fig:GainCurve} \(H \theta(r, s) ^{- \alpha}\) for values 
+\(H = 10, \theta_r = 0.3\) and \(s = 0.2.\)}
 \end{figure}
 
-% An individual interacts with the population, denoted as \(\chi=(x,1-x)\) where \(x\)
-% is the proportion of selective poachers, and \(1-x\) is the proportion of indiscriminate
-% poachers. For simplicity, from herein the population \(\chi\) is referred to in terms
-% of the proportion of selective poachers only, \(\chi=x\). 
-Therefore, the gain for a poacher in the population \(\chi\) is either
+An individual interacts with the population, denoted as \(\chi=(x,1-x)\) where \(x\)
+is the proportion of selective poachers, and \(1-x\) is the proportion of indiscriminate
+poachers. For simplicity, from herein the population \(\chi\) is referred to in terms
+of the proportion of selective poachers only, \(\chi=x\). 
+Therefore, the gain for a poacher in the population \(x\) is either
 % Beginning of some notation changes
 \begin{eqnarray}
     \label{eqn:gain}
@@ -291,14 +286,14 @@ Therefore, the gain for a poacher in the population \(\chi\) is either
 depending on the chosen strategy of the individual, see Fig.~\ref{fig:RhinoPic}.
 
 Secondly we consider the costs incurred by the poacher. Let us denote the number
-of rhinos that will be considered at risk given \(r\) and \(x\) as \(\psi(r, x)\).
+of rhinos that will be considered at risk given \(r\) and \(s\) as \(\psi(r, s)\).
 The rhinos \textbf{not} at risk are the devalued ones 
 that cross the paths of selective poachers. Thus the cost to seek a rhino depends 
-on \(r\) and \(x\) by,
+on \(r\) and \(s\) by,
 
 \begin{eqnarray}
     \label{eqn:psi}
-    \psi(r, x) = 1 - rx.
+    \psi(r, s) = 1 - rs.
 \end{eqnarray}
 
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
@@ -329,19 +324,21 @@ cost.
 \begin{center}
     \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{images/gammas_curve.pdf}
-        \caption{For values, \(x=0.7, F=5\) and \(\beta=0.95\).}
+        \caption{For values, \(s=0.7, F=5\) and \(\beta=0.95\).}
     \end{subfigure}
     \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{images/betas_curve.pdf}
-        \caption{For values, \(x=1, F=5\) and \(\gamma=0.95\).}
+        \caption{For values, \(s=1, F=5\) and \(\gamma=0.95\).}
     \end{subfigure}
-\caption{\(F (1 - rx)^{\gamma} (1 - r)^{\beta}\).}\label{fig:CostCurves}
+\caption{\(F (1 - rs)^{\gamma} (1 - r)^{\beta}\).}\label{fig:CostCurves}
 \end{center}
 \end{figure}
 
-Note that a selective poacher needs more time to secure an `available' 
-rhino, if they exist at all. Hence, there is an additional cost that tends to 
-infinity as \(r \rightarrow 1\), 
+Note that for a indiscriminate poachers \(s = 0\) the seeking
+cost (\ref{eqn:psi}) will always be at the maximum of \(1\), thus the cost of finding a rhino is greater
+than the same cost for a selective poacher. However, a selective poacher needs
+more time to secure an `available' rhino, if they exist at all. Hence, there is an
+additional cost that tends to infinity as \(r \rightarrow 1\),
 
 \begin{eqnarray}
     \label{eqn:selective_cost}
