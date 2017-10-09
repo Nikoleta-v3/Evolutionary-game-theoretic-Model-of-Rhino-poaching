@@ -53,6 +53,7 @@ adopt a selective strategy as long as there is gain from a partial horn.
 Additionally, poachers behaving indiscriminately was proven to be stable and 
 robust. Thus, we conclude that  rhinos are not secured by dehorning 
 and we suggest that resources should be assigned to security.
+% TODO Modify this with the study of the new utility
 
 \end{abstract}
 
@@ -173,14 +174,6 @@ are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1 \mbox{ for } u_1(\chi)=u_2(\ch
 These equilibria correspond to stability of the population: the differential 
 equation (\ref{eqn:u_differential_simplified}) no longer changes. 
 
-% In our case \(x\) represents the proportion of selective poachers and \(1- x\) represents 
-% the proportion of indiscriminate poachers.
-% The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
-% are given by, \(x=1\) (all poachers are selective), \(x=0\) (all poachers are 
-% indiscriminate), and \(0<x<1\) (a mix of poachers) for \(u_1(x)=u_2(x)\).
-% These equilibria correspond to stability of the population: the differential 
-% equation (\ref{eqn:u_differential_simplified}) no longer changes. 
-
 The notion of evolutionary stability can be checked only for these stable strategies.
 For a stable strategy to be an Evolutionary Stable Strategy (ESS) it must remain 
 the best response even in a mutated population \(\chi_\epsilon\). A mutated population 
@@ -219,6 +212,7 @@ shown that:
           learn to co exist can not hold,
     \item all poachers adopting an indiscriminate strategy is an evolutionary 
           stable strategy.
+    % TODO Modify this after the new utility model is done
 \end{itemize}
 
 This implies that under almost all conditions, no matter what current proportion 
@@ -370,7 +364,8 @@ the population \(x\) is given by
 
 Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility functions for 
 selective poachers, \(u_1(x)\), and indiscriminate poachers, \(u_2(x)\), 
-\begin{eqnarray} %TODO discuss: not sure whether to use chi or x for lefthand side here
+
+\begin{eqnarray} 
 \label{eqn:USchi}
 u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
 - \frac{1}{1- r} F\psi(r, x)^{\gamma} (1-r)^{\beta} ,
@@ -379,7 +374,8 @@ u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
 u_2(x) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
 - F\psi(r, x)^{\gamma}  (1-r)^{\beta}.
 \end{eqnarray}
-% s denotes the proportion of selective, and sigma denotes the individual.
+
+
 Let \(\sigma=(s, 1 - s)\) denote an individual where \(\sigma =(1, 0)\) represents
 a selective poacher, and \(\sigma=(0, 1)\) represents an indiscriminate poacher.
 For simplicity, from herein the individual \(\sigma\) is referred to in terms
@@ -471,56 +467,12 @@ Using the utility model described in Section~\ref{section:the_model}, a populati
 of indiscriminate poachers is evolutionarily stable.
 \end{theorem}
 
-% \begin{theorem}
-%   For \(\sigma=(0, 1)\) to be stable the utility of a poacher behaving 
-%   indiscriminately in a population of indiscriminate poachers must be greater
-%   than the utility of a poacher behaving selectively in a population of 
-%   indiscriminate poachers,
-
-%   \begin{equation}
-%   u((0, 1),(0, 1)) > u((1, 0),(0, 1)),
-%   \end{equation}
-
-%   where,
-
-%   \begin{eqnarray}
-%   \label{eqn:s0x0}
-%   u((0, 1), (0, 1)) = H(\theta_r r + 1 - r)(\theta_r r + 1 - r)^{-\alpha}  - F(1 - r)^{\beta},
-%   \end{eqnarray}
-
-%   and 
-
-%   \begin{eqnarray}
-%   \label{eqn:s1x0}
-%   u((1, 0),(0, 1)) = H(1 - r)(\theta_r r + 1 - r)^{-\alpha} - F(1 - r)^{\beta-1}.
-%   \end{eqnarray}
-
-%   Setting~(\ref{eqn:s0x0}) to be greater than~(\ref{eqn:s1x0}) gives,
-
-%   \begin{eqnarray}
-%   \label{eqn:s0x0_s1x0}
-%   H \theta_r r  > F [1 - (1 - r)^{-1}](1 - r)^{\beta}(\theta_r r - r + 1)^{\alpha}.
-%   \end{eqnarray}
-
-%   This inequality states that for indiscriminate behaviour to be stable, the value of
-%   a partial rhino horn available needs to be greater than a given amount. 
-
-%   Since \(1-(1-r)^{-1} \leq 0\), the righ-hand side of the inequality is always
-%   negative where the left-hand side is always positive. Thus, inequality 
-%   (\ref{eqn:s0x0_s1x0}) holds for any \(r\). So all indiscriminate
-%   is proven to be stable.
-% \end{theorem}
-
-% Thereupon, the evolutionary stability of the strategy can now be explored. 
-
 \begin{proof}
     In order for \(s=0\) to be an ESS it must
     remain the best response in a mutated population \(\chi_\epsilon\), 
     where \(\chi_{\epsilon}=(x_\epsilon, 1 - x_\epsilon)\). Following the same
     notation, the mutated population will be denoted as \(x_\epsilon\) from 
     herein. Thus, 
-    %  = x_\epsilon\) is only slightly
-    % different from the population \(\chi=(x, 1-x) =x\). Thus,
 
     \begin{equation}\label{eqn:evolutionary_stability}
         u(0, x_\epsilon) > u(x_\epsilon, x_\epsilon),
@@ -573,7 +525,7 @@ equilibrium at the population level.
 
 \subsection{Mixed population of selective and indiscriminate poachers}
 
-\begin{theorem} 
+\begin{theorem}
 Using the utility model described in section~\ref{section:the_model}, a mixed
 stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).  
 \end{theorem}
@@ -604,27 +556,9 @@ stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).
     \label{eqn:stablemixed}
             - (H \theta_r r \theta(r, s^*)^{-\alpha}  + F  r{(1 - r)} (1 - rs^*)^{\gamma}(1 - r)^{\beta - 1})&=& 0.
             \end{eqnarray}
-    %         Which can be arranged so that in terms of the ratio of the constants related to loss and gain for a poacher, 
-    % \begin{eqnarray}
-    % \label{eqn:stable_mixed_final}
-    % \frac{F}{H} &=& \frac{\theta_r}{(1 - rs) ^ {\gamma}} + \frac{1}{(1 - rs) ^ \gamma
-    % (1- r) ^ {\beta} r (1- s)}
-    % \:\:\mbox{correct due to above?}
-    % \end{eqnarray}
-
-    % Note that the right-hand side of equation (\ref{eqn:stable_mixed_final})
-    % is always greater to \(1\), since \(\frac{1}{(1 - rs) ^ \gamma(1- r) ^ {\beta} 
-    % r (1- s)} \geq 1\). Thus for a mixed stable strategy to exists \(F\) must be
-    % greater or equal to \(H\).
     Condition~(\ref{eqn:stablemixed}) can never hold for \(0 < r <1\).
     Thus a mixed stable equilibrium is never stable.
 \end{proof}
-
-% For poaching to be a rational option the cost associated with securing a horn
-% will never surpass it's value.
-% Thus, for a given scenario of our model
-% to be reasonable \(F\) will always be smaller than \(H\). Thus, a mixed strategy
-% can not stable.
 
 In this section we have studied analytically the stability of all the possible
 equilibria. We have proven the instability of any population with selective
@@ -634,12 +568,101 @@ All of these theoretic results have been verified empirically, the data for this
 has been archived at~\cite{}.
 % TODO Archive the data set with a nb.
 
+Note that these results essentially following by comparing equations (\ref{eqn:USchi})
+and (\ref{eqn:UnotSchi} which shows that \(u_1(x) \leq u_2(x)\) for all \(x\):
+
+\begin{align}
+    u_1(x) & > u_2(x)\\
+    0 & < \theta(r, 1) H \theta(r, x) ^ {-\alpha} \left(\theta(r, 1) - \theta(r, 0)\right) 
+    + F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta} \left(1 - \frac{1}{1 -
+    r}\right) \\
+    0 & < H \theta(r, x) ^ {-\alpha} \left(-\theta_r r\right)
+    + F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta} \left( - \frac{r}{1 -
+    r}\right) \\
+\end{align}
+
+which gives the required contradiction. This shows that the utility model used
+implies that given the choice of acting selectively or indiscriminately in any
+given environment it will always be a rational deviation to act
+indiscriminately.
+
+In the following section a disincentive to acting indiscriminately will be
+introduced. This can be interpreted in many ways:
+
+\begin{itemize}
+    \item More severe punishment for indiscriminate killing of Rhinos;
+    \item Educational interventions that highlight the negative aspects of
+        indiscriminate killing;
+    \item The possibility of a better alternative being on offered to selective
+        poachers
+\end{itemize}
+
+\section{Disincentive for indiscriminate behaviour}
+
+Let us consider the following modification of the utility to an indiscriminate
+poacher:
+
+\begin{equation}
+    \label{eqn:modified_utility_for_ind}
+    \tilde u_2(x) = u_2(x) + \Gamma
+\end{equation}
+
+where \(\Gamma>0\) is some constant representing a disincentive only applied to
+indiscriminate poachers.
+
+This leads to the following modified form of (\ref{eqn:utility}):
+
+\begin{equation}
+    \label{eqn:modified_utility}
+    \tilde u(s, x) = u(s, x) + (1 - s) \Gamma
+\end{equation}
+
+This leads to the following theorem:
+
+\begin{theorem}
+Using the modified utility model described 
+a population of selective poachers is stable if and only if:
+
+% TODO include expression
+\end{theorem}
+
+% TODO Write proof
+
+This immediately leads to the following important remark:
+
+\begin{theorem}
+Using the modified utility model described 
+if all Rhinos have been dehorned a population of selective poachers is not
+stable.
+\end{theorem}
+
+% TODO Write proof
+
+This is mainly due to the fact that given two options, if all Rhinos have been
+dehorned then all poachers will need to act indiscriminately to have any source
+of utility.
+
+Finally, another result showing that dehorning as many Rhinos as possible is
+perhaps not the best option.
+
+\begin{theorem}
+    Using the modified utility model described and assuming that \(r<1\) then
+    the required disincentive is increasing in \(r\).
+\end{theorem}
+
+% TODO Write proof (the one with the derivative of the full bound if possible)
+
+This is illustrated in Figure ... % TODO Solve the differential equations
+% numerically with the new utility
+% TODO Add a comment
+
 In Section~\ref{section:discussion}, we discuss some of the insights we
 gain from the results of this section.
 
 %=============================================================
 \section{Discussion and Conclusions}
 \label{section:discussion}
+% TODO We will need to modify this section.
 
 In this section we discuss the insights of our findings. Our results question
 the effectiveness of a key strategy used by wild life managers to deter poachers
@@ -663,6 +686,7 @@ Fig.~\ref{fig:indiscriminate_ess} ((\ref{eqn:u_differential_simplified}) is
 solved numerically using~\cite{scipy}).
 
 \begin{figure}[!htbp]
+    % TODO This needs to be moved and possibly moved with the discussion 
     \centering
     \begin{subfigure}{.3\textwidth}
     \includegraphics[width=\textwidth]{images/IndiscriminateESS-low-r.pdf}
