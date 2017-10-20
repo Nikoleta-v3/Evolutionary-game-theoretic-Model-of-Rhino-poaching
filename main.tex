@@ -696,16 +696,17 @@ Fig.~\ref{fig:ess-new-utility} where the evolutionary dynamics are represented
 for a number of scenarios. 
 
 Note that now the manager has control over the point of convergence by
-controlling \(r\), as shown on Fig.~\ref{fig:convergence-over-r}. This is
-evident in the first two plots of Fig.~\ref{fig:convergence-over-r}, where
-a difference in the value of \(r\) can  change the point of convergence from a mixed to
-a selective one. Moreover, the manager can also manipulate how fast 
-the population convergences, as shown in the last two plots of
+controlling \(r\), as shown in Fig.~\ref{fig:convergence-over-r}. This is
+evident in Fig.~\ref{fig:convergence-over-r}, where
+a difference in the value from \(r=0.7\) to \(r=0.5\) changes the point of convergence from a mixed to
+a selective one. Moreover, the manager can also manipulate how fast
+the population convergences, as shown in the difference from \(r=0.5\) to
+\(r=0.2\).
 Fig.~\ref{fig:convergence-over-r}. Fig~\ref{fig:equilibrium-over-r-tilde-u} 
 shows the  equilibrium for \(x\) for a number of different values of \(r\), 
 and indicates that  having a large \(r\) pushes poachers to behave indiscriminately.
 As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde-u}, a higher value of
-\(H\) also has an non-ideal effect on the poachers. Thus, high values of \(H\) and 
+\(H\) also has a non-ideal effect on the poachers. Thus, high values of \(H\) and 
 \(r\) lead to more indiscriminate poachers.
 
 
@@ -729,25 +730,27 @@ The insights gained from the results are discussed in Section~\ref{section:discu
 
 \begin{figure}[!htbp]
 \centering
-    \includegraphics[width=0.5\textwidth]{images/new-utility-over_r.pdf}
-    \caption{Equilibrium behaviour with a disincentive. For \(F=50, \beta=2,
-    \gamma=1, \theta_r=0.6\).}
-    \label{fig:equilibrium-over-r-tilde-u}
-\end{figure}
-
-\begin{figure}[!htbp]
-\centering
-    \includegraphics[width=0.5\textwidth]{images/new-utility-over_H.pdf}
-    \caption{Equilibrium behaviour with a disincentive with different values of \(H\).
-     For \(F=50, r=0.6 \beta=2, \gamma=1, \theta_r=0.6\).}
-    \label{fig:equilibrium-over-H-tilde-u}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{images/new-utility-over_r.pdf}
+        \caption{Effect of \(r\) for \(F=50, \beta=2, \gamma=1, \theta_r=0.6\).}
+        \label{fig:equilibrium-over-r-tilde-u}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{images/new-utility-over_H.pdf}
+        \caption{Effect of \(H\) for \(F=50, r=0.6, \beta=2, \gamma=1, \theta_r=0.6\).}
+        \label{fig:equilibrium-over-H-tilde-u}
+    \end{subfigure}
+    \caption{Equilibrium behaviour with a disincentive.}
 \end{figure}
 
 %=============================================================
 \section{Discussion and Conclusions}
 \label{section:discussion}
 
-Dehorning wild rhinos was introduced in 1989 as a mean of securing the
+Dehorning wild rhinos was introduced in 1989 as a means of securing the
 safety of the animal. Our results question the effectiveness of this key strategy 
 used by wild life managers to deter poachers for more than 20 years. 
 Dehorning can be effective if and only if poachers chose to behave in a 
