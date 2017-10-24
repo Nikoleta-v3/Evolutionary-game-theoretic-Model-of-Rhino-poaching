@@ -36,21 +36,22 @@
 
 \begin{abstract}
 
-Rhino poaching has escalated in recent years due the demand for rhino horn in 
-Asian countries. Rhino horn is used in traditional Chinese medicine and as a 
-status symbol of success and wealth. Wild life managers attempt to secure
-wild rhinos with approaches such as devaluating the horn. 
+%Rhino poaching has escalated in recent years due the demand for rhino horn in Asian countries. Rhino horn is used in traditional Chinese medicine and as a status symbol of success and wealth.
+
+The demand for rhino horn continues to grow, and thus illegal rhino poaching. 
+Wild life managers attempt to secure
+rhinos with approaches such as devaluing the horn. 
 The  most common strategy of devaluing horns is dehorning. Game theory has
 been used before to examined the interaction of poachers and
 wild life managers.  A manager can either `dehorn' their rhinos or leave the
 horn attached. Poachers may chose to to behave `selectively' or `indiscriminately'.
-The approach described in this paper builds previous and investigates 
-the interactions  between the poachers using evolutionary game theory. 
+% The approach described in this paper builds previous and investigates the interactions  between the poachers using evolutionary game theory. 
+Using evolutionary game theory, this paper determines which strategy is preferred by the poacher in various different populations of poachers.
 The purpose of this work is to discover whether conditions which encourage
 the poachers to behave selectively exist, that is, they only kill those rhinos with
 full horns. Notwithstanding, the analytical results prove that poachers will never
 adopt a selective strategy as long as there is gain from a partial horn. 
-Additionally, poachers behaving indiscriminately was proven to be stable and 
+Additionally, poachers behaving indiscriminately is stable and 
 robust. Thus, we conclude that  rhinos are not secured by dehorning 
 and we suggest that resources should be assigned to security.
 % TODO Modify this with the study of the new utility
@@ -588,9 +589,9 @@ Consider the reverse scenario,
 
 \begin{align}
     u_1(x) & > u_2(x)\\
-    0 & < \theta(r, 1) H \theta(r, x) ^ {-\alpha} \left(\theta(r, 1) - \theta(r, 0)\right) 
-    + F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta} \left(- \frac{r}{1 -
-    r}\right) \\
+  %  0 & < \theta(r, 1) H \theta(r, x) ^ {-\alpha} \left(\theta(r, 1) - \theta(r, 0)\right) 
+   % + F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta} \left(- \frac{r}{1 -
+   % r}\right) \\
     F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta - 1} & < -H \theta(r, x) ^ {-\alpha} \theta_r
 \end{align}
 
@@ -689,24 +690,25 @@ which is not possible.
 
 Theorem~\ref{theorem:devaluating_rhinos} is due to the fact that given two 
 options, if all rhinos have been dehorned then all poachers will need to act 
-indiscriminately to have any source of utility. A mixed population can be stable
+indiscriminately to have any source of utility. Theorem~\ref{theorem:selective_new_utility} states that a  mixed population can be stable
 with a disincentive, as opposed to Theorem~\ref{theorem:mixed} which states 
 that a mixed stable strategy does not exist for \(0 <r <1\). This is illustrated in 
 Fig.~\ref{fig:ess-new-utility} where the evolutionary dynamics are represented 
 for a number of scenarios. 
 
 Note that now the manager has control over the point of convergence by
-controlling \(r\), as shown in Fig.~\ref{fig:convergence-over-r}. This is
-evident in Fig.~\ref{fig:convergence-over-r}, where
+controlling \(r\), as shown in Fig.~\ref{fig:convergence-over-r}
+%. This is evident in Fig.~\ref{fig:convergence-over-r}, 
+where
 a difference in the value from \(r=0.7\) to \(r=0.5\) changes the point of convergence from a mixed to
 a selective one. Moreover, the manager can also manipulate how fast
 the population convergences, as shown in the difference from \(r=0.5\) to
 \(r=0.2\).
-Fig.~\ref{fig:convergence-over-r}. Fig~\ref{fig:equilibrium-over-r-tilde-u} 
+Fig~\ref{fig:equilibrium-over-r-tilde-u} 
 shows the  equilibrium for \(x\) for a number of different values of \(r\), 
-and indicates that  having a large \(r\) pushes poachers to behave indiscriminately.
+and indicates that having a large \(r\) pushes poachers to behave indiscriminately. However all selective poachers can save at most, the $r$ proportion of dehorned rhinos, so a low $r$ is not ideal.
 As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde-u}, a higher value of
-\(H\) also has a non-ideal effect on the poachers. Thus, high values of \(H\) and 
+\(H\) also has a non-ideal effect on the poachers, as one would expect. Thus, high values of \(H\) and 
 \(r\) lead to more indiscriminate poachers.
 
 
@@ -752,8 +754,8 @@ The insights gained from the results are discussed in Section~\ref{section:discu
 
 Dehorning wild rhinos was introduced in 1989 as a means of securing the
 safety of the animal. Our results question the effectiveness of this key strategy 
-used by wild life managers to deter poachers for more than 20 years. 
-Dehorning can be effective if and only if poachers chose to behave in a 
+used by wild life managers to deter poachers for more than 20 years, as well as other devaluing techniques such as GPS tracking, poison and dyes. 
+Devaluing can be effective if and only if poachers chose to behave in a 
 selective manner. By exploring the dynamics of a selective population it was 
 proven than being selective is not a best response even in a population where 
 everyone is behaving selectively.
@@ -770,7 +772,7 @@ indiscriminate behaviour.
 Our results indicate however that it is possible for a population of selective
 poachers to exist, but for this to occur a disincentive must be applied to the
 utility of indiscriminate poachers. Numerical results indicate that even in this
-case, the more rhinos are dehorned, the less selective poacher will be in the population.
+case, the more rhinos which are dehorned, the less probability that a poacher will be selective. Therefore, even in the scenario with a disincentive, the proportion of rhinos which could be saved is limited.
 
 The disincentive factor can have several interpretations. The government
 could either force a more severe sentence for rhino poaching, or through
