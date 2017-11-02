@@ -7,8 +7,9 @@
 *.bbl
 *.blg
 
-# py charm files
+# editor files
 .idea/*
+.vscode
 
 # pycache
 *__pycache__/*
