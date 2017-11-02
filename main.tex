@@ -109,31 +109,32 @@ selective, it pays rhino managers to invest in devaluing their rhinos. This dyna
 is represented in Fig.~\ref{fig:RhinoPic}. Assuming poachers and managers will 
 always behave so as to maximise their payoff, there are two equilibriums: either 
 all rhinos are devalued and all poachers are selective;
-or all horns are intact and all poachers are indiscriminate. Essentially, either the managers 
-win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers win, the bottom
-right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee} concludes that poachers will
-always choose to behave indiscriminately, and thus the game settles to the bottom
-right quadrant, i.e., the poachers win.
+or all horns are intact and all poachers are indiscriminate. Essentially, either
+the managers win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers
+win, the bottom right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee}
+concludes that poachers will always choose to behave indiscriminately, and thus
+the game settles to the bottom right quadrant, i.e., the poachers win.
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[scale=0.2]{images/RhinoPic.pdf}
     \caption{\label{fig:RhinoPic} The game between rhino manager and rhino 
-    poachers. The system settles to one of two equilibriums, either devaluing is effective or not.}
+    poachers. The system settles to one of two equilibriums, either devaluing is 
+    effective or not.}
 \end{figure}
 
 The work of~\cite{Lee} did not take in to account the population dynamic effect
-of these strategies. In a population full of indiscriminate poachers would there be 
-a benefit to a single poacher becoming selective or vice versa? This notion 
+of these strategies. In a population full of indiscriminate poachers would there
+be a benefit to a single poacher becoming selective or vice versa? This notion 
 is explored here using evolutionary game theory~\cite{Smith}. The 
 game is not that of two players anymore (manager and poacher) but now the players
-are an infinite population of poachers. This allows for the interaction between poachers
-over multiple plays of the game to be explored with the rhino manager being the
-one that creates the conditions of the population. 
+are an infinite population of poachers. This allows for the interaction between
+poachers over multiple plays of the game to be explored with the rhino manager 
+being the one that creates the conditions of the population. 
 
 In evolutionary game theory, we assume infinite populations and in our
-model this will be represented by \(\chi=(x_1, x_2)\) with \(x_1\) proportion of the
-population using a strategy of the first type and \(x_2\) of the second. We 
+model this will be represented by \(\chi=(x_1, x_2)\) with \(x_1\) proportion of
+the population using a strategy of the first type and \(x_2\) of the second. We 
 assume there is a utility function \(u_1\) and \(u_2\) that maps the population
 to a fitness for each strategy,
 
@@ -241,9 +242,9 @@ horn taken. We assume rhino horn value is determined by weight only, a
 reasonable assumption as rhino horn is sold in a grounded form~\cite{Saverhino}.
 Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of
 horn gained is \(\theta=1\) for both the selective and the indiscriminate poacher.
-If the rhino horn has been devalued, and the poacher is selective, the amount of horn 
-gained is \(\theta=0\) as the poacher does not kill. However, if the poacher is 
-behaving indiscriminately, the amount of horn gained is \(\theta = \theta_r\)
+If the rhino horn has been devalued, and the poacher is selective, the amount of
+horn gained is \(\theta=0\) as the poacher does not kill. However, if the poacher
+is behaving indiscriminately, the amount of horn gained is \(\theta = \theta_r\)
 (for some \(0<\theta_r<1\)). Therefore, the amount of horn gained in the 
 general case is
 
@@ -345,8 +346,8 @@ cost.
 \end{figure}
 
 Note that a selective poacher needs
-more time to secure an `available' rhino, if they exist at all. Hence, there is an
-additional cost that tends to infinity as \(r \rightarrow 1\),
+more time to secure an `available' rhino, if they exist at all. Hence, there is
+an additional cost that tends to infinity as \(r \rightarrow 1\),
 
 \begin{eqnarray}
     \label{eqn:selective_cost}
@@ -358,8 +359,8 @@ additional cost that tends to infinity as \(r \rightarrow 1\),
     \end{array} \right.
 \end{eqnarray}
 
-To summarise, the cost incurred by a given individual poacher when interacting with
-the population \(x\) is given by 
+To summarise, the cost incurred by a given individual poacher when interacting
+with the population \(x\) is given by 
 
 \begin{eqnarray}
     \label{eqn:cost}
@@ -396,7 +397,8 @@ a proportion of \(0 \leq x \leq 1\) selective poachers is
 \label{eqn:utility}
 u(s, x) = s u_1(x) +(1 - s) u_2(x).
 \end{eqnarray}
-Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) gives,
+Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) 
+gives,
 
 \begin{eqnarray}
 \label{eqn:tutility2}
@@ -438,21 +440,21 @@ a population of selective poachers is unstable.
 
     \begin{equation}
     u(1,1) > u(0,1),
-    \end{equation}    
+    \end{equation}
     where
     
     \begin{eqnarray}
     \label{eqn:s1x1}
     u(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
-    \end{eqnarray}    
+    \end{eqnarray}
     and 
     
     \begin{eqnarray}
     \label{eqn:s0x1}
-    u(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} .
+    u(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
     \end{eqnarray}
 
-    Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the 
+    Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the
     condition,
     \begin{eqnarray}
     \label{eqn:s1x1_s0x1}
@@ -472,16 +474,16 @@ will change.
 \subsection{All poachers are indiscriminate}
 
 \begin{theorem}\label{theorem:indiscriminate}
-Using the utility model described in Section~\ref{section:the_model}, a population 
+Using the utility model described in Section~\ref{section:the_model}, a population
 of indiscriminate poachers is evolutionarily stable.
 \end{theorem}
 
 \begin{proof}
     In order for \(s=0\) to be an ESS it must
-    remain the best response in a mutated population \(\chi_\epsilon\), 
+    remain the best response in a mutated population \(\chi_\epsilon\),
     where \(\chi_{\epsilon}=(x_\epsilon, 1 - x_\epsilon)\). Following the same
-    notation, the mutated population will be denoted as \(x_\epsilon\) from 
-    herein. Thus, 
+    notation, the mutated population will be denoted as \(x_\epsilon\) from
+    herein. Thus,
 
     \begin{equation}\label{eqn:evolutionary_stability}
         u(0, x_\epsilon) > u(x_\epsilon, x_\epsilon),
@@ -501,7 +503,7 @@ of indiscriminate poachers is evolutionarily stable.
 \end{eqnarray}
 
     Let the difference of (\ref{eqn:u_indiscriminate_ess}) and (\ref{eqn:u_mutated_ess})
-    be denoted as, 
+    be denoted as,
 
     \begin{eqnarray}
         \label{eqn:delta}
@@ -524,7 +526,8 @@ of indiscriminate poachers is evolutionarily stable.
     The right-hand of inequality (\ref{eqn:ess_inequality}) is always negative
     since \((\frac{-r}{1- r}) < 0\)  for all \(r\). On the contrary, the left-hand 
     side is always positive for all \(r\), thus the inequality always holds.
-    Therefore, it is proven that all indiscriminate poachers is an evolutionary stable strategy.
+    Therefore, it is proven that all indiscriminate poachers is an evolutionary
+    stable strategy.
 \end{proof}
 
 This shows that a population of indiscriminate poachers 
@@ -557,7 +560,7 @@ stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).
 
     \begin{eqnarray} \nonumber
     u(0,s^*)&=&
-    H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta} .      
+    H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta}.
     \end{eqnarray}
     Substituting these into~(\ref{eqn:s1xs_s0xs}) gives
 
@@ -596,10 +599,7 @@ and (\ref{eqn:UnotSchi}), which show that \(u_1(x) \leq u_2(x)\) for all \(x\).
 Consider the reverse scenario,
 
 \begin{align}
-    u_1(x) & > u_2(x)\\
-  %  0 & < \theta(r, 1) H \theta(r, x) ^ {-\alpha} \left(\theta(r, 1) - \theta(r, 0)\right) 
-   % + F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta} \left(- \frac{r}{1 -
-   % r}\right) \\
+    u_1(x) & > u_2(x)\\ 
     F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta - 1} & < -H \theta(r, x) ^ {-\alpha} \theta_r
 \end{align}
 
@@ -655,13 +655,13 @@ a population of selective poachers is stable if and only if:
 
     \begin{equation}
     \tilde{u}(1,1) > \tilde{u}(0,1),
-    \end{equation}    
+    \end{equation}
     where
     
     \begin{eqnarray}
     \label{eqn:s1x1_new_utility}
     \tilde{u}(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
-    \end{eqnarray}    
+    \end{eqnarray}
     and 
     
     \begin{eqnarray}
@@ -698,26 +698,25 @@ which is not possible.
 
 Theorem~\ref{theorem:devaluating_rhinos} is due to the fact that given two 
 options, if all rhinos have been dehorned then all poachers will need to act 
-indiscriminately to have any source of utility. Theorem~\ref{theorem:selective_new_utility} states that a  mixed population can be stable
-with a disincentive, as opposed to Theorem~\ref{theorem:mixed} which states 
-that a mixed stable strategy does not exist for \(0 <r <1\). This is illustrated in 
-Fig.~\ref{fig:ess-new-utility} where the evolutionary dynamics are represented 
-for a number of scenarios. 
+indiscriminately to have any source of utility. Theorem~\ref{theorem:selective_new_utility}
+states that a  mixed population can be stable with a disincentive, as opposed to
+Theorem~\ref{theorem:mixed} which states that a mixed stable strategy does not 
+exist for \(0 <r <1\). This is illustrated in Fig.~\ref{fig:ess-new-utility} where
+the evolutionary dynamics are represented for a number of scenarios. 
 
 Note that now the manager has control over the point of convergence by
 controlling \(r\), as shown in Fig.~\ref{fig:convergence-over-r}
-%. This is evident in Fig.~\ref{fig:convergence-over-r}, 
 where
-a difference in the value from \(r=0.7\) to \(r=0.5\) changes the point of convergence from a mixed to
-a selective one. Moreover, the manager can also manipulate how fast
-the population convergences, as shown in the difference from \(r=0.5\) to
-\(r=0.2\).
-Fig~\ref{fig:equilibrium-over-r-tilde-u} 
-shows the  equilibrium for \(x\) for a number of different values of \(r\), 
-and indicates that having a large \(r\) pushes poachers to behave indiscriminately. However all selective poachers can save at most, the $r$ proportion of dehorned rhinos, so a low $r$ is not ideal.
-As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde-u}, a higher value of
-\(H\) also has a non-ideal effect on the poachers, as one would expect. Thus, high values of \(H\) and 
-\(r\) lead to more indiscriminate poachers.
+a difference in the value from \(r=0.7\) to \(r=0.5\) changes the point of 
+convergence from a mixed to a selective one. Moreover, the manager can also 
+manipulate how fast the population convergences, as shown in the difference from
+\(r=0.5\) to \(r=0.2\). Fig~\ref{fig:equilibrium-over-r-tilde-u} shows the 
+equilibrium for \(x\) for a number of different values of \(r\), and indicates 
+that having a large \(r\) pushes poachers to behave indiscriminately. However all
+selective poachers can save at most, the $r$ proportion of dehorned rhinos, so a
+low \(r\) is not ideal. As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde-u},
+a higher value of \(H\) also has a non-ideal effect on the poachers, as one would 
+expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poachers.
 
 
 The insights gained from the results are discussed in Section~\ref{section:discussion}.
@@ -745,7 +744,7 @@ The insights gained from the results are discussed in Section~\ref{section:discu
         \includegraphics[width=0.95\textwidth]{images/new-utility-over_r.pdf}
         \caption{Effect of \(r\) for \(F=50, \beta=2, \gamma=1, \theta_r=0.6\).}
         \label{fig:equilibrium-over-r-tilde-u}
-    \end{subfigure}%
+    \end{subfigure}
     ~
     \begin{subfigure}{.5\textwidth}
         \centering
@@ -761,16 +760,15 @@ The insights gained from the results are discussed in Section~\ref{section:discu
 \label{section:discussion}
 
 Dehorning wild rhinos was introduced in 1989 as a means of securing the
-safety of the animal. Our results question the effectiveness of this key strategy 
-used by wild life managers to deter poachers for more than 20 years, as well as 
-other devaluing techniques such as GPS tracking, poison and dyes. 
-Devaluing can be effective if and only if poachers chose to behave in a 
-selective manner. By exploring the dynamics of a selective population it was 
-proven than being selective is not a best response even in a population where 
-everyone is behaving selectively.
-More specifically, even a mixed population with a small percentage of the 
-population behaving selectively will not persist. Thus, a poacher would never
-adopt a selective strategy. 
+safety of the animal. Our results question the effectiveness of this key strategy
+used by wild life managers to deter poachers for more than 20 years, as well as
+other devaluing techniques such as GPS tracking, poison and dyes.
+Devaluing can be effective if and only if poachers chose to behave in a
+selective manner. By exploring the dynamics of a selective population it was
+proven than being selective is not a best response even in a population where
+everyone is behaving selectively. More specifically, even a mixed population with 
+a small percentage of the population behaving selectively will not persist. Thus, 
+a poacher would never adopt a selective strategy. 
 
 For a realistic and generic utility model it was found that
 the only strategy that was proven to be stable is the indiscriminate one.
@@ -783,11 +781,11 @@ poachers to exist, but for this to occur a disincentive must be applied to the
 utility of indiscriminate poachers. Numerical results indicate that even in this
 case, the more rhinos which are dehorned, the less probability that a poacher
 will be selective. Assuming basic supply and demand arguments, the demand of
-a partial horn will increase by removing horns from the world thus the probability 
-of being selective is decreasing. Therefore, even in the scenario with a 
-disincentive, the proportion of rhinos which could be saved 
-is limited. An approach similar to the works of~\cite{Duan2013,Harvey2017} could be 
-applied to address the demand of the market.
+a partial horn will increase by removing horns from the world thus the probability
+of being selective is decreasing. Therefore, even in the scenario with a
+disincentive, the proportion of rhinos which could be saved is limited. An approach
+similar to the works of~\cite{Duan2013,Harvey2017} could be applied to address
+the demand of the market.
 
 The disincentive factor can have several interpretations. According to~\cite{Duan2017},
 engaging the rural communities that neighbour or live with wildlife is the
@@ -797,11 +795,14 @@ increasing incentintives for wildlife stewardship, decreasing the cost of living
 with wildlife and supporting livelihood that is not related to poaching can 
 serve as incentives for selective behaviour.
 
-It was displayed that behaving indiscriminately is more profitable than behaving 
-selectively. We suggest that a new strategy could be introduced, which would correspond to a third option of not poaching this particular environment. This could correspond to not poaching at all (perhaps through better opportunities) or choosing to leave the current environment and poach elsewhere
+It was displayed that behaving indiscriminately is more profitable than behaving
+selectively. We suggest that a new strategy could be introduced, which would correspond
+to a third option of not poaching this particular environment. This could correspond
+to not poaching at all (perhaps through better opportunities) or choosing to leave
+the current environment and poach elsewhere.
 
 Poachers behaving indiscriminately is an undesirable case and these results
-indicate that the life of wild rhinos cannot be secured by dehorning. 
+indicate that the life of wild rhinos cannot be secured by dehorning.
 Our results disagree with the claim of~\cite{Milner1992} that managers
 should dehorn as many rhinos as possible. We believe that the resources should
 be assigned to security. By applying a disincentive the tables have been turned

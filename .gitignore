@@ -6,6 +6,7 @@
 *.out 
 *.bbl
 *.blg
+*.synctex.gz
 
 # editor files
 .idea/*
