@@ -724,7 +724,6 @@ low \(r\) is not ideal. As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde
 a higher value of \(H\) also has a non-ideal effect on the poachers, as one would
 expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poachers.
 
-
 The insights gained from the results are discussed in Section~\ref{section:discussion}.
 
 \begin{figure}[!htbp]
@@ -765,18 +764,13 @@ The insights gained from the results are discussed in Section~\ref{section:discu
 \section{Discussion and Conclusions}
 \label{section:discussion}
 
-Dehorning wild rhinos was introduced in 1989 as a means of securing the
-safety of the animal. Our results question the effectiveness of this key strategy
-used by wild life managers to deter poachers for more than 20 years, as well as
-other devaluing techniques such as GPS tracking, poison and dyes.
-Devaluing can be effective if and only if poachers chose to behave in a
-selective manner. By exploring the dynamics of a selective population it was
-proven than being selective is not a best response even in a population where
+In this work the dynamics of a selective population were explored. It was proven 
+that being selective is not a best response even in a population where
 everyone is behaving selectively. More specifically, even a mixed population with
 a small percentage of the population behaving selectively will not persist. Thus,
-a poacher would never adopt a selective strategy. 
+a poacher would never adopt a selective strategy over an indiscriminate one.
 
-For a realistic and generic utility model it was found that
+Using a realistic and generic utility model it was found that
 the only strategy that was proven to be stable is the indiscriminate one.
 Moreover, it was proven to be evolutionary stable as well. Meaning,
 that for any given starting population, the poachers would evolve to adopt an
@@ -787,32 +781,42 @@ poachers to exist, but for this to occur a disincentive must be applied to the
 utility of indiscriminate poachers. Numerical results indicate that even in this
 case, the more rhinos which are dehorned, the less probability that a poacher
 will be selective. Assuming basic supply and demand arguments, the demand of
-a partial horn will increase by removing horns from the world thus the probability
-of being selective is decreasing. Therefore, even in the scenario with a
-disincentive, the proportion of rhinos which could be saved is limited. An approach
-similar to the works of~\cite{Duan2013,Harvey2017} could be applied to address
-the demand of the market.
+a partial horn will increase by removing horns thus the probability
+of being selective decreases. Therefore, even in the scenario with a
+disincentive, the proportion of rhinos which could be saved is limited.
+As such approaches which aim to reduce demand (as suggested in~\cite{Duan2013})
+would have more potential.
 
 The disincentive factor can have several interpretations. According to~\cite{Duan2017},
 engaging the rural communities that neighbour or live with wildlife is the
 key to fighting the illegal trade of wildlife. Strengthening disincentives for
 illegal behaviour can be interpreted as the disincentive factor. Likewise,
-increasing incentintives for wildlife stewardship, decreasing the cost of living
+increasing incentives for wildlife stewardship, decreasing the cost of living
 with wildlife and supporting livelihood that is not related to poaching can 
 serve as incentives for selective behaviour.
 
-It was displayed that behaving indiscriminately is more profitable than behaving
-selectively. We suggest that a new strategy could be introduced, which would correspond
-to a third option of not poaching this particular environment. This could correspond
-to not poaching at all (perhaps through better opportunities) or choosing to leave
-the current environment and poach elsewhere.
+Note that the proportion of dehorned rhinos \(r\) is continuous over \([0, 1]\)
+in the model. However, standard practice of a given park manager in almost all 
+cases is to either dehorn all the animals in a defined enclosed area, or none 
+at all. This is thought to be because partial dehorning tends to cause havoc in 
+rhino social structures. The theoretic model presented here, whilst allowing for
+consideration at the park level with park managers playing a mixed strategy, also
+can be considered at the macroeconomic level. Where \(r\) represents the quantity
+of dehorned rhinos available across multiple parks. 
 
-Poachers behaving indiscriminately is an undesirable case and these results
-indicate that the life of wild rhinos cannot be secured by dehorning.
-Our results disagree with the claim of~\cite{Milner1992} that managers
-should dehorn as many rhinos as possible. We believe that the resources should
-be assigned to security. By applying a disincentive the tables have been turned
-such that a population of selective poachers is now feasible.
+Thus the insights gained, notably that a population of selective poachers is
+sustainable only if a large disincentive is in place (even if all rhinos have
+been dehorned) have implication at the long term national policy level.
+
+Following discussions with environmental specialists it is clear that dehorning
+is empirically thought to be one of the best responses to poaching. This
+indicates that whilst of theoretic and macroeconomic interest the modelling
+approach investigated in this work has potential for further work. For example,
+a detailed study of two neighbouring parks with differing policies could be
+studied using a game theoretic model. Another interesting study would be to
+introduce a third strategy available to poachers: this would represent the
+possibility of not poaching (perhaps finding another source of income) and/or
+leaving the current environment to poach elsewhere.
 
 \section*{Acknowledgements}
 
@@ -829,7 +833,8 @@ A variety of software libraries have been used in this work:
 \end{itemize}
 
 Finally, we would like to express our appreciation to David Roberts and Michael 't
-Sas-Rolfes for their valuable and constructive suggestions for this research.
+Sas-Rolfes for their valuable and constructive suggestions for this research
+and Anna Huzar for her illustration, Fig.~\ref{fig:RhinoPic}.
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
