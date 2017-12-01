@@ -1,6 +1,12 @@
-\documentclass[10pt]{article}
+\documentclass[11pt]{article}
 
-\usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
+\usepackage[sc]{mathpazo} %Like Palatino with extensive math support
+\usepackage{fullpage}
+\usepackage[authoryear,sectionbib,sort]{natbib}
+\linespread{1.7}
+\usepackage[utf8]{inputenc}
+\usepackage{lineno}
+\renewcommand{\refname}{Literature Cited}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -24,17 +30,61 @@
 
 \newtheorem{theorem}{Theorem}
 
+%%%%%%%%%%%%%%%%%%%%%
+% Line numbering
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lineno}
+% Please use line numbering with your initial submission and
+% subsequent revisions. After acceptance, please turn line numbering
+% off by adding percent signs to the lines %\usepackage{lineno} and
+% to %\linenumbers{} and %\modulolinenumbers[3] below.
+
+
 % \journal{Undecided Journal}
 
 \title{An evolutionary game theory model for devaluing rhinos}
-\author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
+% \author{Nikoleta E. Glynatsi$^{1,\ast}$ \\ 
+% Vincent Knight$^{1}$ \\ 
+% Tamsin E. Lee$^{2}$}
+
 \date{}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
+% \noindent{} 1. Cardiff University, School of Mathematics, UK;
+
+% \noindent{} 2. Cardiff University, School of Mathematics, UK;
+
+% \noindent{} 3. Not affiliated.
+
+% \noindent{} $\ast$ Corresponding author; e-mail: glynatsine@cardiff.ac.uk.
+
+% \bigskip
+
+\textit{Keywords}: Game theory, Evolutionary dynamics, Rhinoceros, 
+Poachers' interactions, Wildlife.
+
+\bigskip
+\textit{Number of words}: 3624.
+
+\bigskip
+\textit{Manuscript elements}: Figure~1, Figure~2, Figure~3, Figure~4, Figure~5,
+Figure~6, Figure~7, Figure~8.
+
+\bigskip
+
+\textit{Manuscript type}: Article.
+
+\bigskip
+
+\linenumbers{}
+\modulolinenumbers[3]
+
+\newpage{}
+
+\section*{Abstract}
 
 Rhino populations are at a critical level due to the demand for rhino horn and
 the subsequent poaching. Wild life managers attempt to secure rhinos with
@@ -57,10 +107,10 @@ selectively, but only when there are few devalued rhinos. This paper aims to
 contribute to the necessary research needed for informed discussion about the
 lively debate on legalising rhino horn trade.
 
-\end{abstract}
+\newpage{}
 
 %=============================================
-\section{Introduction}\label{section:introduction}
+\section*{Introduction}\label{section:introduction}
 
 The demand for rhino horn continues to pose a serious threat to rhinoceros populations 
 worldwide~\cite{Amin2006}.
@@ -213,7 +263,7 @@ nudge would move the marble out of its equilibria.
 \end{center}
 \end{figure}
 
-In Section~\ref{section:the_model}, we determine expressions
+In Section ``'', we determine expressions
 for \(u_1, u_2\) that correspond to a population of wild rhino poachers and we
 explore the stability of the equilibria identified in~\cite{Lee}. The results
 contained in this paper are proven analytically, and more specifically it is 
@@ -234,9 +284,9 @@ of poachers are acting selectively, the population will eventually turn in to a
 population of only indiscriminate poachers.
 
 %============================================================
-\section{The Utility Model}\label{section:the_model}
+\section*{The Utility Model}\label{section:the_model}
 
-As discussed briefly in Section~\ref{section:introduction}, a rhino poacher
+As discussed briefly in Section ``Introduction'', a rhino poacher
 can adopt two strategies, to either behave selectively
 or indiscriminately. To calculate the utility for each strategy, the gain and cost
 that poachers are exposed to must be taken into account. The poacher incurs a
@@ -413,12 +463,12 @@ u(s, x) &=&
 H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(1-s + \frac{s}{1-r} \right)(1-rx)^{\gamma}(1-r)^{\beta} .
 \end{eqnarray}
 
-In Section~\ref{section:evolutionary_stability}, the notions of stability
+In Section ``Evolutionary Stability'', the notions of stability
 and evolutionary stability of these two strategies as well as a potential
 mixed strategy will be investigated.
 
 %=======================================================
-\section{Evolutionary Stability}\label{section:evolutionary_stability}
+\section*{Evolutionary Stability}\label{section:evolutionary_stability}
 
 By definition, for a strategy to be an ESS it must first be a best response to an
 environment where the entire population is playing the same strategy.
@@ -436,7 +486,7 @@ Each of the equilibria will be examined in the following subsections.
 \subsection{All poachers are selective}
 
 \begin{theorem}\label{theorem:selective}
-Using the utility model described in Section~\ref{section:the_model},
+Using the utility model described in Section ``The Utility Model'',
 a population of selective poachers is unstable.
 \end{theorem}
 
@@ -481,7 +531,7 @@ will change.
 \subsection{All poachers are indiscriminate}
 
 \begin{theorem}\label{theorem:indiscriminate}
-Using the utility model described in Section~\ref{section:the_model}, a population
+Using the utility model described in Section ``The Utility Model'', a population
 of indiscriminate poachers is evolutionarily stable.
 \end{theorem}
 
@@ -545,7 +595,7 @@ equilibrium at the population level.
 \subsection{Mixed population of selective and indiscriminate poachers}
 
 \begin{theorem}\label{theorem:mixed}
-Using the utility model described in section~\ref{section:the_model}, a mixed
+Using the utility model described in Section ``The Utility Model'', a mixed
 stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).  
 \end{theorem}
 
@@ -725,7 +775,8 @@ low \(r\) is not ideal. As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde
 a higher value of \(H\) also has a non-ideal effect on the poachers, as one would
 expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poachers.
 
-The insights gained from the results are discussed in Section~\ref{section:discussion}.
+The insights gained from the results are discussed in Section ``Discussion and
+Conclusions''.
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/ESS-new-utility.pdf}
@@ -762,7 +813,7 @@ The insights gained from the results are discussed in Section~\ref{section:discu
 \end{figure}
 
 %=============================================================
-\section{Discussion and Conclusions}
+\section*{Discussion and Conclusions}
 \label{section:discussion}
 
 In this work the dynamics of a selective population were explored. It was proven 
@@ -821,23 +872,25 @@ leaving the current environment to poach elsewhere.
 
 \section*{Acknowledgements}
 
-This work was performed using the computational facilities of the Advanced
-Research Computing @ Cardiff (ARCCA) Division, Cardiff University.
+% This work was performed using the computational facilities of the Advanced
+% Research Computing @ Cardiff (ARCCA) Division, Cardiff University.
 
-A variety of software libraries have been used in this work:
+% A variety of software libraries have been used in this work:
 
-\begin{itemize}
-    \item The Scipy library for various algorithms~\cite{scipy}.
-    \item The Matplotlib library for visualisation~\cite{hunter2007matplotlib}.
-    \item The SymPy library for symbolic mathematics~\cite{sympy}.
-    \item The Numpy library for data manipulation~\cite{walt2011numpy}.
-\end{itemize}
+% \begin{itemize}
+%     \item The Scipy library for various algorithms~\cite{scipy}.
+%     \item The Matplotlib library for visualisation~\cite{hunter2007matplotlib}.
+%     \item The SymPy library for symbolic mathematics~\cite{sympy}.
+%     \item The Numpy library for data manipulation~\cite{walt2011numpy}.
+% \end{itemize}
 
-Finally, we would like to express our appreciation to David Roberts and Michael 't
-Sas-Rolfes for their valuable and constructive suggestions for this research
-and Anna Huzar for her illustration, Fig.~\ref{fig:RhinoPic}.
+% Finally, we would like to express our appreciation to David Roberts and Michael 't
+% Sas-Rolfes for their valuable and constructive suggestions for this research
+% and Anna Huzar for her illustration, Fig.~\ref{fig:RhinoPic}.
 
-\bibliographystyle{plain}
+\bibliographystyle{amnatnat}
 \bibliography{bibliography.bib}
 
 \end{document}
+
+hesitation 
