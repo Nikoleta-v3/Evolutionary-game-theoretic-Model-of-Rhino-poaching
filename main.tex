@@ -1,12 +1,6 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
-\usepackage[sc]{mathpazo} %Like Palatino with extensive math support
-\usepackage{fullpage}
-\usepackage[authoryear,sectionbib,sort]{natbib}
-\linespread{1.7}
-\usepackage[utf8]{inputenc}
-\usepackage{lineno}
-\renewcommand{\refname}{Literature Cited}
+\usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -30,57 +24,17 @@
 
 \newtheorem{theorem}{Theorem}
 
-%%%%%%%%%%%%%%%%%%%%%
-% Line numbering
-%%%%%%%%%%%%%%%%%%%%%
-\usepackage{lineno}
-% Please use line numbering with your initial submission and
-% subsequent revisions. After acceptance, please turn line numbering
-% off by adding percent signs to the lines %\usepackage{lineno} and
-% to %\linenumbers{} and %\modulolinenumbers[3] below.
-
-
 % \journal{Undecided Journal}
 
 \title{An evolutionary game theory model for devaluing rhinos}
-% \author{Nikoleta E. Glynatsi$^{1,\ast}$ \\ 
-% Vincent Knight$^{1}$ \\ 
-% Tamsin E. Lee$^{2}$}
-
+\author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
 \date{}
 
 \begin{document}
 
 \maketitle
 
-% \noindent{} 1. Cardiff University, School of Mathematics, UK;
-
-% \noindent{} 2. Cardiff University, School of Mathematics, UK;
-
-% \noindent{} 3. Not affiliated.
-
-% \noindent{} $\ast$ Corresponding author; e-mail: glynatsine@cardiff.ac.uk.
-
-% \bigskip
-
-\textit{Keywords}: Game theory, Evolutionary dynamics, Rhinoceros, 
-Poachers' interactions, Wildlife.
-
-\bigskip
-\textit{Number of words}: 3624.
-
-\bigskip
-
-\textit{Manuscript type}: Article.
-
-\bigskip
-
-\linenumbers{}
-\modulolinenumbers[3]
-
-\newpage{}
-
-\section*{Abstract}
+\begin{abstract}
 
 Rhino populations are at a critical level due to the demand for rhino horn and
 the subsequent poaching. Wild life managers attempt to secure rhinos with
@@ -103,43 +57,43 @@ selectively, but only when there are few devalued rhinos. This paper aims to
 contribute to the necessary research needed for informed discussion about the
 lively debate on legalising rhino horn trade.
 
-\newpage{}
+\end{abstract}
 
 %=============================================
-\section*{Introduction}\label{section:introduction}
+\section{Introduction}\label{section:introduction}
 
 The demand for rhino horn continues to pose a serious threat to rhinoceros populations 
-worldwide~\citep{Amin2006}.
+worldwide~\cite{Amin2006}.
 The illegal trade in rhino horn supports aggressive poaching syndicates and a
-black market~\citep{Nowell1992, Warchol2003}. This lucrative market entices people to invest
+black market~\cite{Nowell1992, Warchol2003}. This lucrative market entices people to invest
 their time and energy to gain a `windfall' in the form of a rhino horn, through the
 poaching of rhinos. In recent years poaching has escalated to an unprecedented
-level resulting in concerns over their future existence~\citep{Duan2013,Smith1993}.
+level resulting in concerns over their future existence~\cite{Duan2013,Smith1993}.
 In response, rhino conservation has seen increased  militarisation with `boots on the
-ground' and `eyes in the sky'~\citep{duffy_st}. An alternative method is to
+ground' and `eyes in the sky'~\cite{duffy_st}. An alternative method is to
 devalue the horn itself, one of the main  methods being the removal so that only
 a stub is left. The first attempt at large-scale rhino dehorning as an anti-poaching
-measure was in Damaraland, Namibia, in 1989~\citep{Milner1992}. Other methods
+measure was in Damaraland, Namibia, in 1989~\cite{Milner1992}. Other methods
 of devaluing the horn that have been suggested include
-the insertion of poisons, dyes or GPS trackers~\citep{Gill2010,Smith1993}. However,
+the insertion of poisons, dyes or GPS trackers~\cite{Gill2010,Smith1993}. However,
 like dehorning, they cannot remove all the potential gain from an intact horn 
 (poison and dyes fade or GPS trackers can be removed and have been found to affect
 only a small proportion of the horn). Moreover, several methods
-include addressing the problem by reducing the demand in the market. In~\citep{Duan2013}
+include addressing the problem by reducing the demand in the market. In~\cite{Duan2013}
 the authors suggest meeting the demand for rhino horn through a legal market by
 farming the rhino horn from live rhinos. This controversial proposal is an active
 conversation, with the actual quantity of horn that could be farmed being estimated
-recently by \citep{Taylor2017}. Moreover, the debate is not limited to rhinos -
-\citep{Harvey2017} considered ivory and stated that by enforcing a domestic ivory
+recently by \cite{Taylor2017}. Moreover, the debate is not limited to rhinos -
+\cite{Harvey2017} considered ivory and stated that by enforcing a domestic ivory
 trade ban we can reduce the market's demand. This paper builds on the work of
-\citep{Lee} and considers the general strategy of devaluing horns, which includes
+\cite{Lee} and considers the general strategy of devaluing horns, which includes
 dehorning.
 
 Rhino populations now persist largely in protected areas or on private land, and
-require intensive protection~\citep{Ferreira2014}. For wildlife managers law 
+require intensive protection~\cite{Ferreira2014}. For wildlife managers law 
 enforcement is often one of the main methods of deterring poaching, however 
 rhino managers can remove the poaching incentive by devaluing their rhinos 
-\citep{Milner1992}. In~\citep{Milner1992} they found the 
+\cite{Milner1992}. In~\cite{Milner1992} they found the 
 optimum proportion to dehorn using mean horn length as a measure of the 
 proportion of rhinos dehorned. They showed, with realistic parameter values, 
 that the optimal strategy is to dehorn as many rhinos as possible. 
@@ -148,7 +102,7 @@ perhaps adopt a combination of the two; especially given that devaluing rhinos
 comes at a cost to the manager, and the process comes with a risk to the rhinos.
 
 A recent paper modelled the interaction between a rhino manager and poachers
-using game theory~\citep{Lee}. The authors consider a working year of a single
+using game theory~\cite{Lee}. The authors consider a working year of a single
 rhino manager. A manager is assumed to have standard yearly resources which
 can be allocated on devaluing a proportion of their rhinos or spent on security.
 It is assumed that all rhinos initially have intact horns. Poachers may either only
@@ -164,7 +118,7 @@ always behave so as to maximise their payoff, there are two equilibriums: either
 all rhinos are devalued and all poachers are selective;
 or all horns are intact and all poachers are indiscriminate. Essentially, either
 the managers win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers
-win, the bottom right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\citep{Lee}
+win, the bottom right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee}
 concludes that poachers will always choose to behave indiscriminately, and thus
 the game settles to the bottom right quadrant, i.e., the poachers win.
 
@@ -176,10 +130,10 @@ the game settles to the bottom right quadrant, i.e., the poachers win.
     effective or not.}
 \end{figure}
 
-The work of~\citep{Lee} did not take in to account the population dynamic effect
+The work of~\cite{Lee} did not take in to account the population dynamic effect
 of these strategies. In a population full of indiscriminate poachers would there
 be a benefit to a single poacher becoming selective or vice versa? This notion
-is explored here using evolutionary game theory~\citep{Smith}. The
+is explored here using evolutionary game theory~\cite{Smith}. The
 game is not that of two players anymore (manager and poacher) but now the players
 are an infinite population of poachers. This allows for the interaction between
 poachers over multiple plays of the game to be explored with the rhino manager
@@ -259,9 +213,9 @@ nudge would move the marble out of its equilibria.
 \end{center}
 \end{figure}
 
-In Section ``The Utility Model'', we determine expressions
+In Section~\ref{section:the_model}, we determine expressions
 for \(u_1, u_2\) that correspond to a population of wild rhino poachers and we
-explore the stability of the equilibria identified in~\citep{Lee}. The results
+explore the stability of the equilibria identified in~\cite{Lee}. The results
 contained in this paper are proven analytically, and more specifically it is 
 shown that:
 
@@ -280,9 +234,9 @@ of poachers are acting selectively, the population will eventually turn in to a
 population of only indiscriminate poachers.
 
 %============================================================
-\section*{The Utility Model}\label{section:the_model}
+\section{The Utility Model}\label{section:the_model}
 
-As discussed briefly in Section ``Introduction'', a rhino poacher
+As discussed briefly in Section~\ref{section:introduction}, a rhino poacher
 can adopt two strategies, to either behave selectively
 or indiscriminately. To calculate the utility for each strategy, the gain and cost
 that poachers are exposed to must be taken into account. The poacher incurs a
@@ -292,7 +246,7 @@ rhino horn and the number of rhinos (devalued and not).
 
 Let us first consider the gain to the poacher, where \(\theta\) is the amount of
 horn taken. We assume rhino horn value is determined by weight only, a 
-reasonable assumption as rhino horn is sold in a grounded form~\citep{Saverhino}.
+reasonable assumption as rhino horn is sold in a grounded form~\cite{Saverhino}.
 Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of
 horn gained is \(\theta=1\) for both the selective and the indiscriminate poacher.
 If the rhino horn has been devalued, and the poacher is selective, the amount of
@@ -310,7 +264,7 @@ proportion of selective poachers and \(1-x\) is the proportion of indiscriminate
 poachers. Note that since \(\theta_r, r, x  \in [0, 1]\), then
 \(\theta(r, x) > 0\), that is, some horn will be taken. Standard supply and demand
 arguments imply that the value
-of rhino horn decreases as the quantity of horn available increases~\citep{mankiw2010}.
+of rhino horn decreases as the quantity of horn available increases~\cite{mankiw2010}.
 Thus at any given time the expected gain is
 
 \begin{eqnarray}
@@ -459,12 +413,12 @@ u(s, x) &=&
 H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(1-s + \frac{s}{1-r} \right)(1-rx)^{\gamma}(1-r)^{\beta} .
 \end{eqnarray}
 
-In Section ``Evolutionary Stability'', the notions of stability
+In Section~\ref{section:evolutionary_stability}, the notions of stability
 and evolutionary stability of these two strategies as well as a potential
 mixed strategy will be investigated.
 
 %=======================================================
-\section*{Evolutionary Stability}\label{section:evolutionary_stability}
+\section{Evolutionary Stability}\label{section:evolutionary_stability}
 
 By definition, for a strategy to be an ESS it must first be a best response to an
 environment where the entire population is playing the same strategy.
@@ -482,7 +436,7 @@ Each of the equilibria will be examined in the following subsections.
 \subsection{All poachers are selective}
 
 \begin{theorem}\label{theorem:selective}
-Using the utility model described in Section ``The Utility Model'',
+Using the utility model described in Section~\ref{section:the_model},
 a population of selective poachers is unstable.
 \end{theorem}
 
@@ -519,7 +473,7 @@ a population of selective poachers is unstable.
     Thus, (\ref{eqn:s1x1_s0x1}) can never hold. 
 \end{proof}
 
-This implies that whilst~\citep{Lee} identified the individual poachers
+This implies that whilst~\cite{Lee} identified the individual poachers
 acting selectively as an equilibrium it is an extremely week equilibrium from
 the point of view of population stability: a slight change and the population
 will change.
@@ -527,7 +481,7 @@ will change.
 \subsection{All poachers are indiscriminate}
 
 \begin{theorem}\label{theorem:indiscriminate}
-Using the utility model described in Section ``The Utility Model'', a population
+Using the utility model described in Section~\ref{section:the_model}, a population
 of indiscriminate poachers is evolutionarily stable.
 \end{theorem}
 
@@ -585,13 +539,13 @@ of indiscriminate poachers is evolutionarily stable.
 
 This shows that a population of indiscriminate poachers
 not only corresponds to the equilibrium of the individual based
-game identified in~\citep{Lee} but also is a very robust and an attractive
+game identified in~\cite{Lee} but also is a very robust and an attractive
 equilibrium at the population level.
 
 \subsection{Mixed population of selective and indiscriminate poachers}
 
 \begin{theorem}\label{theorem:mixed}
-Using the utility model described in Section ``The Utility Model'', a mixed
+Using the utility model described in section~\ref{section:the_model}, a mixed
 stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).  
 \end{theorem}
 
@@ -630,13 +584,13 @@ equilibria. We have proven the instability of any population with selective
 poachers
 and the evolutionary stability of the indiscriminate behaviour.
 All of these theoretic results have been verified empirically, the data for this
-has been archived at~\citep{Glynatsi2017}.
+has been archived at~\cite{}.
 
 Theorems~\ref{theorem:selective},~\ref{theorem:indiscriminate},~\ref{theorem:mixed}
 are illustrated in Fig.~\ref{fig:indiscriminate_ess}
 which shows the numerical solutions to (\ref{eqn:u_differential_simplified})
 using (\ref{eqn:USchi}) and  (\ref{eqn:UnotSchi}) with \(x_1=x\).
-This is done using numerical integration implemented  in~\citep{scipy}.
+This is done using numerical integration implemented  in~\cite{scipy}.
 As is evident from the scenarios considered, all populations converge 
 to being all indiscriminate.
 
@@ -771,8 +725,7 @@ low \(r\) is not ideal. As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde
 a higher value of \(H\) also has a non-ideal effect on the poachers, as one would
 expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poachers.
 
-The insights gained from the results are discussed in Section ``Discussion and
-Conclusions''.
+The insights gained from the results are discussed in Section~\ref{section:discussion}.
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/ESS-new-utility.pdf}
@@ -809,7 +762,7 @@ Conclusions''.
 \end{figure}
 
 %=============================================================
-\section*{Discussion and Conclusions}
+\section{Discussion and Conclusions}
 \label{section:discussion}
 
 In this work the dynamics of a selective population were explored. It was proven 
@@ -832,10 +785,10 @@ will be selective. Assuming basic supply and demand arguments, the demand of
 a partial horn will increase by removing horns thus the probability
 of being selective decreases. Therefore, even in the scenario with a
 disincentive, the proportion of rhinos which could be saved is limited.
-As such approaches which aim to reduce demand (as suggested in~\citep{Duan2013})
+As such approaches which aim to reduce demand (as suggested in~\cite{Duan2013})
 would have more potential.
 
-The disincentive factor can have several interpretations. According to~\citep{Duan2017},
+The disincentive factor can have several interpretations. According to~\cite{Duan2017},
 engaging the rural communities that neighbour or live with wildlife is the
 key to fighting the illegal trade of wildlife. Strengthening disincentives for
 illegal behaviour can be interpreted as the disincentive factor. Likewise,
@@ -868,25 +821,23 @@ leaving the current environment to poach elsewhere.
 
 \section*{Acknowledgements}
 
-% This work was performed using the computational facilities of the Advanced
-% Research Computing @ Cardiff (ARCCA) Division, Cardiff University.
+This work was performed using the computational facilities of the Advanced
+Research Computing @ Cardiff (ARCCA) Division, Cardiff University.
 
-% A variety of software libraries have been used in this work:
+A variety of software libraries have been used in this work:
 
-% \begin{itemize}
-%     \item The Scipy library for various algorithms~\citep{scipy}.
-%     \item The Matplotlib library for visualisation~\citep{hunter2007matplotlib}.
-%     \item The SymPy library for symbolic mathematics~\citep{sympy}.
-%     \item The Numpy library for data manipulation~\citep{walt2011numpy}.
-% \end{itemize}
+\begin{itemize}
+    \item The Scipy library for various algorithms~\cite{scipy}.
+    \item The Matplotlib library for visualisation~\cite{hunter2007matplotlib}.
+    \item The SymPy library for symbolic mathematics~\cite{sympy}.
+    \item The Numpy library for data manipulation~\cite{walt2011numpy}.
+\end{itemize}
 
-% Finally, we would like to express our appreciation to David Roberts and Michael 't
-% Sas-Rolfes for their valuable and constructive suggestions for this research
-% and Anna Huzar for her illustration, Fig.~\ref{fig:RhinoPic}.
+Finally, we would like to express our appreciation to David Roberts and Michael 't
+Sas-Rolfes for their valuable and constructive suggestions for this research
+and Anna Huzar for her illustration, Fig.~\ref{fig:RhinoPic}.
 
-\bibliographystyle{amnatnat}
+\bibliographystyle{plain}
 \bibliography{bibliography.bib}
 
 \end{document}
-
-hesitation 
