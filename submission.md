@@ -50,3 +50,7 @@ selective poachers to exist, but for this to occur a disincentive must be applie
 to the utility of indiscriminate poachers. The disincentive factor can have
 several interpretations; such as engaging the rural communities that live with
 wildlife.
+
+- **Sub title (limit 40 chars)**: Game Theoretic Model of Horn Devaluation.
+
+- **Classifications:** 1. Game Theory 2. Modeling:ecological 3. Behavior: Evolution?
