@@ -26,7 +26,7 @@
 
 % \journal{Undecided Journal}
 
-\title{An evolutionary game theory model for devaluing rhinos}
+\title{An Evolutionary Game Theoretic Model of Rhino Horn Devaluation}
 \author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
 \date{}
 
@@ -37,14 +37,14 @@
 \begin{abstract}
 
 Rhino populations are at a critical level due to the demand for rhino horn and
-the subsequent poaching. Wild life managers attempt to secure rhinos with
+the subsequent poaching. wildlife managers attempt to secure rhinos with
 approaches such as devaluing the horn. The most common strategy of devaluing
 horns is dehorning. Game theory has been used before to examine the interaction
-of poachers and wild life managers. A manager can either `dehorn' their rhinos or
-leave the horn attached. Poachers may chose to to behave `selectively' or
+of poachers and wildlife managers. A manager can either `dehorn' their rhinos or
+leave the horn attached. Poachers may chose to behave `selectively' or
 `indiscriminately'. The approach described in this paper builds on this previous
-work and investigates the interactions between the poachers. Using evolutionary
-game theory, we determine which strategy is preferred by a poacher in various
+work and investigates the interactions between the poachers. We build an evolutionary
+game theoretic model and determine which strategy is preferred by a poacher in various
 different populations of poachers. The purpose of this work is to discover whether
 conditions which encourage the poachers to behave selectively exist, that is,
 they only kill those rhinos with full horns. Notwithstanding, the analytical
@@ -140,12 +140,12 @@ poachers over multiple plays of the game to be explored with the rhino manager
 being the one that creates the conditions of the population.
 
 In evolutionary game theory, we assume infinite populations and in our
-model this will be represented by \(\chi=(x_1, x_2)\) with \(x_1\) proportion of
-the population using a strategy of the first type and \(x_2\) of the second. We
-assume there is a utility function \(u_1\) and \(u_2\) that maps the population
-to a fitness for each strategy,
+model this will be represented by \(\chi=(x_1, x_2)\) with \(x_1\) being the proportion
+of the population using a strategy of the first type and \(x_2\) of the second. We
+assume there are utility functions \(u_1\) and \(u_2\) that map the population
+to a fitness for each strategy, given by,
 
-\[ u_1(\chi)  \qquad u_2(\chi).\] 
+\[ u_1(\chi)  \text{ and } u_2(\chi).\] 
 
 In evolutionary game theory these utilities are used to dictate the evolution of
 the population over time, according to the following differential equations,
@@ -167,7 +167,7 @@ population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
     \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
      + x_2(u_2(\chi) - \phi)=0.
 \end{eqnarray} 
-Thus the average fitness can be written as,
+Recalling that \(x_1 + x_2 = 1\) the average fitness can be written as,
 
 \begin{eqnarray}
 \label{eqn:average_fitness}
@@ -183,7 +183,7 @@ in (\ref{eqn:u_differential_eq}),
 \end{eqnarray}
 
 The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
-are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1 \mbox{ for } u_1(\chi)=u_2(\chi)\).
+are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1\) for \(u_1(\chi)=u_2(\chi)\).
 These equilibria correspond to stability of the population: the differential 
 equation (\ref{eqn:u_differential_simplified}) no longer changes. 
 
@@ -191,7 +191,7 @@ The notion of evolutionary stability can be checked only for these stable strate
 For a stable strategy to be an Evolutionary Stable Strategy (ESS) it must remain
 the best response even in a mutated population \(\chi_\epsilon\). A mutated population
 is the post entry population 
-where a small proportion \(\epsilon\) starts deviating and adopts a different strategy.
+where a small proportion \(\epsilon > 0\) starts deviating and adopts a different strategy.
 Fig.~\ref{fig:stable_ess_driagrams} illustrates two potential strategies: without
 outside stimulation neither marble would move. In Fig.~\ref{fig:ess_diagram}
 however the stability can be described as ``stronger": with a small nudge the marble
@@ -405,7 +405,7 @@ a proportion of \(0 \leq x \leq 1\) selective poachers is
 u(s, x) = s u_1(x) +(1 - s) u_2(x).
 \end{eqnarray}
 Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) 
-gives,
+and using (\ref{eqn:theta}) and (\ref{eqn:psi}) gives,
 
 \begin{eqnarray}
 \label{eqn:tutility2}
@@ -452,13 +452,15 @@ a population of selective poachers is unstable.
     
     \begin{eqnarray}
     \label{eqn:s1x1}
-    u(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
+    u(1, 1) & = & H(1 -r)\theta(r, 1) ^ {- \alpha} - F (\frac{1}{1 - r})(1 - r)^{\gamma}(1 - r)^{\beta} \\
+           & = & H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
     \end{eqnarray}
     and 
     
     \begin{eqnarray}
     \label{eqn:s0x1}
-    u(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
+    u(0,1) & = & H(\theta_r r - r + 1)\theta(r, 1) ^ {- \alpha} - F (1 - r)^{\gamma}(1 - r)^{\beta} \\
+           & = & H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
     \end{eqnarray}
 
     Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the
@@ -499,7 +501,7 @@ of indiscriminate poachers is evolutionarily stable.
 
     \begin{eqnarray}
         \label{eqn:u_indiscriminate_ess}
-        \\u(0, x_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
+        u(0, x_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
         - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^ {\beta}, 
         \\
         \label{eqn:u_mutated_ess}
@@ -520,7 +522,7 @@ of indiscriminate poachers is evolutionarily stable.
         F(1 - r x_\epsilon) ^ {\gamma} (1- r) ^
         {\beta}x_\epsilon\left(\frac{-r}{1- r}\right)
     \end{eqnarray}
-    all indiscriminate will be an ESS only if \(\delta >0 \) for any small
+    all players being indiscriminate will be an ESS only if \(\delta >0 \) for any small
     value of \(\epsilon\). Thus only if,
 
     \begin{equation}
@@ -557,26 +559,30 @@ stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).
     \label{eqn:s1xs_s0xs}
     u(1,s^*) = u(0,s^*).
     \end{eqnarray}
-    The left-hand side is,
+    From equation (\ref{eqn:tutility2}) the left-hand side is,
 
-    \begin{eqnarray} \nonumber
+    \begin{eqnarray}
+    \label{eqn:mixed_lhs}
     u(1,s^*)&=&
     H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta} 
     \end{eqnarray}
-    The right-hand side is
+    and the right-hand side is
 
-    \begin{eqnarray} \nonumber
+    \begin{eqnarray}
+    \label{eqn:mixed_rhs}
     u(0,s^*)&=&
     H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta}.
     \end{eqnarray}
-    Substituting these into~(\ref{eqn:s1xs_s0xs}) gives
+    Substituting (\ref{eqn:mixed_lhs}) and (\ref{eqn:mixed_rhs}) into~(\ref{eqn:s1xs_s0xs}) gives
 
-    \begin{eqnarray}
-    \label{eqn:stablemixed}
-            - (H \theta_r r \theta(r, s^*)^{-\alpha}  + F  r(1 - rs^*)^{\gamma}(1 - r)^{\beta - 1})&=& 0.
-            \end{eqnarray}
-    Condition~(\ref{eqn:stablemixed}) can never hold for \(0 < r <1\).
-    Thus a mixed stable equilibrium is never stable.
+    \begin{eqnarray}\label{eqn:stable_mixed}
+        u(1,s^*) - u(0,s^*) & = & H\theta(r, s^*)^{-\alpha} (-\theta_r r)  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta}(\frac{r}{1-r})\\
+    \label{eqn:stable_mixed_condition}
+      & = &   - r (H \theta_r \theta(r, s^*)^{-\alpha}  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta - 1}) = 0.
+    \end{eqnarray}
+    Condition~(\ref{eqn:stable_mixed_condition}) can never hold for \(0 < r <1\)
+    because both terms of the sum are positive. Thus a mixed stable equilibrium
+    is never stable.
 \end{proof}
 
 In this section we have studied analytically the stability of all the possible
@@ -834,8 +840,9 @@ A variety of software libraries have been used in this work:
 \end{itemize}
 
 Finally, we would like to express our appreciation to David Roberts and Michael 't
-Sas-Rolfes for their valuable and constructive suggestions for this research
-and Anna Huzar for her illustration, Fig.~\ref{fig:RhinoPic}.
+Sas-Rolfes for their valuable and constructive suggestions for this research.
+We would also like to thank Anna Huzar for her illustration (Fig.~\ref{fig:RhinoPic}) and
+Dr. Jonathan Gillard for his careful reading and double checking of the algebra in the paper.
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
