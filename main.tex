@@ -452,13 +452,15 @@ a population of selective poachers is unstable.
     
     \begin{eqnarray}
     \label{eqn:s1x1}
-    u(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
+    u(1, 1) & = & H(1 -r)\theta(r, 1) ^ {- \alpha} - F (\frac{1}{1 - r})(1 - r)^{\gamma}(1 - r)^{\beta} \\
+           & = & H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
     \end{eqnarray}
     and 
     
     \begin{eqnarray}
     \label{eqn:s0x1}
-    u(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
+    u(0,1) & = & H(\theta_r r - r + 1)\theta(r, 1) ^ {- \alpha} - F (1 - r)^{\gamma}(1 - r)^{\beta} \\
+           & = & H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
     \end{eqnarray}
 
     Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the
