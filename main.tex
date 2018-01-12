@@ -559,26 +559,30 @@ stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).
     \label{eqn:s1xs_s0xs}
     u(1,s^*) = u(0,s^*).
     \end{eqnarray}
-    The left-hand side is,
+    From equation (\ref{eqn:tutility2}) the left-hand side is,
 
-    \begin{eqnarray} \nonumber
+    \begin{eqnarray}
+    \label{eqn:selective_lhs}
     u(1,s^*)&=&
     H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta} 
     \end{eqnarray}
-    The right-hand side is
+    and the right-hand side is
 
-    \begin{eqnarray} \nonumber
+    \begin{eqnarray}
+    \label{eqn:selective_rhs}
     u(0,s^*)&=&
     H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta}.
     \end{eqnarray}
-    Substituting these into~(\ref{eqn:s1xs_s0xs}) gives
+    Substituting (\ref{eqn:selective_lhs}) and (\ref{eqn:selective_lhs}) into~(\ref{eqn:s1xs_s0xs}) gives
 
-    \begin{eqnarray}
-    \label{eqn:stablemixed}
-            - (H \theta_r r \theta(r, s^*)^{-\alpha}  + F  r(1 - rs^*)^{\gamma}(1 - r)^{\beta - 1})&=& 0.
-            \end{eqnarray}
-    Condition~(\ref{eqn:stablemixed}) can never hold for \(0 < r <1\).
-    Thus a mixed stable equilibrium is never stable.
+    \begin{eqnarray}\label{eqn:stable_mixed}
+    H\theta(r, s^*)^{-\alpha} (-\theta_r r)  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta}(\frac{r}{1-r}) &=& 0.\\
+    \label{eqn:stable_mixed_condition}
+    - r (H \theta_r \theta(r, s^*)^{-\alpha}  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta - 1})&=& 0.
+    \end{eqnarray}
+    Condition~(\ref{eqn:stable_mixed_condition}) can never hold for \(0 < r <1\)
+    because both terms of the sum are positive. Thus a mixed stable equilibrium
+    is never stable.
 \end{proof}
 
 In this section we have studied analytically the stability of all the possible
