@@ -562,23 +562,23 @@ stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).
     From equation (\ref{eqn:tutility2}) the left-hand side is,
 
     \begin{eqnarray}
-    \label{eqn:selective_lhs}
+    \label{eqn:mixed_lhs}
     u(1,s^*)&=&
     H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta} 
     \end{eqnarray}
     and the right-hand side is
 
     \begin{eqnarray}
-    \label{eqn:selective_rhs}
+    \label{eqn:mixed_rhs}
     u(0,s^*)&=&
     H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta}.
     \end{eqnarray}
-    Substituting (\ref{eqn:selective_lhs}) and (\ref{eqn:selective_lhs}) into~(\ref{eqn:s1xs_s0xs}) gives
+    Substituting (\ref{eqn:mixed_lhs}) and (\ref{eqn:mixed_rhs}) into~(\ref{eqn:s1xs_s0xs}) gives
 
     \begin{eqnarray}\label{eqn:stable_mixed}
-    H\theta(r, s^*)^{-\alpha} (-\theta_r r)  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta}(\frac{r}{1-r}) &=& 0.\\
+        u(1,s^*) - u(0,s^*) & = & H\theta(r, s^*)^{-\alpha} (-\theta_r r)  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta}(\frac{r}{1-r})\\
     \label{eqn:stable_mixed_condition}
-    - r (H \theta_r \theta(r, s^*)^{-\alpha}  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta - 1})&=& 0.
+      & = &   - r (H \theta_r \theta(r, s^*)^{-\alpha}  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta - 1}) = 0.
     \end{eqnarray}
     Condition~(\ref{eqn:stable_mixed_condition}) can never hold for \(0 < r <1\)
     because both terms of the sum are positive. Thus a mixed stable equilibrium
@@ -842,7 +842,7 @@ A variety of software libraries have been used in this work:
 Finally, we would like to express our appreciation to David Roberts and Michael 't
 Sas-Rolfes for their valuable and constructive suggestions for this research.
 We would also like to thank Anna Huzar for her illustration (Fig.~\ref{fig:RhinoPic}) and
-Jonathan Gillard for his careful reading and double checking of the algebra in the paper.
+Dr. Jonathan Gillard for his careful reading and double checking of the algebra in the paper.
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
