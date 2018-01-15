@@ -17,6 +17,7 @@
 \usepackage{tikz}
 \usepackage{breakcites}
 \usepackage{authblk}
+\usepackage{enumitem}
 \usepackage{setspace}
 \doublespacing
 
@@ -51,27 +52,56 @@
 \noindent{} $\ast$ e-mail: glynatsine@cardiff.ac.uk.
 
 \begin{abstract}
+\noindent{}
 
-Rhino populations are at a critical level due to the demand for rhino horn and
-the subsequent poaching. Wildlife managers attempt to secure rhinos with
-approaches to devalue the horn, the most common of which is dehorning. Game theory
-has been used to examine the interaction of poachers and wildlife managers where
-a manager can either `dehorn' their rhinos or leave the horn attached and poachers
-may behave `selectively' or `indiscriminately'. The approach described in this paper
-builds on this previous
-work and investigates the interactions between the poachers. We build an evolutionary
-game theoretic model and determine which strategy is preferred by a poacher in various
-different populations of poachers. The purpose of this work is to discover whether
-conditions which encourage the poachers to behave selectively exist, that is,
-they only kill those rhinos with full horns. Notwithstanding, the analytical
-results prove that poachers will never adopt a selective strategy as long as
-there is gain from a partial horn. Additionally, poachers behaving indiscriminately
-is stable and robust. However, the model is adapted further to include a
-disincentive factor, which may represent factors such as harsher punishment, or
-lower demand for horn. With a disincentive, poachers can be encouraged to behave
-selectively, but only when there are few devalued rhinos. This paper aims to
-contribute to the necessary research required for informed discussion about the
-lively debate on legalising rhino horn trade.
+\begin{enumerate}[labelindent=0pt]
+    \item Rhino populations are at a critical level due to the demand for rhino horn and
+    the subsequent poaching. Wildlife managers attempt to secure rhinos with
+    approaches such as devaluing the horn. The most common strategy of devaluing
+    horns is dehorning. There are numerous cases where dehorning has proved insufficient
+    to prevent rhinos from falling victim to poachers.
+    \item Game theory has been used before to examine the interaction
+    of poachers and wildlife managers. A manager can either `dehorn' their rhinos or
+    leave the horn attached. Poachers may chose to behave `selectively' or
+    `indiscriminately'. The approach described in this paper builds on this previous
+    work and investigates the interactions between the poachers. We build an evolutionary
+    game theoretic model and determine which strategy is preferred by a poacher in various
+    different populations of poachers.
+    \item The analytical results prove that poachers will never adopt a selective
+    strategy as long as there is gain from a partial horn. Additionally, poachers
+    behaving indiscriminately is stable and robust.
+    \item However, the model is adapted further to include a
+    disincentive factor, which may represent factors such as harsher punishment, or
+    lower demand for horn. With a disincentive, poachers can be encouraged to behave
+    selectively, but only when there are few devalued rhinos.
+    \item \textit{Synthesis and applications.} The purpose of this work is to discover whether
+    conditions which encourage the poachers to behave selectively exist, that is,
+    they only kill those rhinos with full horns. The paper aims to
+    contribute to the necessary research needed for informed discussion about the
+    lively debate on legalising rhino horn trade.
+
+\end{enumerate}
+
+% Rhino populations are at a critical level due to the demand for rhino horn and
+% the subsequent poaching. Wildlife managers attempt to secure rhinos with
+% approaches such as devaluing the horn. The most common strategy of devaluing
+% horns is dehorning. Game theory has been used before to examine the interaction
+% of poachers and wildlife managers. A manager can either `dehorn' their rhinos or
+% leave the horn attached. Poachers may chose to behave `selectively' or
+% `indiscriminately'. The approach described in this paper builds on this previous
+% work and investigates the interactions between the poachers. We build an evolutionary
+% game theoretic model and determine which strategy is preferred by a poacher in various
+% different populations of poachers. The purpose of this work is to discover whether
+% conditions which encourage the poachers to behave selectively exist, that is,
+% they only kill those rhinos with full horns. Notwithstanding, the analytical
+% results prove that poachers will never adopt a selective strategy as long as
+% there is gain from a partial horn. Additionally, poachers behaving indiscriminately
+% is stable and robust. However, the model is adapted further to include a
+% disincentive factor, which may represent factors such as harsher punishment, or
+% lower demand for horn. With a disincentive, poachers can be encouraged to behave
+% selectively, but only when there are few devalued rhinos. This paper aims to
+% contribute to the necessary research needed for informed discussion about the
+% lively debate on legalising rhino horn trade.
 
 \end{abstract}
 
@@ -157,6 +187,8 @@ game is not that of two players anymore (manager and poacher) but now the player
 are an infinite population of poachers. This allows for the interaction between
 poachers over multiple plays of the game to be explored with the rhino manager
 being the one that creates the conditions of the population.
+
+Poachers are of course finite, and each has individual factors that will affect his or her behaviour. However, for the purpose of this model we assume an infinite number of "average" poachers since, over a long time scale, these assumptions hold true. By predicting over a long time scale we can discern the overall affect of dehorning on poacher behaviour.
 
 In evolutionary game theory, we assume infinite populations and in our
 model this is represented by \(\chi=(x_1, x_2)\) with \(x_1\) being the proportion
