@@ -432,7 +432,7 @@ equilibria of equation (\ref{eqn:u_differential_simplified}):
     \item mixed population of selective and indiscriminate poachers.
 \end{itemize}
 
-Each of the equilibria will be examined in the following subsections.
+\noindent Each of the equilibria will be examined in the following subsections.
 
 \subsection{All poachers are selective}
 
@@ -454,7 +454,7 @@ a population of selective poachers is unstable.
     \begin{eqnarray}
     \label{eqn:s1x1}
     u(1, 1) & = & H(1 -r)\theta(r, 1) ^ {- \alpha} - F (\frac{1}{1 - r})(1 - r)^{\gamma}(1 - r)^{\beta} \\
-           & = & H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1}
+    & = & H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
     \end{eqnarray}
     and 
     
@@ -464,20 +464,20 @@ a population of selective poachers is unstable.
            & = & H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
     \end{eqnarray}
 
-    Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the
+    \noindent Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the
     condition,
     \begin{eqnarray}
     \label{eqn:s1x1_s0x1}
-    &&H \theta_r< -F(1 - r)^{\gamma + \beta + \alpha - 1}
+    &&H \theta_r< -F(1 - r)^{\gamma + \beta + \alpha - 1}.
     \end{eqnarray}
 
-    The right-hand size  will always be negative
+    The right-hand side  will always be negative
     for any \(r\), on the other hand the left-hand side is always positive.
     Thus, (\ref{eqn:s1x1_s0x1}) can never hold. 
 \end{proof}
 
 This implies that whilst~\cite{Lee} identified the individual poachers
-acting selectively as an equilibrium it is an extremely week equilibrium from
+acting selectively as an equilibrium it is an extremely weak equilibrium from
 the point of view of population stability: a slight change and the population
 will change.
 
@@ -512,7 +512,7 @@ of indiscriminate poachers is evolutionarily stable.
         x_\epsilon + \frac{x_\epsilon}{1- r}\right).
 \end{eqnarray}
 
-    Let the difference of (\ref{eqn:u_indiscriminate_ess}) and (\ref{eqn:u_mutated_ess})
+    \noindent Let the difference of (\ref{eqn:u_indiscriminate_ess}) and (\ref{eqn:u_mutated_ess})
     be denoted as,
 
     \begin{eqnarray}
@@ -521,19 +521,19 @@ of indiscriminate poachers is evolutionarily stable.
           \\
          &=& H\theta(r,  x_\epsilon) ^{-\alpha} \theta_r r x_\epsilon -
         F(1 - r x_\epsilon) ^ {\gamma} (1- r) ^
-        {\beta}x_\epsilon\left(\frac{-r}{1- r}\right)
+        {\beta}x_\epsilon\left(\frac{-r}{1- r}\right).
     \end{eqnarray}
-    all players being indiscriminate will be an ESS only if \(\delta >0 \) for any small
+    All players being indiscriminate will be an ESS only if \(\delta >0 \) for any small
     value of \(\epsilon\). Thus only if,
 
     \begin{equation}
     \label{eqn:ess_inequality}
         H\theta(r, x_\epsilon) ^{-\alpha} \theta_r r x_\epsilon > F
         (1 - r x_\epsilon) ^ {\gamma} (1- r) ^ {\beta}
-        x_\epsilon\left(\frac{-r}{1- r}\right)
+        x_\epsilon\left(\frac{-r}{1- r}\right).
     \end{equation}
 
-    The right-hand of inequality (\ref{eqn:ess_inequality}) is always negative
+    \noindent The right-hand side of inequality (\ref{eqn:ess_inequality}) is always negative
     since \((\frac{-r}{1- r}) < 0\)  for all \(r\). On the contrary, the left-hand
     side is always positive for all \(r\), thus the inequality always holds.
     Therefore, it is proven that all indiscriminate poachers is an evolutionary
@@ -542,7 +542,7 @@ of indiscriminate poachers is evolutionarily stable.
 
 This shows that a population of indiscriminate poachers
 not only corresponds to the equilibrium of the individual based
-game identified in~\cite{Lee} but also is a very robust and an attractive
+game identified in~\cite{Lee}, but is also a very robust and attractive
 equilibrium at the population level.
 
 \subsection{Mixed population of selective and indiscriminate poachers}
@@ -586,19 +586,19 @@ stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).
     is never stable.
 \end{proof}
 
-In this section we have studied analytically the stability of all the possible
+In this section we have analytically studied the stability of all the possible
 equilibria. We have proven the instability of any population with selective
-poachers
+poachers,
 and the evolutionary stability of the indiscriminate behaviour.
-All of these theoretic results have been verified empirically, the data for this
-has been archived at~\cite{}.
+All of these theoretic results have been verified empirically, and the data for this
+has been archived at~\cite{Glynatsi2017}.
 
 Theorems~\ref{theorem:selective},~\ref{theorem:indiscriminate},~\ref{theorem:mixed}
 are illustrated in Fig.~\ref{fig:indiscriminate_ess}
 which shows the numerical solutions to (\ref{eqn:u_differential_simplified})
 using (\ref{eqn:USchi}) and  (\ref{eqn:UnotSchi}) with \(x_1=x\).
 This is done using numerical integration implemented  in~\cite{scipy}.
-As is evident from the scenarios considered, all populations converge 
+As evident from the scenarios considered, all populations converge 
 to being all indiscriminate.
 
 \begin{figure}[!htbp]
@@ -617,9 +617,9 @@ Consider the reverse scenario,
     F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta - 1} & < -H \theta(r, x) ^ {-\alpha} \theta_r
 \end{align}
 
-which gives the required contradiction. This shows that the utility model used
+\noindent which gives the required contradiction. This shows that the utility model used
 implies that given the choice of acting selectively or indiscriminately, in any
-given environment it will always be a rational deviation to act
+given environment, it will always be a rational deviation to act
 indiscriminately.
 
 In the following section a disincentive to acting indiscriminately will be
@@ -629,7 +629,7 @@ introduced. This can be interpreted in many ways:
     \item more severe punishment for indiscriminate killing of rhinos;
     \item educational interventions that highlight the negative aspects of
         indiscriminate killing;
-    \item the possibility of a better alternative being on offered to selective
+    \item the possibility of a better alternative being offered to selective
         poachers.
 \end{itemize}
 
