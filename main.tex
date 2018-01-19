@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 
-\usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
+\usepackage[includefoot, footskip=30pt]{geometry}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -16,6 +16,12 @@
 \usepackage{standalone}
 \usepackage{tikz}
 \usepackage{breakcites}
+\usepackage{authblk}
+\usepackage{enumitem}
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{lineno}
 
 \newcommand{\rd}{\mathrm{d}}
 \newcommand{\be}{\begin{eqnarray}}
@@ -25,41 +31,59 @@
 
 \newtheorem{theorem}{Theorem}
 
+\usepackage[round]{natbib}
+
 % \journal{Undecided Journal}
 
 \title{An Evolutionary Game Theoretic Model of Rhino Horn Devaluation}
-\author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
+\author[1]{Nikoleta E. Glynatsi$^{\ast}$}
+\author[1]{Vincent Knight}
+\author[2]{Tamsin E. Lee}
+\affil[1]{School of Mathematics, Cardiff University, CF24 4AG}
+\affil[2]{Mathematical Institute, University of Oxford, OX2 6GG}
+
 \date{}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
+\noindent{} $\ast$ e-mail: glynatsine@cardiff.ac.uk.
 
-Rhino populations are at a critical level due to the demand for rhino horn and
-the subsequent poaching. Wildlife managers attempt to secure rhinos with
-approaches to devalue the horn, the most common of which is dehorning. Game theory
-has been used to examine the interaction of poachers and wildlife managers where
-a manager can either `dehorn' their rhinos or leave the horn attached and poachers
-may behave `selectively' or `indiscriminately'. The approach described in this paper
-builds on this previous
-work and investigates the interactions between the poachers. We build an evolutionary
-game theoretic model and determine which strategy is preferred by a poacher in various
-different populations of poachers. The purpose of this work is to discover whether
-conditions which encourage the poachers to behave selectively exist, that is,
-they only kill those rhinos with full horns. Notwithstanding, the analytical
-results prove that poachers will never adopt a selective strategy as long as
-there is gain from a partial horn. Additionally, poachers behaving indiscriminately
-is stable and robust. However, the model is adapted further to include a
-disincentive factor, which may represent factors such as harsher punishment, or
-lower demand for horn. With a disincentive, poachers can be encouraged to behave
-selectively, but only when there are few devalued rhinos. This paper aims to
-contribute to the necessary research required for informed discussion about the
-lively debate on legalising rhino horn trade.
+\begin{abstract}
+\noindent{}
+
+\begin{enumerate}
+    \item Rhino populations are at a critical level due to the demand for rhino
+    horn and the subsequent poaching. Wildlife managers attempt to secure rhinos 
+    with approaches to devalue the horn, the most common of which is dehorning.
+    \item Game theory has been used to examine the interaction of poachers and wildlife
+    managers where a manager can either `dehorn' their rhinos or leave the horn
+    attached and poachers may behave `selectively' or `indiscriminately'. The approach
+    described in this paper builds on this previous work and investigates the
+    interactions between the poachers. We build an evolutionary game theoretic
+    model and determine which strategy is preferred by a poacher in various
+    different populations of poachers.
+    \item The analytical results prove that poachers will never adopt a selective
+    strategy as long as there is gain from a partial horn. Additionally, poachers
+    behaving indiscriminately is stable and robust.
+    \item However, the model is adapted further to include a
+    disincentive factor, which may represent factors such as harsher punishment,
+    or lower demand for horn. With a disincentive, poachers can be encouraged to
+    behave selectively, but only when there are few devalued rhinos.
+    \item \textit{Synthesis and applications.} The purpose of this work is to discover
+    whether conditions which encourage the poachers to behave selectively exist,
+    that is, they only kill those rhinos with full horns. The paper aims to
+    contribute to the necessary research required for informed discussion about
+    the lively debate on legalising rhino horn trade.
+
+\end{enumerate}
 
 \end{abstract}
 
+\textit{Keywords}: Evolutionary dynamics, Evolutionary stability, Game theory,
+Poachers' interactions, Rhinoceros, Rhino horns, Wildlife.
+\newpage
 %=============================================
 \section{Introduction}\label{section:introduction}
 
@@ -82,12 +106,12 @@ trade ban we can reduce the market's demand.
 Nonetheless, for wildlife managers law enforcement is often one of the main methods
 to deter poachers.
 In response, rhino conservation has seen increased  militarisation with `boots on the
-ground' and `eyes in the sky'~\cite{duffy_st}. An alternative method is to
+ground' and `eyes in the sky'~\citep{duffy_st}. An alternative method is to
 devalue the horn itself, one of the main  methods being the removal so that only
 a stub is left. The first attempt at large-scale rhino dehorning as an anti-poaching
-measure was in Damaraland, Namibia, in 1989~\cite{Milner1992}. Other methods
+measure was in Damaraland, Namibia, in 1989~\citep{Milner1992}. Other methods
 of devaluing the horn that have been suggested include
-the insertion of poisons, dyes or GPS trackers~\cite{Gill2010,Smith1993}. However,
+the insertion of poisons, dyes or GPS trackers~\citep{Gill2010,Smith1993}. However,
 like dehorning, they cannot remove all the potential gain from an intact horn 
 (poison and dyes fade or GPS trackers can be removed and have been found to affect
 only a small proportion of the horn).
@@ -100,7 +124,7 @@ perhaps adopt a combination of the two; especially given that devaluing rhinos
 comes at a cost to the manager, and the process comes with a risk to the rhinos.
 
 A recent paper modelled the interaction between a rhino manager and poachers
-using game theory~\cite{Lee}. The authors consider a working year of a single
+using game theory~\citep{Lee}. The authors consider a working year of a single
 rhino manager. A manager is assumed to have standard yearly resources which
 can be allocated on devaluing a proportion of their rhinos or spent on security.
 It is assumed that all rhinos initially have intact horns. Poachers may either only
@@ -116,7 +140,7 @@ always behave so as to maximise their payoff, there are two equilibriums: either
 all rhinos are devalued and all poachers are selective;
 or all horns are intact and all poachers are indiscriminate. Essentially, either
 the managers win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers
-win, the bottom right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee}
+win, the bottom right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\citep{Lee}
 concludes that poachers will always choose to behave indiscriminately, and thus
 the game settles to the bottom right quadrant, i.e., the poachers win.
 This paper builds on the work of
@@ -139,6 +163,10 @@ game is not that of two players anymore (manager and poacher) but now the player
 are an infinite population of poachers. This allows for the interaction between
 poachers over multiple plays of the game to be explored with the rhino manager
 being the one that creates the conditions of the population.
+
+Note that poachers are, in practice finite, and each has individual factors that will
+affect a poacher's behaviour. An infinite population model corresponds to either
+an asymptotic generalisation or overall descriptive behaviour.
 
 In evolutionary game theory, we assume infinite populations and in our
 model this is represented by \(\chi=(x_1, x_2)\) with \(x_1\) being the proportion
@@ -216,7 +244,7 @@ nudge would move the marble out of its equilibria.
 
 In Section~\ref{section:the_model}, we determine expressions
 for \(u_1, u_2\) that correspond to a population of wild rhino poachers and we
-explore the stability of the equilibria identified in~\cite{Lee}. The results
+explore the stability of the equilibria identified in~\citep{Lee}. The results
 contained in this paper are proven analytically, and more specifically it is 
 shown that:
 
@@ -247,7 +275,7 @@ rhino horn and the number of rhinos (devalued and not).
 
 Let us first consider the gain to the poacher, where \(\theta\) is the amount of
 horn taken. We assume rhino horn value is determined by weight only, a 
-reasonable assumption as rhino horn is sold in a grounded form~\cite{Saverhino}.
+reasonable assumption as rhino horn is sold in a grounded form~\citep{Saverhino}.
 Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of
 horn gained is \(\theta=1\) for both the selective and the indiscriminate poacher.
 If the rhino horn has been devalued, and the poacher is selective, the amount of
@@ -265,7 +293,7 @@ proportion of selective poachers and \(1-x\) is the proportion of indiscriminate
 poachers. Note that since \(\theta_r, r, x  \in [0, 1]\), then
 \(\theta(r, x) > 0\), that is, some horn will be taken. Standard supply and demand
 arguments imply that the value
-of rhino horn decreases as the quantity of horn available increases~\cite{mankiw2010}.
+of rhino horn decreases as the quantity of horn available increases~\citep{mankiw2010}.
 Thus at any given time the expected gain is
 
 \begin{eqnarray}
@@ -793,7 +821,7 @@ disincentive, the proportion of rhinos which could be saved is limited, so
 approaches which aim to reduce demand (as suggested in~\cite{Duan2013})
 would have more potential.
 
-The disincentive factor can have several interpretations. According to~\cite{Duan2017},
+The disincentive factor can have several interpretations. According to~\citep{Duan2017},
 engaging the rural communities that neighbour or live with wildlife is the
 key to fighting the illegal trade of wildlife. Strengthening disincentives for
 illegal behaviour can be interpreted as the disincentive factor. Likewise,
@@ -824,6 +852,12 @@ introduce a third strategy available to poachers: this would represent the
 possibility of not poaching (perhaps finding another source of income) and/or
 leaving the current environment to poach elsewhere.
 
+\section*{Authors' contributions}
+
+All authors conceived the ideas and designed the methodology. NG and VK developed the
+source code needed for the numerical experiments and generating the data. All authors
+contributed critically to the drafts and gave final approval for publication.
+
 \section*{Acknowledgements}
 
 This work was performed using the computational facilities of the Advanced
@@ -832,10 +866,10 @@ Research Computing @ Cardiff (ARCCA) Division, Cardiff University.
 A variety of software libraries have been used in this work:
 
 \begin{itemize}
-    \item The Scipy library for various algorithms~\cite{scipy}.
-    \item The Matplotlib library for visualisation~\cite{hunter2007matplotlib}.
-    \item The SymPy library for symbolic mathematics~\cite{sympy}.
-    \item The Numpy library for data manipulation~\cite{walt2011numpy}.
+    \item The Scipy library for various algorithms~\citep{scipy}.
+    \item The Matplotlib library for visualisation~\citep{hunter2007matplotlib}.
+    \item The SymPy library for symbolic mathematics~\citep{sympy}.
+    \item The Numpy library for data manipulation~\citep{walt2011numpy}.
 \end{itemize}
 
 Finally, we would like to express our appreciation to David Roberts and Michael 't
@@ -843,7 +877,12 @@ Sas-Rolfes for their valuable and constructive suggestions for this research.
 We would also like to thank Anna Huzar for her illustration (Fig.~\ref{fig:RhinoPic}) and
 Dr. Jonathan Gillard for his careful reading and double checking of the algebra in the paper.
 
-\bibliographystyle{plain}
+\section*{Data Accessibility}
+
+The data generated for this work have been archived and are available
+online~\citep{Glynatsi2017}.
+
+\bibliographystyle{plainnat}
 \bibliography{bibliography.bib}
 
 \end{document}
