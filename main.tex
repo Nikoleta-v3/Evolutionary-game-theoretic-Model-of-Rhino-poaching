@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 
-\usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
+\usepackage[margin=2.5cm, includefoot, footskip=30pt]{geometry}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -16,6 +16,11 @@
 \usepackage{standalone}
 \usepackage{tikz}
 \usepackage{breakcites}
+\usepackage{setspace}
+\usepackage{lipsum}
+\captionsetup{font=doublespacing}% Double-spaced float captions
+
+\doublespacing% Double-spaced document text
 
 \newcommand{\rd}{\mathrm{d}}
 \newcommand{\be}{\begin{eqnarray}}
@@ -25,7 +30,7 @@
 
 \newtheorem{theorem}{Theorem}
 
-% \journal{Undecided Journal}
+\usepackage{lineno}
 
 \title{An Evolutionary Game Theoretic Model of Rhino Horn Devaluation}
 \author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
@@ -35,6 +40,16 @@
 
 \maketitle
 
+\bigskip
+\textbf{Keywords}: Evolutionary dynamics; Evolutionary stability; Game theory; \\
+\indent Poachers' interactions; Rhinoceros; Wildlife
+
+\bigskip
+
+\textbf{Declaration of interest}: None.
+
+\newpage
+\linenumbers{}
 \begin{abstract}
 
 Rhino populations are at a critical level due to the demand for rhino horn and
@@ -110,35 +125,28 @@ devalued rhino again, and/or to gain the value from the partial horn. If all rhi
 are left by the rhino manager with their intact horns, it does not pay poachers to
 be selective so they will chose to be indiscriminate since being selective incurs
 an additional cost to discern the status of the rhino. Conversely, if all poachers are
-selective, it pays rhino managers to invest in devaluing their rhinos. This dynamic
-is represented in Fig.~\ref{fig:RhinoPic}. Assuming poachers and managers will
-always behave so as to maximise their payoff, there are two equilibriums: either
-all rhinos are devalued and all poachers are selective;
+selective, it pays rhino managers to invest in devaluing their rhinos.
+Assuming poachers and managers will always behave so as to maximise their payoff,
+there are two equilibriums: either all rhinos are devalued and all poachers are selective;
 or all horns are intact and all poachers are indiscriminate. Essentially, either
-the managers win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers
-win, the bottom right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee}
-concludes that poachers will always choose to behave indiscriminately, and thus
-the game settles to the bottom right quadrant, i.e., the poachers win.
-This paper builds on the work of
-\cite{Lee} and considers the general strategy of devaluing horns, which includes
-dehorning.
+the managers win and rhinos survive or the poachers win and rhinos are killed. The
+paper~\cite{Lee} concludes that poachers will always choose to behave indiscriminately,
+and thus the game settles to the bottom right quadrant, i.e., the poachers win.
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[scale=0.2]{images/RhinoPic.pdf}
-    \caption{\label{fig:RhinoPic} The game between rhino manager and rhino
-    poachers. The system settles to one of two equilibriums, either devaluing is
-    effective or not.}
-\end{figure}
 
-The work of~\cite{Lee} did not take in to account the population dynamic effect
-of these strategies. In a population full of indiscriminate poachers is there
+In this manuscript, we explore the population dynamic effects associated to
+the interactions described by~\cite{Lee}. More specifically, the interaction between 
+poachers.In a population full of indiscriminate poachers is there
 a benefit to a single poacher becoming selective or vice versa? This notion
 is explored here using evolutionary game theory~\cite{Smith}. The
 game is not that of two players anymore (manager and poacher) but now the players
 are an infinite population of poachers. This allows for the interaction between
 poachers over multiple plays of the game to be explored with the rhino manager
 being the one that creates the conditions of the population.
+
+Note that poachers are, in practice finite, and each has individual factors that will
+affect a poacher's behaviour. An infinite population model corresponds to either
+an asymptotic generalisation or overall descriptive behaviour.
 
 In evolutionary game theory, we assume infinite populations and in our
 model this is represented by \(\chi=(x_1, x_2)\) with \(x_1\) being the proportion
@@ -161,6 +169,11 @@ the population over time, according to the following differential equations,
     \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi),
     \end{array} \right.
 \end{eqnarray}
+
+In some settings these utilities are referred to as fitness and/or are mapped to
+a further measure of fitness. This is not the case considered here (it is
+assumed all evolutionary dynamics are considered by the utility measures).
+
 where \(\phi\) is the average fitness of the whole population. Here, the overall
 population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
 
@@ -168,6 +181,7 @@ population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
     \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
      + x_2(u_2(\chi) - \phi)=0.
 \end{eqnarray} 
+
 Recalling that \(x_1 + x_2 = 1\) the average fitness can be written as,
 
 \begin{eqnarray}
@@ -201,12 +215,12 @@ nudge would move the marble out of its equilibria.
 
 \begin{figure}[!htbp]
 \begin{center}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.35\textwidth}
     \includestandalone[width =\textwidth]{images/stable}
     \caption{\label{fig:stable_diagram} A diagram of a stable strategy which 
     is not ESS.}
     \end{subfigure}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.35\textwidth}
     \includestandalone[width = \textwidth]{images/evolutionary_stability}
     \caption{\label{fig:ess_diagram}A diagram of a stable strategy which is ESS.}
     \end{subfigure}
@@ -248,8 +262,8 @@ rhino horn and the number of rhinos (devalued and not).
 Let us first consider the gain to the poacher, where \(\theta\) is the amount of
 horn taken. We assume rhino horn value is determined by weight only, a 
 reasonable assumption as rhino horn is sold in a grounded form~\cite{Saverhino}.
-Referring to Fig.~\ref{fig:RhinoPic}, clearly if the horn is intact, the amount of
-horn gained is \(\theta=1\) for both the selective and the indiscriminate poacher.
+Clearly if the horn is intact, the amount of horn gained is \(\theta=1\) for both
+the selective and the indiscriminate poacher.
 If the rhino horn has been devalued, and the poacher is selective, the amount of
 horn gained is \(\theta=0\) as the poacher does not kill. However, if the poacher
 is behaving indiscriminately, the proportion of horn gained is \(\theta = \theta_r\)
@@ -298,7 +312,7 @@ Therefore, the gain for a poacher in the population \(x\) is either
     \theta(r, 0) H \theta(r, x)^{-\alpha} & \mbox{ indiscriminate poacher}
     \end{array} \right.
 \end{eqnarray}
-depending on the chosen strategy of the individual, see Fig.~\ref{fig:RhinoPic}.
+depending on the chosen strategy of the individual.
 
 Secondly we consider the costs incurred by the poacher. Let us denote the number
 of rhinos that will be considered at risk given \(r\) and \(x\) as \(\psi(r, x)\).
@@ -549,7 +563,7 @@ equilibrium at the population level.
 
 \begin{theorem}\label{theorem:mixed}
 Using the utility model described in section~\ref{section:the_model}, a mixed
-stable strategy (\(s=s^*\)) never exists for \(0 < r <1\).  
+stable population (\(s=s^*\)) never exists for \(0 < r <1\).  
 \end{theorem}
 
 \begin{proof}
@@ -824,6 +838,12 @@ introduce a third strategy available to poachers: this would represent the
 possibility of not poaching (perhaps finding another source of income) and/or
 leaving the current environment to poach elsewhere.
 
+\section*{Authors' contributions}
+
+All authors conceived the ideas and designed the methodology. NG and VK developed the
+source code needed for the numerical experiments and generating the data. All authors
+contributed critically to the drafts and gave final approval for publication.
+
 \section*{Acknowledgements}
 
 This work was performed using the computational facilities of the Advanced
@@ -840,8 +860,13 @@ A variety of software libraries have been used in this work:
 
 Finally, we would like to express our appreciation to David Roberts and Michael 't
 Sas-Rolfes for their valuable and constructive suggestions for this research.
-We would also like to thank Anna Huzar for her illustration (Fig.~\ref{fig:RhinoPic}) and
+We would also like to thank
 Dr. Jonathan Gillard for his careful reading and double checking of the algebra in the paper.
+
+\section*{Data Accessibility}
+
+The data generated for this work have been archived and are available
+online~\cite{Glynatsi2017}.
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
