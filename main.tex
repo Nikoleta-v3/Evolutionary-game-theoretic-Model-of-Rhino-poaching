@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 
-\usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
+\usepackage[margin=2.5cm, includefoot, footskip=30pt]{geometry}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -16,6 +16,11 @@
 \usepackage{standalone}
 \usepackage{tikz}
 \usepackage{breakcites}
+\usepackage{setspace}
+\usepackage{lipsum}
+\captionsetup{font=doublespacing}% Double-spaced float captions
+
+\doublespacing% Double-spaced document text
 
 \newcommand{\rd}{\mathrm{d}}
 \newcommand{\be}{\begin{eqnarray}}
@@ -25,7 +30,7 @@
 
 \newtheorem{theorem}{Theorem}
 
-% \journal{Undecided Journal}
+\usepackage{lineno}
 
 \title{An Evolutionary Game Theoretic Model of Rhino Horn Devaluation}
 \author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
@@ -35,6 +40,16 @@
 
 \maketitle
 
+\bigskip
+\textbf{Keywords}: Evolutionary dynamics; Evolutionary stability; Game theory; \\
+\indent Poachers' interactions; Rhinoceros; Wildlife
+
+\bigskip
+
+\textbf{Declaration of interest}: None.
+
+\newpage
+\linenumbers{}
 \begin{abstract}
 
 Rhino populations are at a critical level due to the demand for rhino horn and
@@ -201,12 +216,12 @@ nudge would move the marble out of its equilibria.
 
 \begin{figure}[!htbp]
 \begin{center}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.35\textwidth}
     \includestandalone[width =\textwidth]{images/stable}
     \caption{\label{fig:stable_diagram} A diagram of a stable strategy which 
     is not ESS.}
     \end{subfigure}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.35\textwidth}
     \includestandalone[width = \textwidth]{images/evolutionary_stability}
     \caption{\label{fig:ess_diagram}A diagram of a stable strategy which is ESS.}
     \end{subfigure}
