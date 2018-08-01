@@ -36,7 +36,7 @@ basically do in the following line, that x uniquely determines the proportion of
 both types and therefore describes the state of the population of poachers. The added
 variable is unnecessary unless you are going to use it heavily later.
 
-**Action:**
+**Action:** Discuss with Vince
 
 >> Eqn 6 is confusing as to how it should exactly be thought of and how it relates to
 supply and demand relationships. It is not clear how fig.2 shows how "fig 2 verifies
@@ -177,14 +177,14 @@ be challenging to predict. I think addressing this question could definitely inc
 dramatically the novelty of this study, which will be beneficial from an ecological and
 a modelling point of views.
 
-**Action:**
+**Action:** Address this by adding a line about (1 -r) as discussed with Vince
 
 >> The authors have also identified some situations were selective strategy could be
 more beneficial than indiscriminate. I think it could be interesting to look at the
 literature in which kind of situations we really are, and if these conditions found
 theoretically can be really encountered on the field.
 
-**Action:**
+**Action:** Investigate
 
 >> Regarding the length of the paper, I am not 100% sure that the analysis for situations
 where everyone has selective or indiscriminate strategy really brings something.
@@ -193,20 +193,20 @@ would be moved in supplementary materials. I understand the point of showing the
 difference with mixed strategies, which won't be stable, but I still think these
 analyses on pure strategies are not very insightful.
 
-**Action:**
+**Action:** Possible remove some theorems or just put some together
 
 >> Finally, from a presentation point of view, I think that figure 1 is not needed
 
-**Action:**
+**Action:** Remove figure add more the discussion of ess
 
 >> Figure 2 and 3 could be merged.
 
-**Action:**
+**Action:** possible merge
 
 >> Legends and axes names need to be improved to make the figures readable without going back to the text.
 
-**Action:**
+**Action:** Discuss
 
 >> I think that a summary figure of the selected strategies (without discentive) could be also an interesting addition.
 
-**Action:**
+**Action:** Discuss
