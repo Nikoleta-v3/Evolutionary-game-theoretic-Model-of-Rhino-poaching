@@ -14,7 +14,9 @@ the word "horn gained" because we are thinking about "dehorning" but the model i
 general, or something to that effect.
 
 **Action:** Yes, reword to "proportion of value gained from the horn" and add a
-sequence of how our model can be applied to other devaluation methods
+sequence of how our model can be applied to other devaluation methods. We
+suggest also ensuring that the language throughout is in terms of devalued and
+not dehorned rhinos.
 
 >> Eqn 5, There are many mathematically valid choices for how to write this equation,
 including yours, but I think this way of expressing it is less clear than some alternatives.
@@ -29,28 +31,31 @@ is the additional value harvested by the indiscriminate poachers. The second is 
 simplest expression in my opinion, but I can see reasons for why you might prefer
 the former one.
 
-**Action:** Yes, re-write
+**Action:** Yes, re-write, potentially include both forms?
+Similarly for equation (8).
 
 >> Ln 55-56 pg 6, can you avoid introducing the variable capital x. Simply say as you
 basically do in the following line, that x uniquely determines the proportion of
 both types and therefore describes the state of the population of poachers. The added
 variable is unnecessary unless you are going to use it heavily later.
 
-**Action:** Discuss with Vince
+**Action:** Remove \(\chi\) and move the sentence about removing it to earlier.
 
 >> Eqn 6 is confusing as to how it should exactly be thought of and how it relates to
 supply and demand relationships. It is not clear how fig.2 shows how "fig 2 verifies
 that the gain curve corresponds to a demand curve". How exactly does it do this?
 
-**Action:** Talk about \alpha and how it will allow us to capture the behaviour of
-supply demand, but need to explain the supply demand relationship.
+**Action:** Talk about \alpha and how it will allow us to capture the behaviour
+of supply demand, but need to explain the supply demand relationship. We can do
+this by adding more explanation surrounding the figure. "We see that when the
+supply of rhinos is high, ie a low level of r, the value is low and vice versa".
+Also, include a very clear sentence saying that \(H, \alpha\) are scaling
+parameters that ensure the needed gradient.
 
 >> Eqn 9, this is a bit strange to me, why is this an exponent? Consider that each rhino
 dehorned caused a unit of money that could go to security, then dollars to security is
 directly proportional to (1 – r) so why not a constant multiple? Presumably if beta < 1
 this could denote a diminishing return on police efficacy
-
-**Action:**
 
 >> Eqn 8, I do not understand this equation. What is this the cost of? Searching for rhinos?
 Presumably this could be measured in the amount of time it took to find a rhino comparatively
@@ -63,8 +68,6 @@ double counting. Your benefit function includes the added benefit from poaching 
 indiscriminately by getting more rhinos. Please walk the reader through this equation.
 Is it search cost? Is this the same cost for an individual of both strategies? I’m not
 really sure what you are assuming here.
-
-**Action:**
 
 >> Eqn 5 – 11, Handling time of killing and processing a rhinos and the increased risk of
 being caught due to killing more rhinos (dehorned rhinos) do not appear to be factored
@@ -79,8 +82,6 @@ the value of horn equally. So only through risk of exposure and added costs thro
 handling time of killing less valuable rhinos can one argue for dehorning, which this
 paper doesn't explore.
 
-**Action:**
-
 >> Eqn 11 confuses me as I thought time would be the unit of cost of searching for rhinos,
 as can be seen from my comment above I thought something like these equations would be
 the costs. Basically I was expecting equation 11 to be the costs. It seems like we have
@@ -89,6 +90,21 @@ being poached, but you call it the cost, which is confusing to me. Am I missing
 something here?
 
 **Action:**
+
+For all of the above: we are going to express the cost of poachers in "simpler"
+terms:
+
+- Likelihood of being caught by security: \((1 - r) ^ \beta\) 
+- Time spent in the park
+
+Time spent in the park will be calculated differently for each type of poacher
+under the assumption that all poacher aim to "get" "1" amount of horn before
+leaving. (The comment of having a linear multiplicative constant will take care
+of itself as it will just be what is currently F).
+
+TODO: Do the formulation and rewrite
+TODO: Code up the formulation and code a simulation of it.
+TODO: Redo all theoretic results
 
 >> Similar to the capital X comment this sentence is also confusing. Just introduce s.
 
@@ -167,6 +183,8 @@ for this model to hold in the macroeconomic case.
 
 **Action:**
 
+Add required discussion.
+
 # Reviewer 2
 
 >> I think the most problematic assumption is that rhino population dynamics is assumed
@@ -205,8 +223,8 @@ analyses on pure strategies are not very insightful.
 
 >> Legends and axes names need to be improved to make the figures readable without going back to the text.
 
-**Action:** Discuss
+**Action:** Make bigger.
 
 >> I think that a summary figure of the selected strategies (without discentive) could be also an interesting addition.
 
-**Action:** Discuss
+**Action:** Ask Tamsin if she understands what is wanted here.
