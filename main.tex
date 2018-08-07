@@ -15,6 +15,7 @@
 \usepackage{ulem}
 \usepackage{standalone}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usepackage{breakcites}
 \usepackage{setspace}
 \usepackage{lipsum}
@@ -103,15 +104,15 @@ a stub is left. The first attempt at large-scale rhino dehorning as an anti-poac
 measure was in Damaraland, Namibia, in 1989~\cite{Milner1992}. Other methods
 of devaluing the horn that have been suggested include
 the insertion of poisons, dyes or GPS trackers~\cite{Gill2010,Smith1993}. However,
-like dehorning, they cannot remove all the potential gain from an intact horn 
+like dehorning, they cannot remove all the potential gain from an intact horn
 (poison and dyes fade or GPS trackers can be removed and have been found to affect
 only a small proportion of the horn).
-In~\cite{Milner1992} they found the 
-optimum proportion to dehorn using mean horn length as a measure of the 
-proportion of rhinos dehorned. They showed, with realistic parameter values, 
-that the optimal strategy is to dehorn as many rhinos as possible. 
+In~\cite{Milner1992} they found the
+optimum proportion to dehorn using mean horn length as a measure of the
+proportion of rhinos dehorned. They showed, with realistic parameter values,
+that the optimal strategy is to dehorn as many rhinos as possible.
 A manager does not need to choose between law enforcement or devaluing, but
-perhaps adopt a combination of the two; especially given that devaluing rhinos 
+perhaps adopt a combination of the two; especially given that devaluing rhinos
 comes at a cost to the manager, and the process comes with a risk to the rhinos.
 
 A recent paper modelled the interaction between a rhino manager and poachers
@@ -120,7 +121,7 @@ rhino manager. A manager is assumed to have standard yearly resources which
 can be allocated on devaluing a proportion of their rhinos or spent on security.
 It is assumed that all rhinos initially have intact horns. Poachers may either only
 kill rhinos with full horns, `selective poachers', or kill all rhinos they encounter,
-`indiscriminate poachers'. This strategy may be preferred to avoid tracking a 
+`indiscriminate poachers'. This strategy may be preferred to avoid tracking a
 devalued rhino again, and/or to gain the value from the partial horn. If all rhinos
 are left by the rhino manager with their intact horns, it does not pay poachers to
 be selective so they will chose to be indiscriminate since being selective incurs
@@ -135,7 +136,7 @@ and thus the game settles to the bottom right quadrant, i.e., the poachers win.
 
 
 In this manuscript, we explore the population dynamic effects associated to
-the interactions described by~\cite{Lee}. More specifically, the interaction between 
+the interactions described by~\cite{Lee}. More specifically, the interaction between
 poachers.In a population full of indiscriminate poachers is there
 a benefit to a single poacher becoming selective or vice versa? This notion
 is explored here using evolutionary game theory~\cite{Smith}. The
@@ -154,7 +155,7 @@ of the population using a strategy of the first type and \(x_2\) of the second. 
 assume there are utility functions \(u_1\) and \(u_2\) that map the population
 to a fitness for each strategy, given by,
 
-\[ u_1(\chi)  \text{ and } u_2(\chi).\] 
+\[ u_1(\chi)  \text{ and } u_2(\chi).\]
 
 In evolutionary game theory these utilities are used to dictate the evolution of
 the population over time, according to the following differential equations,
@@ -180,7 +181,7 @@ population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
 \begin{eqnarray}
     \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
      + x_2(u_2(\chi) - \phi)=0.
-\end{eqnarray} 
+\end{eqnarray}
 
 Recalling that \(x_1 + x_2 = 1\) the average fitness can be written as,
 
@@ -189,7 +190,7 @@ Recalling that \(x_1 + x_2 = 1\) the average fitness can be written as,
     \phi=x_1u_1(\chi) + x_2u_2(\chi).
 \end{eqnarray}
 
-\noindent{} By substituting (\ref{eqn:average_fitness}) and \(x_2= 1 - x_1\) 
+\noindent{} By substituting (\ref{eqn:average_fitness}) and \(x_2= 1 - x_1\)
 in (\ref{eqn:u_differential_eq}),
 
 \begin{eqnarray}
@@ -199,13 +200,13 @@ in (\ref{eqn:u_differential_eq}),
 
 The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
 are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1\) for \(u_1(\chi)=u_2(\chi)\).
-These equilibria correspond to stability of the population: the differential 
-equation (\ref{eqn:u_differential_simplified}) no longer changes. 
+These equilibria correspond to stability of the population: the differential
+equation (\ref{eqn:u_differential_simplified}) no longer changes.
 
 The notion of evolutionary stability can be checked only for these stable strategies.
 For a stable strategy to be an Evolutionary Stable Strategy (ESS) it must remain
 the best response even in a mutated population \(\chi_\epsilon\). A mutated population
-is the post entry population 
+is the post entry population
 where a small proportion \(\epsilon > 0\) starts deviating and adopts a different strategy.
 Fig.~\ref{fig:stable_ess_driagrams} illustrates two potential strategies: without
 outside stimulation neither marble would move. In Fig.~\ref{fig:ess_diagram}
@@ -217,7 +218,7 @@ nudge would move the marble out of its equilibria.
 \begin{center}
     \begin{subfigure}{0.35\textwidth}
     \includestandalone[width =\textwidth]{images/stable}
-    \caption{\label{fig:stable_diagram} A diagram of a stable strategy which 
+    \caption{\label{fig:stable_diagram} A diagram of a stable strategy which
     is not ESS.}
     \end{subfigure}
     \begin{subfigure}{0.35\textwidth}
@@ -231,7 +232,7 @@ nudge would move the marble out of its equilibria.
 In Section~\ref{section:the_model}, we determine expressions
 for \(u_1, u_2\) that correspond to a population of wild rhino poachers and we
 explore the stability of the equilibria identified in~\cite{Lee}. The results
-contained in this paper are proven analytically, and more specifically it is 
+contained in this paper are proven analytically, and more specifically it is
 shown that:
 
 \begin{itemize}
@@ -256,18 +257,18 @@ can adopt two strategies, to either behave selectively
 or indiscriminately. To calculate the utility for each strategy, the gain and cost
 that poachers are exposed to must be taken into account. The poacher incurs a
 loss from seeking a rhino, and the risk involved. The gain depends upon the value
-of horn, the proportion of horn remaining after the manager has devalued the 
+of horn, the proportion of horn remaining after the manager has devalued the
 rhino horn and the number of rhinos (devalued and not).
 
 Let us first consider the gain to the poacher, where \(\theta\) is the amount of
-horn taken. We assume rhino horn value is determined by weight only, a 
+horn taken. We assume rhino horn value is determined by weight only, a
 reasonable assumption as rhino horn is sold in a grounded form~\cite{Saverhino}.
 Clearly if the horn is intact, the amount of horn gained is \(\theta=1\) for both
 the selective and the indiscriminate poacher.
 If the rhino horn has been devalued, and the poacher is selective, the amount of
 horn gained is \(\theta=0\) as the poacher does not kill. However, if the poacher
 is behaving indiscriminately, the proportion of horn gained is \(\theta = \theta_r\)
-(for some \(0<\theta_r<1\)). Therefore, the amount of horn gained in the 
+(for some \(0<\theta_r<1\)). Therefore, the amount of horn gained in the
 general case is
 
 \begin{eqnarray}
@@ -300,7 +301,7 @@ gain curve corresponds to a demand curve.
 
 An individual interacts with the population, denoted as \(\chi=(x,1-x)\) .
 For simplicity, from herein the population \(\chi\) is referred to in terms
-of the proportion of selective poachers only, \(x\). 
+of the proportion of selective poachers only, \(x\).
 Therefore, the gain for a poacher in the population \(x\) is either
 % Beginning of some notation changes
 \begin{eqnarray}
@@ -314,9 +315,11 @@ Therefore, the gain for a poacher in the population \(x\) is either
 \end{eqnarray}
 depending on the chosen strategy of the individual.
 
+% TODO Re word this paragraph (specifically get rid of $\psi$) and just talk in
+% terms of time spent in the park.
 Secondly we consider the costs incurred by the poacher. Let us denote the number
 of rhinos that will be considered at risk given \(r\) and \(x\) as \(\psi(r, x)\).
-The rhinos \textbf{not} at risk are the devalued ones 
+The rhinos \textbf{not} at risk are the devalued ones
 that cross the paths of selective poachers. Thus the cost to seek a rhino depends
 on \(r\) and \(x\) by,
 
@@ -325,6 +328,86 @@ on \(r\) and \(x\) by,
     \psi(r, x) = 1 - rx.
 \end{eqnarray}
 
+
+It is assumed that a given poacher will spend sufficient time in the park to
+obtain the equivalent of a single Rhinoceros's horn. For selective poachers this
+implies searching the park for a fully valued horn and for indiscriminate
+poachers this implies either finding a fully valued horn or finding \(N_r\)
+total Rhinoceroses where \(N_r = \lceil 1 / \theta_r \rceil\).
+
+Figure~\ref{fig:random_walk} shows a random walk that any given poacher will
+follow in the park. Both types of poacher will exit the park as soon as they
+encounter a fully valued Rhino, which at every encounter is assumed to happen
+with probability \(1 - r\). However, the indiscriminate poachers may also exit
+the park if they encounter \(N_r\) devalued Rhinos in a row.
+Each step on the random walk is assumed to last 1 time unit: during which a
+Rhino is found.
+To capture the fact that indiscriminate poachers will spend a different amount
+of time with each Rhino the parameter \(t\) is introduced which corresponds to
+the amount of time it takes to find and kill a Rhino (thus \(t\geq 1\)).
+
+\begin{figure}[!htbp]
+    \begin{center}
+        \begin{tikzpicture}
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (1) at (0, 0) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (1full) at ($(1) + (2, 0)$) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (2) at (1, -1) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (2full) at ($(2) + (2, 0)$) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (3) at (2, -2) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (3full) at ($(3) + (2, 0)$) {};
+            \node (etc) at (3, -3) {\(\ddots\)};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (N-1) at (4, -4) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (N-1full) at ($(N-1) + (2, 0)$) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (N) at (5, -5) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (Nfull) at ($(N) + (2, 0)$) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (N+1) at (6, -6) {};
+            \node [circle,fill=black,inner sep=0pt,minimum size=3pt]
+                (N+1full) at ($(N+1) + (2, 0)$) {};
+            \node (etc2) at (7, -7) {\(\ddots\)};
+
+            \draw (1) -- node [below] {\(r\)} (2);
+            \draw (1) -- node [above] {\(1 - r\)} (1full);
+            \draw (2) -- node [below] {\(r\)} (3);
+            \draw (2) -- node [above] {\(1 - r\)} (2full);
+            \draw (3) -- node [above] {\(1 - r\)} (3full);
+            \draw (N-1) -- node [below] {\(r\)} (N);
+            \draw (N-1) --  node [above] {\(1 - r\)} (N-1full);
+            \draw (N) -- node [below] {\(r\)} (N+1);
+            \draw (N) --  node [above] {\(1 - r\)} (Nfull);
+            \draw (N+1) --  node [above] {\(1 - r\)} (N+1full);
+
+            \node [draw] (exit) at (6, -1) {Exit};
+            \draw [dashed, ->] (1full) -- node [above] {both} (exit);
+            \draw [dashed, ->] (2full) -- node [above] {both} (exit);
+            \draw [dashed, ->] (3full) -- node [below] {both} (exit);
+            \draw [dashed, ->] (N-1full) -- node [left] {both} (exit);
+            \draw [dashed, ->] (Nfull) -- node [right] {both} (exit);
+            \draw [blue, ->] (N+1full) edge [out=45, in=20] node [right] {sel.} (exit);
+
+            \draw [red, dashed, very thick] ($(N) - (5, 0)$) -- (N);
+            \draw [->] (1) -- node [left] {\(N_r\)} (0, -5);
+            \draw [red, ->] (N) edge[out=-45, in=0, looseness=2] node [right] {ind.}
+                (exit);
+        \end{tikzpicture}
+    \end{center}
+    \caption{Illustrative random walk showing the points at which an
+    indiscriminate or a selective poacher will leave the park}
+
+    \label{fig:random_walk}
+\end{figure}
+
+% TODO Re word below
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
 directly related to the proportion of rhinos not devalued, \(1 - r\), since
 the rhino manager can spend more on security if the cost of devaluing is low.
@@ -339,7 +422,7 @@ relationship between the measures.
 \end{eqnarray}
 where \(\beta \geq 0\) is a constant that determines the precise relationship between
 the proportion of rhinos not devalued and the security on the grounds. Therefore,
-at any given time the expected cost for a poacher is, 
+at any given time the expected cost for a poacher is,
 
 \begin{eqnarray}
     \label{eqn:individual_cost}
@@ -382,7 +465,7 @@ an additional cost that tends to infinity as \(r \rightarrow 1\),
 \end{eqnarray}
 
 To summarise, the cost incurred by a given individual poacher when interacting
-with the population \(x\) is given by 
+with the population \(x\) is given by
 
 \begin{eqnarray}
     \label{eqn:cost}
@@ -395,9 +478,9 @@ with the population \(x\) is given by
 \end{eqnarray}
 
 \noindent Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility functions for
-selective poachers, \(u_1(x)\), and indiscriminate poachers, \(u_2(x)\), 
+selective poachers, \(u_1(x)\), and indiscriminate poachers, \(u_2(x)\),
 
-\begin{eqnarray} 
+\begin{eqnarray}
 \label{eqn:USchi}
 u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
 - \frac{1}{1- r} F\psi(r, x)^{\gamma} (1-r)^{\beta} ,
@@ -419,7 +502,7 @@ a proportion of \(0 \leq x \leq 1\) selective poachers is
 \label{eqn:utility}
 u(s, x) = s u_1(x) +(1 - s) u_2(x).
 \end{eqnarray}
-Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility}) 
+Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility})
 and using (\ref{eqn:theta}) and (\ref{eqn:psi}) gives,
 
 \begin{eqnarray}
@@ -440,7 +523,7 @@ environment where the entire population is playing the same strategy.
 In our model there are three possible stable distributions based on the
 equilibria of equation (\ref{eqn:u_differential_simplified}):
 
-\begin{itemize} 
+\begin{itemize}
     \item all poachers are selective;
     \item all poachers are indiscriminate;
     \item mixed population of selective and indiscriminate poachers.
@@ -464,14 +547,14 @@ a population of selective poachers is unstable.
     u(1,1) > u(0,1),
     \end{equation}
     where
-    
+
     \begin{eqnarray}
     \label{eqn:s1x1}
     u(1, 1) & = & H(1 -r)\theta(r, 1) ^ {- \alpha} - F (\frac{1}{1 - r})(1 - r)^{\gamma}(1 - r)^{\beta} \\
     & = & H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
     \end{eqnarray}
-    and 
-    
+    and
+
     \begin{eqnarray}
     \label{eqn:s0x1}
     u(0,1) & = & H(\theta_r r - r + 1)\theta(r, 1) ^ {- \alpha} - F (1 - r)^{\gamma}(1 - r)^{\beta} \\
@@ -487,7 +570,7 @@ a population of selective poachers is unstable.
 
     The right-hand side  will always be negative
     for any \(r\), on the other hand the left-hand side is always positive.
-    Thus, (\ref{eqn:s1x1_s0x1}) can never hold. 
+    Thus, (\ref{eqn:s1x1_s0x1}) can never hold.
 \end{proof}
 
 This implies that whilst~\cite{Lee} identified the individual poachers
@@ -517,12 +600,12 @@ of indiscriminate poachers is evolutionarily stable.
     \begin{eqnarray}
         \label{eqn:u_indiscriminate_ess}
         u(0, x_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
-        - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^ {\beta}, 
+        - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^ {\beta},
         \\
         \label{eqn:u_mutated_ess}
          u(x_\epsilon, x_\epsilon) &=& H(\theta_rr(1 - x_\epsilon)-r+ 1)\theta(r,
         x_\epsilon) ^{-\alpha} - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^
-        {\beta}\left(1 - 
+        {\beta}\left(1 -
         x_\epsilon + \frac{x_\epsilon}{1- r}\right).
 \end{eqnarray}
 
@@ -563,7 +646,7 @@ equilibrium at the population level.
 
 \begin{theorem}\label{theorem:mixed}
 Using the utility model described in section~\ref{section:the_model}, a mixed
-stable population (\(s=s^*\)) never exists for \(0 < r <1\).  
+stable population (\(s=s^*\)) never exists for \(0 < r <1\).
 \end{theorem}
 
 \begin{proof}
@@ -579,7 +662,7 @@ stable population (\(s=s^*\)) never exists for \(0 < r <1\).
     \begin{eqnarray}
     \label{eqn:mixed_lhs}
     u(1,s^*)&=&
-    H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta} 
+    H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta}
     \end{eqnarray}
     and the right-hand side is
 
@@ -612,7 +695,7 @@ are illustrated in Fig.~\ref{fig:indiscriminate_ess}
 which shows the numerical solutions to (\ref{eqn:u_differential_simplified})
 using (\ref{eqn:USchi}) and  (\ref{eqn:UnotSchi}) with \(x_1=x\).
 This is done using numerical integration implemented  in~\cite{scipy}.
-As evidenced from the scenarios considered, all populations converge 
+As evidenced from the scenarios considered, all populations converge
 to being all indiscriminate.
 
 \begin{figure}[!htbp]
@@ -683,13 +766,13 @@ a population of selective poachers is stable if and only if:
     \tilde{u}(1,1) > \tilde{u}(0,1),
     \end{equation}
     where
-    
+
     \begin{eqnarray}
     \label{eqn:s1x1_new_utility}
     \tilde{u}(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
     \end{eqnarray}
-    and 
-    
+    and
+
     \begin{eqnarray}
     \label{eqn:s0x1_new_utility}
     \tilde{u}(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} - \Gamma.
@@ -701,7 +784,7 @@ a population of selective poachers is stable if and only if:
     \begin{eqnarray}
     \label{eqn:s1x1_s0x1_new_utility}
     &&\theta_r H -  F(1 -r) ^{\gamma + \beta + \alpha -1} < \frac{\Gamma (1- r) ^ {\alpha}}{r}.
-    \end{eqnarray} 
+    \end{eqnarray}
 \end{proof}
 
 \noindent This immediately leads to the following important remark:
@@ -748,7 +831,7 @@ expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poacher
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/ESS-new-utility.pdf}
-    \caption{The change of the population over 
+    \caption{The change of the population over
     time with different starting populations with a disincentive. For \(F=50, \alpha=2,
     \beta=2, \gamma=1, \theta_r=0.5, \Gamma=300\).}
     \label{fig:ess-new-utility}
@@ -784,7 +867,7 @@ expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poacher
 \section{Discussion and Conclusions}
 \label{section:discussion}
 
-In this work the dynamics of a selective population were explored. It was proven 
+In this work the dynamics of a selective population were explored. It was proven
 that being selective is not a best response even in a population where
 everyone is behaving selectively. More specifically, even a mixed population with
 a small percentage of the population behaving selectively will not persist. Thus,
@@ -812,17 +895,17 @@ engaging the rural communities that neighbour or live with wildlife is the
 key to fighting the illegal trade of wildlife. Strengthening disincentives for
 illegal behaviour can be interpreted as the disincentive factor. Likewise,
 increasing incentives for wildlife stewardship, decreasing the cost of living
-with wildlife, and supporting livelihood that is not related to poaching can 
+with wildlife, and supporting livelihood that is not related to poaching can
 serve as incentives for selective behaviour.
 
 Note that the proportion of dehorned rhinos \(r\) is continuous over \([0, 1]\)
-in the model. However, standard practice of a given park manager in almost all 
-cases is to either dehorn all the animals in a defined enclosed area, or none 
+in the model. However, standard practice of a given park manager in almost all
+cases is to either dehorn all the animals in a defined enclosed area, or none
 at all. This is thought to be because partial dehorning tends to disturb
 rhino social structures. The theoretic model presented here, whilst allowing for
 consideration at the park level with park managers playing a mixed strategy, also
 can be considered at the macroeconomic level. Where \(r\) represents the quantity
-of dehorned rhinos available across multiple parks. 
+of dehorned rhinos available across multiple parks.
 
 The insights gained, notably that a population of selective poachers is
 sustainable only if a large disincentive is in place (even if all rhinos have
