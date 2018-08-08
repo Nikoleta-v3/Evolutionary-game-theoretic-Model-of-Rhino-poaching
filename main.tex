@@ -407,7 +407,31 @@ the amount of time it takes to find and kill a Rhino (thus \(t\geq 1\)).
     \label{fig:random_walk}
 \end{figure}
 
-% TODO Re word below
+Using this, the expected time spent in the park \(T_1, T_2\) by poachers of both
+types can be obtained:
+
+For selective poachers:
+
+\begin{align}
+    T_1 &= (1-r)t + r(1-r)(1+t) + r^2(1-r)(2+t) + \dots\\
+        &= (1-r)\sum_{i=0}^{\infty}r^i(i+t)\\
+        &= (1-r)\left(1/r\sum_{i=0}^{\infty}ir^{(i+1)} + t\sum_{i=0}^{\infty}r^i\right)\\
+        &= (1-r)\left(\frac{r}{(1-r)^2} + \frac{t}{1-r}\right) && \text{ using standard
+formulae for geometric series}\\
+    &= \frac{r+t(1-r)}{1-r}
+\end{align}
+
+For indiscriminate poachers:
+
+\begin{align}
+    T_2 &= (1-r)t + r(1-r)2t + r^2(1-r)3t + \dots + r^{N_r - 2}(1-r)(N_r - 1)t + r^{N_r - 1}N_rt\\
+        &= (1-r)t\sum_{i=1}^{N_r - 1}ir^{i-1} + r^{N_r - 1}N_rt \\
+        &= (1-r)t\left(\frac{1}{r \left(r - 1\right)^{2}} \left(N_{r} r
+r^{N_{r}} - N_{r} r^{N_{r}} - r r^{N_{r}} + r\right)\right) + r^{N_r - 1}N_rt && \text{ using standard
+formulae for geometric series}\\
+        &= \frac{t}{r (1 - r)} \left(r^{2} + r^{N_{r}} - 2 r^{N_{r} + 1}\right)
+\end{align}
+
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
 directly related to the proportion of rhinos not devalued, \(1 - r\), since
 the rhino manager can spend more on security if the cost of devaluing is low.
@@ -420,19 +444,16 @@ relationship between the measures.
     \label{eqn:risk}
     (1 - r)^{\beta},
 \end{eqnarray}
+
 where \(\beta \geq 0\) is a constant that determines the precise relationship between
 the proportion of rhinos not devalued and the security on the grounds. Therefore,
 at any given time the expected cost for a poacher is,
 
 \begin{eqnarray}
     \label{eqn:individual_cost}
-    \begin{array}{l}
-    F \psi(r, x)^{\gamma} (1 - r)^{\beta} = F (1 - rx) ^{\gamma} (1 - r) ^{\beta}
-    \end{array}
+        FT_i(1 - r)^{\beta} \text{ for } i \in \{1, 2\}
 \end{eqnarray}
-where \(F\) and \(\gamma \geq 0\) are constants that determine the precise relationship
-between the proportion of vulnerable rhinos and the probability of finding a rhino,
-such that \(\gamma\) close to zero indicates very sparse rhinos. Fig.
+where \(F\) is a constants that determines the precise relationship. Fig.
 \ref{fig:CostCurves} verifies the decreasing relationship between \(r\) and the
 cost.
 
@@ -450,19 +471,6 @@ cost.
 \end{center}
 \end{figure}
 
-Note that a selective poacher needs
-more time to secure an `available' rhino, if they exist at all. Hence, there is
-an additional cost that tends to infinity as \(r \rightarrow 1\),
-
-\begin{eqnarray}
-    \label{eqn:selective_cost}
-    \left\{
-    \begin{array}{cl}
-    \frac{1}{\psi(r, 1)} = \frac{1}{1 - r} & \mbox{ selective poacher}
-    \\
-    \frac{1}{\psi(r, 0)} = 1 & \mbox{ indiscriminate poacher.}
-    \end{array} \right.
-\end{eqnarray}
 
 To summarise, the cost incurred by a given individual poacher when interacting
 with the population \(x\) is given by
