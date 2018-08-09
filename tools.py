@@ -1,8 +1,11 @@
+import math
+import random
+
 import sympy as sym
 import numpy as np
 from scipy.optimize import brentq
 
-r, s, x, theta_r, = sym.symbols("r, s, x, theta_r", positive=True)
+r, s, x, theta_r, t = sym.symbols("r, s, x, theta_r, t", positive=True)
 
 alpha, H, beta, gamma, F, epsilon = sym.symbols("alpha, H, beta, "
                                                 "gamma, F, epsilon",
@@ -22,12 +25,31 @@ def theta(r, s, theta_r=theta_r):
     """
     return s * (1 - r) + (1 - s) * ((theta_r - 1) * r + 1)
 
+def selective_time(r, t):
+    """
+    Expected time spent in park by a selective poacher
 
-def psi(r, s):
+    Parameters
+    ----------
+
+    r: float between 0 and 1 - the proportion of horns devalued
+    t: float between         - the time taken to kill a horn
     """
-    Returns the cost associated with finding a rhino
+    return (r + t * (1 - r)) / (1 - r)
+
+def indiscriminate_time(r, t, N_r):
     """
-    return 1 - r * s
+    Expected time spent in park by an indiscriminate poacher
+
+    Parameters
+    ----------
+
+    r: float between 0 and 1       - the proportion of horns devalued
+    t: float                       - the time taken to kill a horn
+    N_r: int                       - number of devalued rhinos that correspond
+                                     to a single valued rhino
+    """
+    return t * (1 - r ** N_r) / (1 - r)
 
 
 def gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha):
@@ -37,29 +59,24 @@ def gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha):
     return theta(r, s, theta_r) * H * theta(r, x, theta_r) ** (- alpha)
 
 
-def cost(s=s, x=x, r=r, F=F, beta=beta, gamma=gamma):
+def cost(s=s, t=t, x=x, r=r, F=F, beta=beta, theta_r=theta_r):
 
-    return (1 / psi(r, s)) * F * psi(r, x) ** gamma * (1 - r) ** beta
-
+    N_r = sym.ceiling(1 / theta_r)
+    return F * (1 - r) ** beta * (s * selective_time(r=r, t=t) + (1 - s) * indiscriminate_time(r=r, t=t, N_r=N_r))
 
 def utility(s=s, x=x, H=H, r=r, theta_r=theta_r, F=F, alpha=alpha, beta=beta,
             gamma=gamma):
     """
-    The total utility for a strategy 
+    The total utility for a strategy
     sigma=(s, 1-s) in a population chi=(x, 1-x)
     """
-    selective_utility = gain(s=1, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha)
-    selective_utility += - cost(s=1, x=x, r=r, F=F, beta=beta, gamma=gamma)
-    indiscriminate_utility = gain(s=0, x=x, H=H, r=r, theta_r=theta_r,
-                                  alpha=alpha)
-    indiscriminate_utility += - cost(s=0, x=x, r=r, F=F, beta=beta, gamma=gamma)
-
-    return s * selective_utility + (1 - s) * indiscriminate_utility
+    return gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha) - cost(s=s, t=t, x=x, r=r, F=F, beta=beta, theta_r=theta_r)
 
 
+# TODO Obtain new stability function
 def stable_mixed_condition():
     """
-    Returns the stable condition for mixed strategies. 
+    Returns the stable condition for mixed strategies.
     """
     numerator = -r * (-F * (-r + 1) ** beta * (-r * s + 1) ** gamma *
                       (-r * s * theta_r + r * theta_r - r + 1) ** alpha +
@@ -72,7 +89,7 @@ def stable_mixed_condition():
 def stable_selective_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
                                gamma=gamma, theta_r=theta_r):
     """
-    Returns the stable condition for selective strategies. 
+    Returns the stable condition for selective strategies.
     """
     lhs = H * theta_r * r
     rhs = F * (1 - (1 - r) ** -1) * (1 - r) ** (gamma + beta + alpha)
@@ -83,7 +100,7 @@ def stable_selective_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
 def stable_indiscriminate_condition(H=H, F=F, r=r, alpha=alpha, beta=beta,
                                     theta_r=theta_r):
     """
-    Returns the stable condition for indiscriminate strategies.  
+    Returns the stable condition for indiscriminate strategies.
     """
     lhs = H * theta_r * r
     rhs = F * (1 - (1 - r) ** -1) * (1 - r) ** beta * (theta_r * r - r + 1)\
