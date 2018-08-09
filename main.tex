@@ -315,19 +315,7 @@ Therefore, the gain for a poacher in the population \(x\) is either
 \end{eqnarray}
 depending on the chosen strategy of the individual.
 
-% TODO Re word this paragraph (specifically get rid of $\psi$) and just talk in
-% terms of time spent in the park.
-Secondly we consider the costs incurred by the poacher. Let us denote the number
-of rhinos that will be considered at risk given \(r\) and \(x\) as \(\psi(r, x)\).
-The rhinos \textbf{not} at risk are the devalued ones
-that cross the paths of selective poachers. Thus the cost to seek a rhino depends
-on \(r\) and \(x\) by,
-
-\begin{eqnarray}
-    \label{eqn:psi}
-    \psi(r, x) = 1 - rx.
-\end{eqnarray}
-
+Secondly we consider the costs incurred by the poacher.
 
 It is assumed that a given poacher will spend sufficient time in the park to
 obtain the equivalent of a single Rhinoceros's horn. For selective poachers this
@@ -407,7 +395,30 @@ the amount of time it takes to find and kill a Rhino (thus \(t\geq 1\)).
     \label{fig:random_walk}
 \end{figure}
 
-% TODO Re word below
+Using this, the expected time spent in the park \(T_1, T_2\) by poachers of both
+types can be obtained:
+
+For selective poachers:
+
+\begin{align}
+    T_1 &= (1-r)t + r(1-r)(1+t) + r^2(1-r)(2+t) + \dots\\
+        &= (1-r)\sum_{i=0}^{\infty}r^i(i+t)\\
+        &= (1-r)\left(1/r\sum_{i=0}^{\infty}ir^{(i+1)} + t\sum_{i=0}^{\infty}r^i\right)\\
+        &= (1-r)\left(\frac{r}{(1-r)^2} + \frac{t}{1-r}\right) && \text{ using standard
+formulae for geometric series}\\
+    &= \frac{r+t(1-r)}{1-r}
+\end{align}
+
+For indiscriminate poachers:
+
+\begin{align}
+    T_2 &= (1-r)t + r(1-r)2t + r^2(1-r)3t + \dots + r^{N_r - 2}(1-r)(N_r - 1)t + r^{N_r - 1}N_rt\\
+        &= (1-r)t\sum_{i=1}^{N_r - 1}ir^{i-1} + r^{N_r - 1}N_rt \\
+        &= (1-r)t\left(\frac{1}{r \left(r - 1\right)^{2}} \left(N_{r} r
+r^{N_{r}} - N_{r} r^{N_{r}} - r r^{N_{r}} + r\right)\right) + r^{N_r - 1}N_rt \\
+        &= \frac{t(1 - r^{N_r})}{(1 - r)}
+\end{align}
+
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
 directly related to the proportion of rhinos not devalued, \(1 - r\), since
 the rhino manager can spend more on security if the cost of devaluing is low.
@@ -420,74 +431,39 @@ relationship between the measures.
     \label{eqn:risk}
     (1 - r)^{\beta},
 \end{eqnarray}
-where \(\beta \geq 0\) is a constant that determines the precise relationship between
-the proportion of rhinos not devalued and the security on the grounds. Therefore,
-at any given time the expected cost for a poacher is,
+
+where \(\beta \geq 0\) is a constant that determines the precise relationship
+between the proportion of rhinos not devalued and the security on the grounds.
+Therefore, at any given time the expected cost for a poacher is,
 
 \begin{eqnarray}
-    \label{eqn:individual_cost}
-    \begin{array}{l}
-    F \psi(r, x)^{\gamma} (1 - r)^{\beta} = F (1 - rx) ^{\gamma} (1 - r) ^{\beta}
-    \end{array}
+    \label{eqn:cost}
+        FT_i(1 - r)^{\beta} \text{ for } i \in \{1, 2\}
 \end{eqnarray}
-where \(F\) and \(\gamma \geq 0\) are constants that determine the precise relationship
-between the proportion of vulnerable rhinos and the probability of finding a rhino,
-such that \(\gamma\) close to zero indicates very sparse rhinos. Fig.
+where \(F\) is a constants that determines the precise relationship. Fig.
 \ref{fig:CostCurves} verifies the decreasing relationship between \(r\) and the
 cost.
 
 \begin{figure}[!htbp]
-\begin{center}
-    \begin{subfigure}{0.40\textwidth}
-        \includegraphics[width=\linewidth]{images/gammas_curve.pdf}
-        \caption{For values, \(x=0.7, F=5\) and \(\beta=0.95\).}
-    \end{subfigure}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{center}
         \includegraphics[width=\linewidth]{images/betas_curve.pdf}
-        \caption{For values, \(x=1, F=5\) and \(\gamma=0.95\).}
-    \end{subfigure}
-\caption{\(F (1 - rx)^{\gamma} (1 - r)^{\beta}\).}\label{fig:CostCurves}
-\end{center}
+        \caption{Costs associated to both poachers for varying values of \(r\)
+        and \(t\).}\label{fig:CostCurves}
+    \end{center}
 \end{figure}
 
-Note that a selective poacher needs
-more time to secure an `available' rhino, if they exist at all. Hence, there is
-an additional cost that tends to infinity as \(r \rightarrow 1\),
-
-\begin{eqnarray}
-    \label{eqn:selective_cost}
-    \left\{
-    \begin{array}{cl}
-    \frac{1}{\psi(r, 1)} = \frac{1}{1 - r} & \mbox{ selective poacher}
-    \\
-    \frac{1}{\psi(r, 0)} = 1 & \mbox{ indiscriminate poacher.}
-    \end{array} \right.
-\end{eqnarray}
-
-To summarise, the cost incurred by a given individual poacher when interacting
-with the population \(x\) is given by
-
-\begin{eqnarray}
-    \label{eqn:cost}
-    \left\{
-    \begin{array}{cl}
-    \frac{1}{1 - r}  F\psi(r, x)^{\gamma} (1-r)^{\beta}& \mbox{ selective poacher}
-    \\
-    F\psi(r, x)^{\gamma} (1-r)^{\beta}& \mbox{ indiscriminate poacher.}
-    \end{array} \right.
-\end{eqnarray}
-
-\noindent Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility functions for
-selective poachers, \(u_1(x)\), and indiscriminate poachers, \(u_2(x)\),
+\noindent Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility
+functions for selective poachers, \(u_1(x)\), and indiscriminate poachers,
+\(u_2(x)\),
 
 \begin{eqnarray}
 \label{eqn:USchi}
-u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
-- \frac{1}{1- r} F\psi(r, x)^{\gamma} (1-r)^{\beta} ,
+u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha} 
+           - (r+t(1-r))F (1-r)^{\beta - 1} ,
 \\
 \label{eqn:UnotSchi}
 u_2(x) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
-- F\psi(r, x)^{\gamma}  (1-r)^{\beta}.
+- t(1 - r^{N_r})F(1-r)^{\beta-1}.
 \end{eqnarray}
 
 
@@ -503,12 +479,13 @@ a proportion of \(0 \leq x \leq 1\) selective poachers is
 u(s, x) = s u_1(x) +(1 - s) u_2(x).
 \end{eqnarray}
 Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility})
-and using (\ref{eqn:theta}) and (\ref{eqn:psi}) gives,
+and using (\ref{eqn:theta}) gives,
 
 \begin{eqnarray}
 \label{eqn:tutility2}
 u(s, x) &=&
-H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(1-s + \frac{s}{1-r} \right)(1-rx)^{\gamma}(1-r)^{\beta} .
+           H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - 
+           F\left(sr+st(1-r)+(1-s)t(1-r^{N_r})\right)(1-r)^{\beta-1} .
 \end{eqnarray}
 
 In Section~\ref{section:evolutionary_stability}, the notions of stability
