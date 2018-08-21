@@ -66,13 +66,13 @@ work and investigates the interactions between the poachers. We build an evoluti
 game theoretic model and determine which strategy is preferred by a poacher in various
 different populations of poachers. The purpose of this work is to discover whether
 conditions which encourage the poachers to behave selectively exist, that is,
-they only kill those rhinos with full horns. Notwithstanding, the analytical
-results prove that poachers will never adopt a selective strategy as long as
-there is gain from a partial horn. Additionally, poachers behaving indiscriminately
-is stable and robust. However, the model is adapted further to include a
-disincentive factor, which may represent factors such as harsher punishment, or
-lower demand for horn. With a disincentive, poachers can be encouraged to behave
-selectively, but only when there are few devalued rhinos. This paper aims to
+they only kill those rhinos with full horns.
+
+The analytical
+results show that full devaluation of all Rhinos will likely lead to
+indiscriminate poaching. In turn it shows the devaluing of Rhinos can only be
+effective when implemented along with a strong incentive framework.
+This paper aims to
 contribute to the necessary research required for informed discussion about the
 lively debate on legalising rhino horn trade.
 
@@ -238,12 +238,10 @@ contained in this paper are proven analytically, and more specifically it is
 shown that:
 
 \begin{itemize}
-    \item all poachers behaving selectively is trivially unstable,
-    \item a mixed population where selective and indiscriminate poachers
-          learn to coexist can not hold,
-    \item all poachers adopting an indiscriminate strategy is an evolutionary
-          stable strategy.
-    % TODO Modify this after the new utility model is done
+    \item In the presence of sufficient risk: a population of selective poachers
+        is stable.
+    \item Full devaluation of all rhinos will lead to indiscriminate poachers.
+        % TODO Modify this after the new utility model is done
 \end{itemize}
 
 This implies that under almost all conditions, no matter what current proportion
@@ -454,6 +452,20 @@ cost.
     \end{center}
 \end{figure}
 
+One final consideration given to the utility model is the incorporation of a
+disincentive to indiscriminate poachers. Numerous interpretations can be
+incorporated with this:
+
+\begin{itemize}
+    \item more severe punishment for indiscriminate killing of rhinos;
+    \item educational interventions that highlight the negative aspects of
+        indiscriminate killing;
+    \item the possibility of a better alternative being offered to selective
+        poachers.
+\end{itemize}
+
+This will be captured by a constant \(\Gamma\).
+
 \noindent Combining~(\ref{eqn:gain}) and (\ref{eqn:cost}) gives the utility
 functions for selective poachers, \(u_1(x)\), and indiscriminate poachers,
 \(u_2(x)\),
@@ -464,8 +476,8 @@ u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
            - (r+t(1-r))F (1-r)^{\beta - 1} ,
 \\
 \label{eqn:UnotSchi}
-u_2(x) &=& \theta(r,0) H \theta(r,x)^{-\alpha}
-- t(1 - r^{N_r})F(1-r)^{\beta-1}.
+u_2(x) &=& \theta(r,0) H \theta(r,x)^{-\alpha} - t(1 - r^{N_r})F(1-r)^{\beta-1}
+- \Gamma
 \end{eqnarray}
 
 
@@ -487,7 +499,8 @@ and using (\ref{eqn:theta}) gives,
 \label{eqn:tutility2}
 u(s, x) &=&
            H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} -
-           F\left(sr+st(1-r)+(1-s)t(1-r^{N_r})\right)(1-r)^{\beta-1} .
+           F\left(sr+st(1-r)+(1-s)t(1-r^{N_r})\right)(1-r)^{\beta-1}
+           -(1-s)\Gamma
 \end{eqnarray}
 
 Figure~\ref{fig:evolution_of_system} shows the evolution of the system over time
@@ -498,7 +511,7 @@ This is done using numerical integration implemented  in~\cite{scipy}.
     \includegraphics[width=\textwidth]{images/evolution_of_system.pdf}
     \caption{\label{fig:evolution_of_system} The change of the population over
     time with different starting populations. For \(F=5, H=50,
-    \alpha=2, \beta=.99, t=1.5, \theta_r=0.01\).}
+    \alpha=2, \beta=.99, t=1.5, \theta_r=0.01, \Gamma=0\).}
 \end{figure}
 
 Two different outcomes seem to be evolutionarily stable, for the higher values
@@ -507,7 +520,7 @@ to act indiscriminately. When \(r\) is lower, then there is less utility and
 sufficient full valued Rhinos to ensure the risk of acting selectively is
 sufficiently low.
 
-In Section~\ref{section:evolutionary_stability}, these two observations will be
+In Section~\ref{section:evolutionary_stability}, these observations will be
 confirmed theoretically.
 
 %=======================================================
@@ -551,7 +564,7 @@ Using equations (\ref{eqn:USchi}) and (\ref{eqn:UnotSchi}):
 
 \begin{equation}
     J(a) = \frac{1}{\left(r - 1\right) \left(- a r \theta_{r} + r \theta_{r} - r
-+ 1\right)^{\alpha + 1}} \left(J_1 - J_2 \right) \end{equation}
++ 1\right)^{\alpha + 1}} \left(J_1 - J_2 \right) + \Gamma(1 - 2a)\end{equation}
 
 where:
 
@@ -564,15 +577,13 @@ r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t\right)\\
 \end{align}
 
 
-\subsection{All poachers are selective}
-
 \begin{theorem}\label{theorem:selective}
 Using the utility model described in Section~\ref{section:the_model},
 a population of selective poachers is stable if and only if:
 
 \begin{equation}
     t > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
-    \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}}{F}
+    \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}-\Gamma/r(1-r)^{1-\beta}}{F}
 \end{equation}
 \end{theorem}
 
@@ -581,25 +592,42 @@ Direct substitution gives:
 
     \begin{align}
     J(1) &= \frac{1}{\left(- r + 1\right)^{\alpha + 1} \left(r - 1\right)}
-    \left(F \left(- r + 1\right)^{\beta} \left(- r + 1\right)^{\alpha + 1}
-    \left(r t - r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t\right) - H r \theta_{r} \left(r - 1\right)^{2}\right)\\
+                \left(
+                    F \left(- r + 1\right)^{\beta}
+                    \left(- r + 1\right)^{\alpha + 1}
+                    \left(
+                        r t -
+                        r -
+                        r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t
+                    \right)
+                    - H r
+                    \theta_{r}
+                    \left(r - 1\right)^{2}
+                \right) - \Gamma\\
 		&= \left(F
-\left(1 - r\right)^{\beta - 1} \left(r - t(r -
-r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\right) + H r \theta_{r} \left(1 -
-r\right)^{-\alpha}\right)
+                 \left(1 - r\right)^{\beta - 1}
+                 \left(
+                     r -
+                     t(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )
+                 \right) +
+                 H r \theta_{r} \left(1 - r\right)^{-\alpha}
+           \right)
+           - \Gamma
     \end{align}
 
 The required condition is \(J(1)<0\):
 
 \begin{align}
-    \left(F \left(1 - r\right)^{\beta - 1}r+ H r \theta_{r} \left(1 -
-    r\right)^{-\alpha}\right) & < F
-    \left(1 - r\right)^{\beta - 1} t(r -
-    r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\\
+    F
+    \left(1 - r\right)^{\beta - 1}r +
+    H r \theta_{r}
+    \left(1 - r\right)^{-\alpha}
+    - \Gamma
+            & < F \left(1 - r\right)^{\beta - 1}
+    t(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\\
     \frac{r}{r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil}}
-    \frac{F
-+ H \theta_{r} \left(1 -
-r\right)^{1-\beta-\alpha}}{F} & < t
+    \frac{F + H \theta_{r} \left(1 - r\right)^{1-\beta-\alpha} -
+    \Gamma/r(1-r)^{1-\beta}}{F} & < t
 \end{align}
 
 which gives the required result.
@@ -607,188 +635,44 @@ which gives the required result.
 \end{proof}
 
 \begin{itemize}
-    \item Note that limit of rhs as \(r\to1^-\) is \(\infty\) so simply dehorning
+    \item Note that limit of rhs as \(r\to1^-\) is \(\infty\) so simply
+        devaluing
         all rhinos is not a valid approach.
-    \item The equilibirum predicted in~\cite{Lee} can be obtained in specific
+    \item The equilibrium predicted in~\cite{Lee} can be obtained in specific
         setting.
 \end{itemize}
-
-\subsection{All poachers are indiscriminate}
-
-\begin{theorem}\label{theorem:indiscriminate}
-Using the utility model described in Section~\ref{section:the_model},
-a population of selective poachers is stable if and only if:
-
-\begin{equation}
-    t < \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}} \frac{F + H
-    \theta_{r}(1 - r)^{1-\beta}\left(r \theta_{r} - r + 1\right)^{-\alpha}}{F   }
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-Direct substitution gives:
-
-    \begin{align}
-        J(0) =& \frac{1}
-                     {(r-1)(r\theta_r -r + 1)^{\alpha + 1}}
-                 \left(F(1-r)^{\beta}
-                       (r\theta_r - r + 1)^{\alpha + 1}
-                       \left(r-rt+r^{\lceil\frac{1}{\theta_r}\rceil}t\right)
-                       -
-                       Hr\theta_r(r-1)(-r\theta_r + r - 1)\right)\\
-        J(0) =& \left(F(1-r)^{\beta-1}
-                       \left(r+t(r^{\lceil\frac{1}{\theta_r}\rceil}-r)\right)
-                       +
-                       Hr\theta_r(r\theta_r - r + 1)^{-\alpha}\right)\\
-\end{align}
-
-The required condition is \(J(0)<0\):
-
-\begin{align}
-    \left(F(1-r)^{\beta-1}r
-       +
-   Hr\theta_r(r\theta_r - r + 1)^{-\alpha}\right) & <
-                    F(1-r)^{\beta-1} t(r - r^{\lceil\frac{1}{\theta_r}\rceil})\\
-   \frac{r}{r - r^{\lceil\frac{1}{\theta_r}\rceil}}
-   \frac{F + H(1-r)^{1-\beta}\theta_r(r\theta_r - r + 1)^{-\alpha}}
-        {F}
-        & < t
-\end{align}
-
-Which gives the required result.
-
-\end{proof}
-
-\begin{itemize}
-    \item Note that limit of rhs as \(r\to1^-\) is \(\infty\) so simply dehorning
-        all rhinos will in fact imply that all poachers become indiscriminate.
-    \item The equilibirum predicted in~\cite{Lee} can be obtained in specific
-        setting.
-\end{itemize}
-
-\subsection{Mixed population of selective and indiscriminate poachers}
-
-\begin{theorem}\label{theorem:mixed}
-Using the utility model described in section~\ref{section:the_model}, a mixed
-stable population (\(s=s^*\)) exists if and only the following two conditions
-hold:
-
-\begin{equation}
-    \frac{Hr\theta_r(1-r)^{1-\beta} + rF}
-         {F\left(r - r^{\lceil\frac{1}{\theta_r}\rceil}\right)}
-    \leq t
-    \label{eqn:real_valued_constraint}
-\end{equation}
-
-\begin{equation}
-    (r\theta_r+1-r)^{\alpha} >
-        \frac{-Hr\theta_r(1 - r)^{1-\beta}}
-        {F\left(-rt+r+r^{\lceil\frac{1}{\theta_r}\rceil}t\right)}
-    > (1-r)^{\alpha}
-    \label{eqn:probability_constraint}
-\end{equation}
-
-If (\ref{eqn:real_valued_constraint}) and (\ref{eqn:probability_constraint})
-holds then \(x^*\) is given by:
-
-\begin{equation}
-    x^* = \frac{1}{r\theta_r}\left(
-        r\theta_r - r - \left(
-                    \frac{-Hr\theta_r(1 - r)^{1-\beta}}
-                    {F\left(-rt+r+r^{\lceil\frac{1}{\theta_r}\rceil}t\right)}
-                        \right)^{\frac{1}{\alpha}} + 1
-    \right)
-    \label{eqn:mixed_equilibria}
-\end{equation}
-
-\end{theorem}
-
-\begin{proof}
-    Equation (\ref{eqn:mixed_equilibria}) follows from equating (\ref{eqn:USchi}) and
-    (\ref{eqn:UnotSchi}). Ensuring \(x^*\in\mathbb{R}\) gives
-    (\ref{eqn:real_valued_constraint}) and ensuring \(0 < x < 1\) gives
-    (\ref{eqn:probability_constraint}).
-\end{proof}
 
 In this section we have analytically studied the stability of all the possible
 equilibria. We have proven that all potential equilibria are possible.  All of
 these theoretic results have been verified empirically, and the data for this
 has been archived at~\cite{Glynatsi2017}. % TODO Rerun the data.
 
-% TODO Add discussion here.
-
-In the following section a disincentive to acting indiscriminately will be
-introduced. This can be interpreted in many ways:
+Figure~\ref{fig:convergence-over-r} shows a number of scenarios:
 
 \begin{itemize}
-    \item more severe punishment for indiscriminate killing of rhinos;
-    \item educational interventions that highlight the negative aspects of
-        indiscriminate killing;
-    \item the possibility of a better alternative being offered to selective
-        poachers.
+    \input{list_of_scenarios.tex}
 \end{itemize}
-
-\section{Disincentive for indiscriminate behaviour}
-
-Let us consider the following modification of the utility to an indiscriminate
-poacher:
-
-\begin{equation}
-    \label{eqn:modified_utility_for_ind}
-    \tilde u_2(x) = u_2(x) - \Gamma
-\end{equation}
-
-where \(\Gamma>0\) is some constant representing a disincentive only applied to
-indiscriminate poachers. This leads to the following modified form of (\ref{eqn:utility}):
-
-\begin{equation}
-    \label{eqn:modified_utility}
-    \tilde u(s, x) = u(s, x) - (1 - s) \Gamma.
-\end{equation}
-
-\noindent This leads to the following theorem:
-
-\begin{theorem}\label{theorem:selective_new_utility}
-Using the modified utility model described
-a population of selective poachers is evolutionarily stable if and only if:
-
-\begin{equation}
-    t > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
-    \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}}{F} - \Gamma
-\end{equation}
-
-\end{theorem}
-
-\begin{proof}
-    The proof follows by calculating the modified linear approximation
-    condition:
-
-    \[
-        J_{\Gamma}(x) = J(x) + \frac{d}{dx}\Gamma(x(1-x)) = J(x) + \Gamma(1-2x)
-    \]
-
-    For a selective population this gives \(J_{\Gamma}(1) = J(1) - \Gamma\). The
-proof follows in the same way as for
-Theorem~\ref{theorem:selective}.  \end{proof}
-
-Figure~\ref{fig:convergence-over-r} shows a number of scenarios.
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/steady_populations.pdf}
     \caption{Evolutionary stable populations for varying values of \(t, r,
-        \Gamma\) for 6 difference scenarios. Varying values (TODO Include them),
-    scenarios 5 and 6 have \(\Gamma=4\) (high) and \(r\) close to 1.}
+    \Gamma\) for 6 difference scenarios.}
     \label{fig:convergence-over-r}
 \end{figure}
 
+These simulations confirm Theorem~\ref{theorem:selective}:
+
 
 \begin{itemize}
-    \item Too high value of \(r\) will swap the population.
-    \item \(Gamma\) is only thing that can actually be controlled.
-    \item This confirms that devaluing alone is not a solution and in fact can
-        potentially have averse consequences: combinations of dehorning and
-        education (creating a disincentive) is needed.
+    \item Too high value of \(r\) force the population to become indiscriminate
+        even with a high disincentive.
+    \item For all scenarios a value of \(r\) does exist for which a selective
+        population will subsist.
 \end{itemize}
+
+This confirms that devaluing alone is not a solution and in fact can
+potentially have averse consequences: combinations of dehorning and
+education (creating a disincentive) is needed.
 
 %=============================================================
 \section{Discussion and Conclusions}
@@ -796,28 +680,15 @@ Figure~\ref{fig:convergence-over-r} shows a number of scenarios.
 
 % TODO Redo this
 
-In this work the dynamics of a selective population were explored. It was proven
-that being selective is not a best response even in a population where
-everyone is behaving selectively. More specifically, even a mixed population with
-a small percentage of the population behaving selectively will not persist. Thus,
-a poacher would never adopt a selective strategy over an indiscriminate one.
+In this work the dynamics of a selective population were explored. It was shown
+that given sufficient risk associated with killing a Rhino it would be possible
+for a selective population of poachers to subsist..
 
-Using a realistic and generic utility model it was found that
-the only strategy that was proven to be stable is the indiscriminate one.
-Moreover, it was proven to be evolutionary stable as well. Meaning,
-that for any given starting population, the poachers would evolve to adopt an
-indiscriminate behaviour.
-
-Our results indicate however that it is possible for a population of selective
-poachers to exist, but for this to occur a disincentive must be applied to the
-utility of indiscriminate poachers. Numerical results indicate that even in this
-case, the more rhinos which are dehorned, the less probability that a poacher
-will be selective. Assuming basic supply and demand arguments, the demand of
-a partial horn will increase by removing horns thus the probability
-of being selective decreases. Therefore, even in the scenario with a
-disincentive, the proportion of rhinos which could be saved is limited, so
-approaches which aim to reduce demand (as suggested in~\cite{Duan2013})
-would have more potential.
+Numerical results indicate that even when there is a large disincentive,
+devaluing of all Rhinos would lead to a population of indiscriminate poachers.
+Therefore, the proportion of rhinos
+which could be saved is limited, so approaches which aim to reduce demand (as
+suggested in~\cite{Duan2013}) would have more potential.
 
 The disincentive factor can have several interpretations. According to~\cite{Duan2017},
 engaging the rural communities that neighbour or live with wildlife is the
@@ -827,20 +698,20 @@ increasing incentives for wildlife stewardship, decreasing the cost of living
 with wildlife, and supporting livelihood that is not related to poaching can
 serve as incentives for selective behaviour.
 
-Note that the proportion of dehorned rhinos \(r\) is continuous over \([0, 1]\)
+Note that the proportion of devalued rhinos \(r\) is continuous over \([0, 1]\)
 in the model. However, standard practice of a given park manager in almost all
-cases is to either dehorn all the animals in a defined enclosed area, or none
-at all. This is thought to be because partial dehorning tends to disturb
+cases is to either devalue all the animals in a defined enclosed area, or none
+at all. This is thought to be because partial devaluing tends to disturb
 rhino social structures. The theoretic model presented here, whilst allowing for
 consideration at the park level with park managers playing a mixed strategy, also
 can be considered at the macroeconomic level. Where \(r\) represents the quantity
-of dehorned rhinos available across multiple parks.
+of devalued rhinos available across multiple parks.
 
 The insights gained, notably that a population of selective poachers is
 sustainable only if a large disincentive is in place (even if all rhinos have
-been dehorned) have implication at the long term national policy level.
+been devalued) have implication at the long term national policy level.
 
-Following discussions with environmental specialists it is clear that dehorning
+Following discussions with environmental specialists it is clear that devaluing
 is empirically thought to be one of the best responses to poaching. This
 indicates that whilst of theoretic and macroeconomic interest, the modelling
 approach investigated in this work has potential for further work. For example,
