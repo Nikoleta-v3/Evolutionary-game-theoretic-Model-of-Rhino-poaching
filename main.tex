@@ -7,7 +7,7 @@
 \usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{caption}
- \usepackage{epsfig}
+\usepackage{epsfig}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{psfrag}
@@ -19,6 +19,8 @@
 \usepackage{breakcites}
 \usepackage{setspace}
 \usepackage{lipsum}
+\usepackage{breqn}
+
 \captionsetup{font=doublespacing}% Double-spaced float captions
 
 \doublespacing% Double-spaced document text
@@ -458,7 +460,7 @@ functions for selective poachers, \(u_1(x)\), and indiscriminate poachers,
 
 \begin{eqnarray}
 \label{eqn:USchi}
-u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha} 
+u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
            - (r+t(1-r))F (1-r)^{\beta - 1} ,
 \\
 \label{eqn:UnotSchi}
@@ -484,13 +486,29 @@ and using (\ref{eqn:theta}) gives,
 \begin{eqnarray}
 \label{eqn:tutility2}
 u(s, x) &=&
-           H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - 
+           H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} -
            F\left(sr+st(1-r)+(1-s)t(1-r^{N_r})\right)(1-r)^{\beta-1} .
 \end{eqnarray}
 
-In Section~\ref{section:evolutionary_stability}, the notions of stability
-and evolutionary stability of these two strategies, as well as a potential
-mixed strategy will be investigated.
+Figure~\ref{fig:evolution_of_system} shows the evolution of the system over time
+for a variety of initial populations and parameters.
+This is done using numerical integration implemented  in~\cite{scipy}.
+
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{images/evolution_of_system.pdf}
+    \caption{\label{fig:evolution_of_system} The change of the population over
+    time with different starting populations. For \(F=5, H=50,
+    \alpha=2, \beta=.99, t=1.5, \theta_r=0.01\).}
+\end{figure}
+
+Two different outcomes seem to be evolutionarily stable, for the higher values
+of \(r\) the security is low and the only way to obtain utility from poaching is
+to act indiscriminately. When \(r\) is lower, then there is less utility and
+sufficient full valued Rhinos to ensure the risk of acting selectively is
+sufficiently low.
+
+In Section~\ref{section:evolutionary_stability}, these two observations will be
+confirmed theoretically.
 
 %=======================================================
 \section{Evolutionary Stability}\label{section:evolutionary_stability}
@@ -506,195 +524,198 @@ equilibria of equation (\ref{eqn:u_differential_simplified}):
     \item mixed population of selective and indiscriminate poachers.
 \end{itemize}
 
-\noindent Each of the equilibria will be examined in the following subsections.
+An ESS corresponds to asymptotic behaviour near the equilibria of
+(\ref{eqn:u_differential_simplified}), this correspond to the concept of
+Lyapunov stability~\cite{lyapunov1992general}.
+
+For simplicity, denote the right hand side of
+(\ref{eqn:u_differential_simplified}) as \(f\).
+In this setting, when \(x\) is near to some equilibria \(x^*\) (so that
+\(f(x^*)=0\) then the evolutionary game can be linearized (using standard Taylor
+Series expansion) as:
+
+\begin{equation}
+    \frac{d(x^* + \epsilon)}{dt} = J(x^*)\epsilon
+\end{equation}
+
+where:
+
+\begin{equation}
+    J(a) = \left.\frac{df}{dx}\right|_{x=a}
+\end{equation}
+
+This gives a standard approach for evaluating equilibria of the underlying game.
+For a given equilibria \(x^*\), \(J(x^*)<0\) if and only if \(x^*\) is an ESS\@.
+
+Using equations (\ref{eqn:USchi}) and (\ref{eqn:UnotSchi}):
+
+\begin{equation}
+    J(a) = \frac{1}{\left(r - 1\right) \left(- a r \theta_{r} + r \theta_{r} - r
++ 1\right)^{\alpha + 1}} \left(J_1 - J_2 \right) \end{equation}
+
+where:
+
+\begin{align}
+    J_1 & = F \left(- r + 1\right)^{\beta} \left(- a r \theta_{r} + r \theta_{r}
+    - r + 1\right)^{\alpha + 1} \left(2 a r t - 2 a r - 2 a
+r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t - r t + r +
+r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t\right)\\
+    J_2 & = H a \alpha r^{2} \theta_{r}^{2} \left(- a + 1\right) \left(r - 1\right) + H r \theta_{r} \left(2 a - 1\right) \left(r - 1\right) \left(a r \theta_{r} - r \theta_{r} + r - 1\right)
+\end{align}
+
 
 \subsection{All poachers are selective}
 
 \begin{theorem}\label{theorem:selective}
 Using the utility model described in Section~\ref{section:the_model},
-a population of selective poachers is unstable.
+a population of selective poachers is stable if and only if:
+
+\begin{equation}
+    t > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
+    \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}}{F}
+\end{equation}
 \end{theorem}
 
 \begin{proof}
-    For \(s=1\) to be a best response to itself the utility of behaving
-    selectively in a population of selective poachers must be greater than the utility
-    of a poacher behaving indiscriminately in a population of selective poachers,
+Direct substitution gives:
 
-    \begin{equation}
-    u(1,1) > u(0,1),
-    \end{equation}
-    where
+    \begin{align}
+    J(1) &= \frac{1}{\left(- r + 1\right)^{\alpha + 1} \left(r - 1\right)}
+    \left(F \left(- r + 1\right)^{\beta} \left(- r + 1\right)^{\alpha + 1}
+    \left(r t - r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t\right) - H r \theta_{r} \left(r - 1\right)^{2}\right)\\
+		&= \left(F
+\left(1 - r\right)^{\beta - 1} \left(r - t(r -
+r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\right) + H r \theta_{r} \left(1 -
+r\right)^{-\alpha}\right)
+    \end{align}
 
-    \begin{eqnarray}
-    \label{eqn:s1x1}
-    u(1, 1) & = & H(1 -r)\theta(r, 1) ^ {- \alpha} - F (\frac{1}{1 - r})(1 - r)^{\gamma}(1 - r)^{\beta} \\
-    & = & H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
-    \end{eqnarray}
-    and
+The required condition is \(J(1)<0\):
 
-    \begin{eqnarray}
-    \label{eqn:s0x1}
-    u(0,1) & = & H(\theta_r r - r + 1)\theta(r, 1) ^ {- \alpha} - F (1 - r)^{\gamma}(1 - r)^{\beta} \\
-           & = & H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma}.
-    \end{eqnarray}
+\begin{align}
+    \left(F \left(1 - r\right)^{\beta - 1}r+ H r \theta_{r} \left(1 -
+    r\right)^{-\alpha}\right) & < F
+    \left(1 - r\right)^{\beta - 1} t(r -
+    r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\\
+    \frac{r}{r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil}}
+    \frac{F
++ H \theta_{r} \left(1 -
+r\right)^{1-\beta-\alpha}}{F} & < t
+\end{align}
 
-    \noindent Setting~(\ref{eqn:s1x1}) to be greater than (\ref{eqn:s0x1}) gives the
-    condition,
-    \begin{eqnarray}
-    \label{eqn:s1x1_s0x1}
-    &&H \theta_r< -F(1 - r)^{\gamma + \beta + \alpha - 1}.
-    \end{eqnarray}
+which gives the required result.
 
-    The right-hand side  will always be negative
-    for any \(r\), on the other hand the left-hand side is always positive.
-    Thus, (\ref{eqn:s1x1_s0x1}) can never hold.
 \end{proof}
 
-This implies that whilst~\cite{Lee} identified the individual poachers
-acting selectively as an equilibrium it is an extremely weak equilibrium from
-the point of view of population stability: a slight change and the population
-will change.
+\begin{itemize}
+    \item Note that limit of rhs as \(r\to1^-\) is \(\infty\) so simply dehorning
+        all rhinos is not a valid approach.
+    \item The equilibirum predicted in~\cite{Lee} can be obtained in specific
+        setting.
+\end{itemize}
 
 \subsection{All poachers are indiscriminate}
 
 \begin{theorem}\label{theorem:indiscriminate}
-Using the utility model described in Section~\ref{section:the_model}, a population
-of indiscriminate poachers is evolutionarily stable.
+Using the utility model described in Section~\ref{section:the_model},
+a population of selective poachers is stable if and only if:
+
+\begin{equation}
+    t < \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}} \frac{F + H
+    \theta_{r}(1 - r)^{1-\beta}\left(r \theta_{r} - r + 1\right)^{-\alpha}}{F   }
+\end{equation}
 \end{theorem}
 
 \begin{proof}
-    In order for \(s=0\) to be an ESS it must
-    remain the best response in a mutated population \(\chi_\epsilon\),
-    where \(\chi_{\epsilon}=(x_\epsilon, 1 - x_\epsilon)\). Following the same
-    notation, the mutated population will be denoted as \(x_\epsilon\) from
-    herein. Thus,
+Direct substitution gives:
 
-    \begin{equation}\label{eqn:evolutionary_stability}
-        u(0, x_\epsilon) > u(x_\epsilon, x_\epsilon),
-    \end{equation}
-    must hold. From (\ref{eqn:tutility2}),
+    \begin{align}
+        J(0) =& \frac{1}
+                     {(r-1)(r\theta_r -r + 1)^{\alpha + 1}}
+                 \left(F(1-r)^{\beta}
+                       (r\theta_r - r + 1)^{\alpha + 1}
+                       \left(r-rt+r^{\lceil\frac{1}{\theta_r}\rceil}t\right)
+                       -
+                       Hr\theta_r(r-1)(-r\theta_r + r - 1)\right)\\
+        J(0) =& \left(F(1-r)^{\beta-1}
+                       \left(r+t(r^{\lceil\frac{1}{\theta_r}\rceil}-r)\right)
+                       +
+                       Hr\theta_r(r\theta_r - r + 1)^{-\alpha}\right)\\
+\end{align}
 
-    \begin{eqnarray}
-        \label{eqn:u_indiscriminate_ess}
-        u(0, x_\epsilon)  &=& H(\theta_rr - r + 1)\theta(r, x_\epsilon) ^{-\alpha}
-        - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^ {\beta},
-        \\
-        \label{eqn:u_mutated_ess}
-         u(x_\epsilon, x_\epsilon) &=& H(\theta_rr(1 - x_\epsilon)-r+ 1)\theta(r,
-        x_\epsilon) ^{-\alpha} - F(1 - rx_\epsilon) ^ {\gamma} (1- r) ^
-        {\beta}\left(1 -
-        x_\epsilon + \frac{x_\epsilon}{1- r}\right).
-\end{eqnarray}
+The required condition is \(J(0)<0\):
 
-    \noindent Let the difference of (\ref{eqn:u_indiscriminate_ess}) and (\ref{eqn:u_mutated_ess})
-    be denoted as,
+\begin{align}
+    \left(F(1-r)^{\beta-1}r
+       +
+   Hr\theta_r(r\theta_r - r + 1)^{-\alpha}\right) & <
+                    F(1-r)^{\beta-1} t(r - r^{\lceil\frac{1}{\theta_r}\rceil})\\
+   \frac{r}{r - r^{\lceil\frac{1}{\theta_r}\rceil}}
+   \frac{F + H(1-r)^{1-\beta}\theta_r(r\theta_r - r + 1)^{-\alpha}}
+        {F}
+        & < t
+\end{align}
 
-    \begin{eqnarray}
-        \label{eqn:delta}
-        \delta &=& u(0, x_\epsilon) - u(x_\epsilon, x_\epsilon),
-          \\
-         &=& H\theta(r,  x_\epsilon) ^{-\alpha} \theta_r r x_\epsilon -
-        F(1 - r x_\epsilon) ^ {\gamma} (1- r) ^
-        {\beta}x_\epsilon\left(\frac{-r}{1- r}\right).
-    \end{eqnarray}
-    All players being indiscriminate will be an ESS only if \(\delta >0 \) for any small
-    value of \(\epsilon\). Thus only if,
+Which gives the required result.
 
-    \begin{equation}
-    \label{eqn:ess_inequality}
-        H\theta(r, x_\epsilon) ^{-\alpha} \theta_r r x_\epsilon > F
-        (1 - r x_\epsilon) ^ {\gamma} (1- r) ^ {\beta}
-        x_\epsilon\left(\frac{-r}{1- r}\right).
-    \end{equation}
-
-    \noindent The right-hand side of inequality (\ref{eqn:ess_inequality}) is always negative
-    since \((\frac{-r}{1- r}) < 0\)  for all \(r\). On the contrary, the left-hand
-    side is always positive for all \(r\), thus the inequality always holds.
-    Therefore, it is proven that all indiscriminate poachers is an evolutionary
-    stable strategy.
 \end{proof}
 
-This shows that a population of indiscriminate poachers
-not only corresponds to the equilibrium of the individual based
-game identified in~\cite{Lee}, but is also a very robust and attractive
-equilibrium at the population level.
+\begin{itemize}
+    \item Note that limit of rhs as \(r\to1^-\) is \(\infty\) so simply dehorning
+        all rhinos will in fact imply that all poachers become indiscriminate.
+    \item The equilibirum predicted in~\cite{Lee} can be obtained in specific
+        setting.
+\end{itemize}
 
 \subsection{Mixed population of selective and indiscriminate poachers}
 
 \begin{theorem}\label{theorem:mixed}
 Using the utility model described in section~\ref{section:the_model}, a mixed
-stable population (\(s=s^*\)) never exists for \(0 < r <1\).
+stable population (\(s=s^*\)) exists if and only the following two conditions
+hold:
+
+\begin{equation}
+    \frac{Hr\theta_r(1-r)^{1-\beta} + rF}
+         {F\left(r - r^{\lceil\frac{1}{\theta_r}\rceil}\right)}
+    \leq t
+    \label{eqn:real_valued_constraint}
+\end{equation}
+
+\begin{equation}
+    (r\theta_r+1-r)^{\alpha} >
+        \frac{-Hr\theta_r(1 - r)^{1-\beta}}
+        {F\left(-rt+r+r^{\lceil\frac{1}{\theta_r}\rceil}t\right)}
+    > (1-r)^{\alpha}
+    \label{eqn:probability_constraint}
+\end{equation}
+
+If (\ref{eqn:real_valued_constraint}) and (\ref{eqn:probability_constraint})
+holds then \(x^*\) is given by:
+
+\begin{equation}
+    x^* = \frac{1}{r\theta_r}\left(
+        r\theta_r - r - \left(
+                    \frac{-Hr\theta_r(1 - r)^{1-\beta}}
+                    {F\left(-rt+r+r^{\lceil\frac{1}{\theta_r}\rceil}t\right)}
+                        \right)^{\frac{1}{\alpha}} + 1
+    \right)
+    \label{eqn:mixed_equilibria}
+\end{equation}
+
 \end{theorem}
 
 \begin{proof}
-    A mixed strategy \(s = s^*\) is said to be stable for a
-    given \(s^*\) only if,
-
-    \begin{eqnarray}
-    \label{eqn:s1xs_s0xs}
-    u(1,s^*) = u(0,s^*).
-    \end{eqnarray}
-    From equation (\ref{eqn:tutility2}) the left-hand side is,
-
-    \begin{eqnarray}
-    \label{eqn:mixed_lhs}
-    u(1,s^*)&=&
-    H(1 - r) \theta(r, s^*)^{-\alpha} - F \frac{1}{(1 - r)}(1 - rs^*)^{\gamma}(1 - r)^{\beta}
-    \end{eqnarray}
-    and the right-hand side is
-
-    \begin{eqnarray}
-    \label{eqn:mixed_rhs}
-    u(0,s^*)&=&
-    H(\theta_rr + 1 - r)\theta(r, s^*)^{-\alpha} - F(1 - rs^*)^{\gamma}(1 - r)^{\beta}.
-    \end{eqnarray}
-    Substituting (\ref{eqn:mixed_lhs}) and (\ref{eqn:mixed_rhs}) into~(\ref{eqn:s1xs_s0xs}) gives
-
-    \begin{eqnarray}\label{eqn:stable_mixed}
-        u(1,s^*) - u(0,s^*) & = & H\theta(r, s^*)^{-\alpha} (-\theta_r r)  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta}(\frac{r}{1-r})\\
-    \label{eqn:stable_mixed_condition}
-      & = &   - r (H \theta_r \theta(r, s^*)^{-\alpha}  + F (1 - rs^*)^{\gamma}(1 - r)^{\beta - 1}) = 0.
-    \end{eqnarray}
-    Condition~(\ref{eqn:stable_mixed_condition}) can never hold for \(0 < r <1\)
-    because both terms of the sum are positive. Thus a mixed stable equilibrium
-    is never stable.
+    Equation (\ref{eqn:mixed_equilibria}) follows from equating (\ref{eqn:USchi}) and
+    (\ref{eqn:UnotSchi}). Ensuring \(x^*\in\mathbb{R}\) gives
+    (\ref{eqn:real_valued_constraint}) and ensuring \(0 < x < 1\) gives
+    (\ref{eqn:probability_constraint}).
 \end{proof}
 
 In this section we have analytically studied the stability of all the possible
-equilibria. We have proven the instability of any population with selective
-poachers,
-and the evolutionary stability of the indiscriminate behaviour.
-All of these theoretic results have been verified empirically, and the data for this
-has been archived at~\cite{Glynatsi2017}.
+equilibria. We have proven that all potential equilibria are possible.  All of
+these theoretic results have been verified empirically, and the data for this
+has been archived at~\cite{Glynatsi2017}. % TODO Rerun the data.
 
-Theorems~\ref{theorem:selective},~\ref{theorem:indiscriminate},~\ref{theorem:mixed}
-are illustrated in Fig.~\ref{fig:indiscriminate_ess}
-which shows the numerical solutions to (\ref{eqn:u_differential_simplified})
-using (\ref{eqn:USchi}) and  (\ref{eqn:UnotSchi}) with \(x_1=x\).
-This is done using numerical integration implemented  in~\cite{scipy}.
-As evidenced from the scenarios considered, all populations converge
-to being all indiscriminate.
-
-\begin{figure}[!htbp]
-    \includegraphics[width=\textwidth]{images/IndiscriminateESS.pdf}
-    \caption{\label{fig:indiscriminate_ess} The change of the population over
-    time with different starting populations. For \(F=5, H=50,
-    \alpha=2, \beta=2, \gamma=1, \theta_r=0.6\).}
-\end{figure}
-
-Note that these results essentially follow by comparing equations (\ref{eqn:USchi})
-and (\ref{eqn:UnotSchi}), which show that \(u_1(x) \leq u_2(x)\) for all \(x\).
-Consider the reverse scenario,
-
-\begin{align}
-    u_1(x) & > u_2(x)\\ 
-    F\psi(r, x) ^ {\gamma} (1 - r) ^ {\beta - 1} & < -H \theta(r, x) ^ {-\alpha} \theta_r
-\end{align}
-
-\noindent which gives the required contradiction. This shows that the utility model used
-implies that given the choice of acting selectively or indiscriminately, in any
-given environment, it will always be a rational deviation to act
-indiscriminately.
+% TODO Add discussion here.
 
 In the following section a disincentive to acting indiscriminately will be
 introduced. This can be interpreted in many ways:
@@ -716,6 +737,7 @@ poacher:
     \label{eqn:modified_utility_for_ind}
     \tilde u_2(x) = u_2(x) - \Gamma
 \end{equation}
+
 where \(\Gamma>0\) is some constant representing a disincentive only applied to
 indiscriminate poachers. This leads to the following modified form of (\ref{eqn:utility}):
 
@@ -728,121 +750,51 @@ indiscriminate poachers. This leads to the following modified form of (\ref{eqn:
 
 \begin{theorem}\label{theorem:selective_new_utility}
 Using the modified utility model described
-a population of selective poachers is stable if and only if:
-
-\begin{equation}\label{eq:selective_condition_new_utility}
-\theta_r H -  F(1 -r) ^{\gamma + \beta + \alpha -1} < \frac{\Gamma (1- r) ^ {\alpha}}{r}.
-\end{equation}
-
-\end{theorem}
-
-\begin{proof}
-    Following a similar structure to that of Theorem~\ref{theorem:selective},
-
-    \begin{equation}
-    \tilde{u}(1,1) > \tilde{u}(0,1),
-    \end{equation}
-    where
-
-    \begin{eqnarray}
-    \label{eqn:s1x1_new_utility}
-    \tilde{u}(1,1) = H(1 - r)^{1 - \alpha} - F(1 - r)^{\beta + \gamma - 1},
-    \end{eqnarray}
-    and
-
-    \begin{eqnarray}
-    \label{eqn:s0x1_new_utility}
-    \tilde{u}(0,1) = H(\theta_r r +1 - r)(1 - r)^{-\alpha} - F(1 - r)^{\beta + \gamma} - \Gamma.
-    \end{eqnarray}
-
-    \noindent Setting~(\ref{eqn:s1x1_new_utility}) to be greater than (\ref{eqn:s0x1_new_utility})
-    gives the condition,
-
-    \begin{eqnarray}
-    \label{eqn:s1x1_s0x1_new_utility}
-    &&\theta_r H -  F(1 -r) ^{\gamma + \beta + \alpha -1} < \frac{\Gamma (1- r) ^ {\alpha}}{r}.
-    \end{eqnarray}
-\end{proof}
-
-\noindent This immediately leads to the following important remark:
-
-\begin{theorem}\label{theorem:devaluating_rhinos}
-Using the modified utility model described,
-if all rhinos have been dehorned a population of selective poachers is not
-stable.
-\end{theorem}
-
-\begin{proof}
-All rhinos being dehorned implies that \(r=1\). Substituting this into
-(\ref{eq:selective_condition_new_utility}) gives,
+a population of selective poachers is evolutionarily stable if and only if:
 
 \begin{equation}
-    \theta_r H < 0,
+    t > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
+    \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}}{F} - \Gamma
 \end{equation}
-which is not possible.
-\end{proof}
 
-Theorem~\ref{theorem:devaluating_rhinos} is due to the fact that given two
-options, if all rhinos have been dehorned then all poachers will need to act
-indiscriminately to have any source of utility. Theorem~\ref{theorem:selective_new_utility}
-states that a  mixed population can be stable with a disincentive, as opposed to
-Theorem~\ref{theorem:mixed} which states that a mixed stable strategy does not
-exist for \(0 <r <1\). This is illustrated in Fig.~\ref{fig:ess-new-utility} where
-the evolutionary dynamics are represented for a number of scenarios.
+\end{theorem}
 
-Note that now the manager has control over the point of convergence by
-controlling \(r\), as shown in Fig.~\ref{fig:convergence-over-r}
-where
-a difference in the value from \(r=0.7\) to \(r=0.5\) changes the point of
-convergence from a mixed to a selective one. Moreover, the manager can also
-manipulate how fast the population convergences, as shown in the difference from
-\(r=0.5\) to \(r=0.2\). Fig~\ref{fig:equilibrium-over-r-tilde-u} shows the
-equilibrium for \(x\) for a number of different values of \(r\), and indicates
-that having a large \(r\) pushes poachers to behave indiscriminately. However all
-selective poachers can save at most, the $r$ proportion of dehorned rhinos, so a
-low \(r\) is not ideal. As demonstrated in Fig~\ref{fig:equilibrium-over-H-tilde-u},
-a higher value of \(H\) also has a non-ideal effect on the poachers, as one would
-expect. Thus, high values of \(H\) and \(r\) lead to more indiscriminate poachers.
+\begin{proof}
+    The proof follows by calculating the modified linear approximation
+    condition:
 
-\noindent The insights gained from the results are discussed in Section~\ref{section:discussion}.
+    \[
+        J_{\Gamma}(x) = J(x) + \frac{d}{dx}\Gamma(x(1-x)) = J(x) + \Gamma(1-2x)
+    \]
+
+    For a selective population this gives \(J_{\Gamma}(1) = J(1) - \Gamma\). The
+proof follows in the same way as for
+Theorem~\ref{theorem:selective}.  \end{proof}
+
+Figure~\ref{fig:convergence-over-r} shows a number of scenarios.
 
 \begin{figure}[!htbp]
-    \includegraphics[width=\textwidth]{images/ESS-new-utility.pdf}
-    \caption{The change of the population over
-    time with different starting populations with a disincentive. For \(F=50, \alpha=2,
-    \beta=2, \gamma=1, \theta_r=0.5, \Gamma=300\).}
-    \label{fig:ess-new-utility}
-\end{figure}
-
-\begin{figure}[!htbp]
-    \includegraphics[width=\textwidth]{images/ESS-new-utility-based-r.pdf}
-    \caption{The change of the convergence point with different values of \(r\)
-    with different starting populations with a disincentive. For \(F=50, H=150,
-    \alpha=2, \beta=2, \gamma=1, \theta_r=0.5, \Gamma=300\).}
+    \includegraphics[width=\textwidth]{images/steady_populations.pdf}
+    \caption{Evolutionary stable populations for varying values of \(t, r,
+        \Gamma\) for 6 difference scenarios. Varying values (TODO Include them),
+    scenarios 5 and 6 have \(\Gamma=4\) (high) and \(r\) close to 1.}
     \label{fig:convergence-over-r}
 \end{figure}
 
-\begin{figure}[!htbp]
-\centering
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.95\textwidth]{images/new-utility-over_r.pdf}
-        \caption{Effect of \(r\) for \(F=50, \beta=2, \gamma=1, \theta_r=0.6\).}
-        \label{fig:equilibrium-over-r-tilde-u}
-    \end{subfigure}
-    ~
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.95\textwidth]{images/new-utility-over_H.pdf}
-        \caption{Effect of \(H\) for \(F=50, r=0.6, \beta=2, \gamma=1, \theta_r=0.6\).}
-        \label{fig:equilibrium-over-H-tilde-u}
-    \end{subfigure}
-    \caption{Equilibrium behaviour with a disincentive.}
-\end{figure}
+
+\begin{itemize}
+    \item Too high value of \(r\) will swap the population.
+    \item \(Gamma\) is only thing that can actually be controlled.
+    \item This confirms that devaluing alone is not a solution and in fact can
+        potentially have averse consequences: combinations of dehorning and
+        education (creating a disincentive) is needed.
+\end{itemize}
 
 %=============================================================
 \section{Discussion and Conclusions}
 \label{section:discussion}
+
+% TODO Redo this
 
 In this work the dynamics of a selective population were explored. It was proven
 that being selective is not a best response even in a population where
