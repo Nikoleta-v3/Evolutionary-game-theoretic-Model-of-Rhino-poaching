@@ -365,7 +365,7 @@ which corresponds to the amount of time it takes to find and kill a rhino (thus
             \draw [blue, ->] (N+1full) edge [out=45, in=20] node [right] {sel.} (exit);
 
             \draw [red, dashed, very thick] ($(N) - (5, 0)$) -- (N);
-            \draw [->] (1) -- node [left] {\(N_r\)} (0, -5);
+            \draw [dashed, ->] (1) -- node [left] {\(N_r\)} (0, -5);
             \draw [red, ->] (N) edge[out=-45, in=0, looseness=2] node [right] {ind.}
                 (exit);
         \end{tikzpicture}
