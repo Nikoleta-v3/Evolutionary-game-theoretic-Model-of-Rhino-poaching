@@ -86,18 +86,13 @@ require intensive protection~\cite{Ferreira2014} because the demand for rhino
 horn continues to pose a serious threat~\cite{Amin2006}. The illegal trade in rhino
 horn supports aggressive poaching syndicates and a black market~\cite{Nowell1992, Warchol2003}.
 This lucrative market entices people to invest their time and energy to gain a
-`windfall' in the form of a rhino horn, through the poaching of rhinos. In recent
-years poaching has escalated to an unprecedented level resulting in concerns over
-their future existence~\cite{Duan2013,Smith1993}. Several methods
-include addressing the problem by reducing the demand in the market. In~\cite{Duan2013}
-the authors suggest meeting the demand for rhino horn through a legal market by
-farming the rhino horn from live rhinos. This controversial proposal is an active
-conversation, with the actual quantity of horn that could be farmed being estimated
-recently by \cite{Taylor2017}. Moreover, the debate is not limited to rhinos -
-\cite{Harvey2017} considered ivory and stated that by enforcing a domestic ivory
-trade ban we can reduce the market's demand.
+`windfall' in the form of a rhino horn, through the poaching of rhinos. 
 
-Nonetheless, for wildlife managers law enforcement is often one of the main methods
+Standard economic theory predicts extinction through poaching alone is unlikely due to escalating costs as the number of remaining species approaches zero (Courchamp et al. 2006). However, the rarity of rhino horn makes it a luxury good, or financial investment for the wealthy (Gao et al. 2016), and thus the increased cost and risk to poach does not increase as rapidly as the increased gain - the anthropogenic Allee effect (Branch et al. 2013, Courchamp et al. 2006). However, Holden and McDonald-Madden (2017) show that the relationship is even more complex and pessimistic. The value of rhino horn can inflate, even with a large population size, due to an increase in the cost (i.e. risk) to poach. Therefore measures to protect rhino horn may actually be increasing the gain to poachers. It is not clear whether this relationship has contributed to the escalation in rhino poaching over recent years. Nonetheless, it is clear that the future existence of rhinos is endangered because of poaching~\cite{Duan2013,Smith1993}. This rationale leads to debate about legalising rhino horn trade, which in turn may reduce demand. In~\cite{Duan2013} the authors suggest meeting the demand for rhino horn through a legal market by
+farming the rhino horn from live rhinos. However Crookes (2016) argues that because the demand for horn is so high, legalising trade may lead to practices that maximise profit, but are not suitable for sustainable rhino populations, and thus rhinos may be `traded on extinction'. This controversial proposal is an active conversation, with the actual quantity of horn that could be farmed being estimated
+recently by \cite{Taylor2017}. Moreover, the debate is not limited to rhinos - \cite{Harvey2017} considered ivory and stated that by enforcing a domestic ivory trade ban we can reduce the market's demand.
+
+As it stands, for wildlife managers law enforcement is often one of the main methods
 to deter poachers.
 In response, rhino conservation has seen increased  militarisation with `boots on the
 ground' and `eyes in the sky'~\cite{duffy_st}. An alternative method is to
@@ -136,6 +131,7 @@ the managers win and rhinos survive or the poachers win and rhinos are killed. T
 paper~\cite{Lee} concludes that poachers will always choose to behave indiscriminately,
 and thus the game settles to the bottom right quadrant, i.e., the poachers win.
 
+At the extremes, we could consider the game as one of opportunistic exploitation~\cite{Branch2013}. That is, consider intact rhinos and devalued rhinos as two species, where one is more valuable than the other. Opportunistic exploitation advances upon the theory of anthropogenic Allee effect to consider two species which are exploited together. Specifically, when a highly valued species becomes rarer, a secondary, less valuable species is then targeted. As with opportunistic exploitation on a larger scale, rhino managers need to account for the multispecies system.  
 
 In this manuscript, we explore the population dynamic effects associated to
 the interactions described by~\cite{Lee}. More specifically, the interaction between
@@ -160,7 +156,7 @@ to a fitness for each strategy, given by,
 \[ u_1(\chi)  \text{ and } u_2(\chi).\]
 
 In evolutionary game theory these utilities are used to dictate the evolution of
-the population over time, according to the following differential equations,
+the population over time, according to the following replicator equations,
 
 \begin{eqnarray}
     \label{eqn:u_differential_eq}
@@ -172,14 +168,13 @@ the population over time, according to the following differential equations,
     \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi),
     \end{array} \right.
 \end{eqnarray}
-
+where \(\phi\) is the average fitness of the whole population~\cite{Nowak2006}. 
 In some settings these utilities are referred to as fitness and/or are mapped to
 a further measure of fitness. This is not the case considered here (it is
-assumed all evolutionary dynamics are considered by the utility measures).
+assumed all evolutionary dynamics are considered by the utility measures). 
 
-where \(\phi\) is the average fitness of the whole population. Here, the overall
+Here, the overall
 population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
-
 \begin{eqnarray}
     \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
      + x_2(u_2(\chi) - \phi)=0.
@@ -272,7 +267,7 @@ where \(H\) is a scaling factor associated with the value of a full horn, and
 \(\alpha \geq 0\) is a constant that determines the precise relationship between
 the quantity and value of the horn.  Fig.~\ref{fig:GainCurve}, verifies that the
 gain curve corresponds to a demand curve: we see that as \(r\) increases so that
-the supply of rhinos decreases the value is higher and vice versa.
+the supply of rhinos decreases the value is higher and vice versa. We have chosen a simple function to model the demand (and thus gain) of rhino horn value, relative to the proportion of rhinos devalued. However, demand for illegal wildlife generally involves more factors than simply supply. Additional factors include, but are not limited to, social stigma, tourism revenues, government corruption, and rich countries being willing to pay to ensure species existence~\cite{Bulte1999, vanKooten2008}.
 
 \begin{figure}[!htbp]
 \centering
@@ -667,19 +662,9 @@ In this work the dynamics of a selective population were explored. It was shown
 that given sufficient risk associated with killing a rhino it would be possible
 for a selective population of poachers to subsist.
 
-Numerical results indicate that even when there is a large disincentive,
-devaluing of all rhinos would lead to a population of indiscriminate poachers.
-Therefore, the proportion of rhinos
-which could be saved is limited, so approaches which aim to reduce demand (as
-suggested in~\cite{Duan2013}) would have more potential.
+We developed a game theory model which examines the specific question for rhino managers: how to deter poachers by devaluing horns? Predominately, our model focuses on decisions that a rhino manager can make to minimise their loss. However, the model can incorporate wider factors in a general manner such as the disincentive factor. The disincentive factor may be an increase in the monetary fine for poachers. In fact Di Minn et al. (2015), who identify the most important contributers to the number of rhinos illegally killed in South Africa (between 1900 and 2013), found that increasing the monetary fine has a more significant effect than increasing the years in prison. However, the discincentive factor may also include wider influencers, such as engaging the rural communities that neighbour of live with wildlife~\cite{Duan2013}, or decreasing the cost of living with wildlife, and supporting a livelihood that is not related to poaching. Zooming out further, it could include global issues such as an increase in ecotourism, which would provide a sustainable income for the community.
 
-The disincentive factor can have several interpretations. According to~\cite{Duan2017},
-engaging the rural communities that neighbour or live with wildlife is the
-key to fighting the illegal trade of wildlife. Strengthening disincentives for
-illegal behaviour can be interpreted as the disincentive factor. Likewise,
-increasing incentives for wildlife stewardship, decreasing the cost of living
-with wildlife, and supporting livelihood that is not related to poaching can
-serve as incentives for selective behaviour.
+Another opportunity for wider factors, such as global issues, to be included in the model is via the supply and demand function. For example, Di Minn et al. (2015) show that one of the three most important contributers to the number of rhinos illegally killed was the GDP in Far East Asia, where the demand for rhino horn is at its greatest. This finding supports Lawson and Vines (2014) call for improved law enforcement and demand reduction in the Far East. Our model suggests that these efforts, which would affect supply and demand, would have more potential to push poachers to behave selectively than the disenticentive factors. 
 
 Note that the proportion of devalued rhinos \(r\) is continuous over \([0, 1]\)
 in the model. However, standard practice of a given park manager in almost all
@@ -693,6 +678,7 @@ of devalued rhinos available across multiple parks.
 The insights gained, notably that a population of selective poachers is
 sustainable only if a large disincentive is in place (even if all rhinos have
 been devalued) have implication at the long term national policy level.
+The debate about the effectiveness of preventing poachers and whether it is an impossible task, is extensive and ongoing. This model answers one aspect of the topic, but larger questions remain. There are many drivers to account for, many of which are included in the systems dynamics model ~\cite{Crookes2015} which captures the five most important factors: rhino abundance, rhino demand, a price model, an income model and a supply model. Using the optimal dehorning model of Milner-Gulland et al. (1992), Crookes and Blignaut also find that poachers behaving indiscriminately will always prevail, which supports our results.
 
 Following discussions with environmental specialists it is clear that devaluing
 is empirically thought to be one of the best responses to poaching. This
@@ -729,7 +715,7 @@ A variety of software libraries have been used in this work:
 Finally, we would like to express our appreciation to David Roberts and Michael 't
 Sas-Rolfes for their valuable and constructive suggestions for this research.
 We would also like to thank
-Dr. Jonathan Gillard for his careful reading and double checking of the algebra in the paper.
+Dr. Jonathan Gillard for his careful reading and double checking of the algebra in the paper, and Anna Huzar for Figure 1.
 
 \section*{Data Accessibility}
 
