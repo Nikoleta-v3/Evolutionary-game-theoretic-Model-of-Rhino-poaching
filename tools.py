@@ -5,7 +5,7 @@ import sympy as sym
 import numpy as np
 from scipy.optimize import brentq
 
-r, s, x, theta_r, t = sym.symbols("r, s, x, theta_r, t", positive=True)
+r, s, x, theta_r, tau = sym.symbols("r, s, x, theta_r, tau", positive=True)
 
 alpha, H, beta, Gamma, F, epsilon = sym.symbols(
     "alpha, H, beta, Gamma, F, epsilon", positive=True
@@ -26,7 +26,7 @@ def theta(r, s, theta_r=theta_r):
     return s * (1 - r) + (1 - s) * ((theta_r - 1) * r + 1)
 
 
-def selective_time(r, t):
+def selective_time(r, tau):
     """
     Expected time spent in park by a selective poacher
 
@@ -34,12 +34,12 @@ def selective_time(r, t):
     ----------
 
     r: float between 0 and 1 - the proportion of horns devalued
-    t: float between         - the time taken to kill a horn
+    tau: float between       - the time taken to kill a horn
     """
-    return (r + t * (1 - r)) / (1 - r)
+    return (r + tau * (1 - r)) / (1 - r)
 
 
-def indiscriminate_time(r, t, N_r):
+def indiscriminate_time(r, tau, N_r):
     """
     Expected time spent in park by an indiscriminate poacher
 
@@ -47,11 +47,11 @@ def indiscriminate_time(r, t, N_r):
     ----------
 
     r: float between 0 and 1       - the proportion of horns devalued
-    t: float                       - the time taken to kill a horn
+    tau: float                     - the time taken to kill a horn
     N_r: int                       - number of devalued rhinos that correspond
                                      to a single valued rhino
     """
-    return t * (1 - r ** N_r) / (1 - r)
+    return tau * (1 - r ** N_r) / (1 - r)
 
 
 def gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha):
@@ -61,21 +61,21 @@ def gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha):
     return theta(r, s, theta_r) * H * theta(r, x, theta_r) ** (-alpha)
 
 
-def cost(s=s, t=t, x=x, r=r, F=F, beta=beta, theta_r=theta_r):
+def cost(s=s, tau=tau, x=x, r=r, F=F, beta=beta, theta_r=theta_r):
 
     N_r = sym.ceiling(1 / theta_r)
     return (
         F
         * (1 - r) ** beta
         * (
-            s * selective_time(r=r, t=t)
-            + (1 - s) * indiscriminate_time(r=r, t=t, N_r=N_r)
+            s * selective_time(r=r, tau=tau)
+            + (1 - s) * indiscriminate_time(r=r, tau=tau, N_r=N_r)
         )
     )
 
 
 def utility(
-    s=s, x=x, F=F, H=H, r=r, alpha=alpha, beta=beta, t=t, theta_r=theta_r,
+    s=s, x=x, F=F, H=H, r=r, alpha=alpha, beta=beta, tau=tau, theta_r=theta_r,
     Gamma=Gamma
 ):
     """
@@ -83,5 +83,5 @@ def utility(
     sigma=(s, 1-s) in a population chi=(x, 1-x)
     """
     return gain(s=s, x=x, H=H, r=r, theta_r=theta_r, alpha=alpha) - cost(
-        s=s, t=t, x=x, r=r, F=F, beta=beta, theta_r=theta_r
+        s=s, tau=tau, x=x, r=r, F=F, beta=beta, theta_r=theta_r
     ) - (1 - s) * Gamma

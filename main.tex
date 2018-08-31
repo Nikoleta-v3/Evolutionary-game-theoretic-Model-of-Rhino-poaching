@@ -36,7 +36,7 @@
 \usepackage{lineno}
 
 \title{An Evolutionary Game Theoretic Model of Rhino Horn Devaluation}
-\author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} %TODO Authors
+\author{Nikoleta E. Glynatsi, Vincent Knight, Tamsin E. Lee} 
 \date{}
 
 \begin{document}
@@ -86,7 +86,7 @@ require intensive protection~\cite{Ferreira2014} because the demand for rhino
 horn continues to pose a serious threat~\cite{Amin2006}. The illegal trade in rhino
 horn supports aggressive poaching syndicates and a black market~\cite{Nowell1992, Warchol2003}.
 This lucrative market entices people to invest their time and energy to gain a
-`windfall' in the form of a rhino horn, through the poaching of rhinos. 
+`windfall' in the form of a rhino horn, through the poaching of rhinos.
 
 Standard economic theory predicts extinction through poaching alone is unlikely due to
 escalating costs as the number of remaining species approaches zero~\cite{courchamp2006rarity}.
@@ -104,7 +104,7 @@ existence of rhinos is endangered because of poaching~\cite{Duan2013,Smith1993}.
 This rationale leads to debate about legalising rhino horn trade, which in turn may
 reduce demand. In~\cite{Duan2013} the authors suggest meeting the demand for rhino horn
 through a legal market by farming the rhino horn from live rhinos. In fact recently
-the actual quantity of horn that could be farmed was estimated by \cite{Taylor2017}. 
+the actual quantity of horn that could be farmed was estimated by \cite{Taylor2017}.
 However~\cite{crookes2016trading} argues that because the demand for horn is so high,
 legalising trade may lead to practices that maximise profit, but are not suitable for
 sustainable rhino populations, and thus rhinos may be `traded on extinction'.
@@ -149,7 +149,7 @@ selective, it pays rhino managers to invest in devaluing their rhinos.
 This dynamic is represented in Fig.~\ref{fig:RhinoPic}.
 Assuming poachers and managers will always behave so as to maximise their payoff,
 there are two equilibriums: either all rhinos are devalued and all poachers are selective;
-or all horns are intact and all poachers are indiscriminate. Essentially, either the managers 
+or all horns are intact and all poachers are indiscriminate. Essentially, either the managers
 win, the top left quadrant of Fig.~\ref{fig:RhinoPic}, or the poachers win, the bottom
 right quadrant of Fig.~\ref{fig:RhinoPic}. The paper~\cite{Lee} concludes that poachers will
 always choose to behave indiscriminately, and thus the game settles to the top
@@ -158,7 +158,7 @@ left quadrant, i.e., the poachers win.
 \begin{figure}[!htbp]
     \centering
     \includegraphics[scale=0.2]{images/RhinoPic.pdf}
-    \caption{\label{fig:RhinoPic} The game between rhino manager and rhino 
+    \caption{\label{fig:RhinoPic} The game between rhino manager and rhino
     poachers. The system settles to one of two equilibriums, either devaluing is effective or not.}
 \end{figure}
 
@@ -205,10 +205,10 @@ the population over time, according to the following replicator equations,
     \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi),
     \end{array} \right.
 \end{eqnarray}
-where \(\phi\) is the average fitness of the whole population~\cite{nowak2006evolutionary}. 
+where \(\phi\) is the average fitness of the whole population~\cite{nowak2006evolutionary}.
 In some settings these utilities are referred to as fitness and/or are mapped to
 a further measure of fitness. This is not the case considered here (it is
-assumed all evolutionary dynamics are considered by the utility measures). 
+assumed all evolutionary dynamics are considered by the utility measures).
 
 Here, the overall
 population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
@@ -315,7 +315,7 @@ the supply of rhinos decreases the value is higher and vice versa. We have chose
 An individual interacts with the population which is uniquely determined by
 \(x\), the proportion of selective poachers.
 Therefore, the gain for a poacher in the population \(x\) is either
-% Beginning of some notation changes
+
 \begin{eqnarray}
     \label{eqn:gain}
     \left\{
@@ -341,9 +341,9 @@ with probability \(1 - r\). However, the indiscriminate poachers may also exit
 the park if they encounter \(N_r\) devalued rhinos in a row.  Each step on the
 random walk is assumed to last 1 time unit: during which a rhino is found.  To
 capture the fact that indiscriminate poachers will spend a different amount of
-time to selective poachers with each rhino the parameter \(t\) is introduced
+time to selective poachers with each rhino the parameter \(\tau\) is introduced
 which corresponds to the amount of time it takes to find and kill a rhino (thus
-\(t\geq 1\)).
+\(\tau\geq 1\)).
 
 \begin{figure}[!htbp]
     \begin{center}
@@ -412,22 +412,23 @@ types can be obtained:
 For selective poachers:
 
 \begin{align}
-    T_1 &= (1-r)t + r(1-r)(1+t) + r^2(1-r)(2+t) + \dots\\
-        &= (1-r)\sum_{i=0}^{\infty}r^i(i+t)\\
+    T_1 &= (1-r)\tau + r(1-r)(1+\tau) + r^2(1-r)(2+\tau) + \dots\\
+        &= (1-r)\sum_{i=0}^{\infty}r^i(i+\tau)\\
         &= (1-r)\left(\frac{1}{r}\sum_{i=0}^{\infty}ir^{(i+1)} + t\sum_{i=0}^{\infty}r^i\right)\\
-        &= (1-r)\left(\frac{r}{(1-r)^2} + \frac{t}{1-r}\right) && \text{ \small{using standard
+        &= (1-r)\left(\frac{r}{(1-r)^2} + \frac{\tau}{1-r}\right) && \text{ \small{using standard
 formula for geometric series}}\\
-    &= \frac{r+t(1-r)}{1-r}
+    &= \frac{r+\tau(1-r)}{1-r}
 \end{align}
 
 For indiscriminate poachers:
 
 \begin{align}
-    T_2 &= (1-r)t + r(1-r)2t + r^2(1-r)3t + \dots + r^{N_r - 2}(1-r)(N_r - 1)t + r^{N_r - 1}N_rt\\
-        &= (1-r)t\sum_{i=1}^{N_r - 1}ir^{i-1} + r^{N_r - 1}N_rt \\
-        &= (1-r)t\left(\frac{1}{r \left(r - 1\right)^{2}} \left(N_{r} r
-r^{N_{r}} - N_{r} r^{N_{r}} - r r^{N_{r}} + r\right)\right) + r^{N_r - 1}N_rt \\
-        &= \frac{t(1 - r^{N_r})}{(1 - r)}
+    T_2 &= (1-r)\tau + r(1-r)2\tau + r^2(1-r)3\tau + \dots + r^{N_r -
+    2}(1-r)(N_r - 1)\tau + r^{N_r - 1}N_r\tau\\
+        &= (1-r)\tau\sum_{i=1}^{N_r - 1}ir^{i-1} + r^{N_r - 1}N_r\tau \\
+        &= (1-r)\tau\left(\frac{1}{r \left(r - 1\right)^{2}} \left(N_{r} r
+r^{N_{r}} - N_{r} r^{N_{r}} - r r^{N_{r}} + r\right)\right) + r^{N_r - 1}N_r\tau \\
+        &= \frac{\tau(1 - r^{N_r})}{(1 - r)}
 \end{align}
 
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
@@ -459,7 +460,7 @@ cost.
     \begin{center}
         \includegraphics[width=\linewidth]{images/betas_curve.pdf}
         \caption{Costs associated to both poachers for varying values of \(r\)
-        and \(t\).}\label{fig:CostCurves}
+        and \(\tau\).}\label{fig:CostCurves}
     \end{center}
 \end{figure}
 
@@ -508,7 +509,7 @@ and using (\ref{eqn:theta}) gives,
 \label{eqn:tutility2}
 u(s, x) &=&
            H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} -
-           F\left(sr+st(1-r)+(1-s)t(1-r^{N_r})\right)(1-r)^{\beta-1}
+           F\left(sr+s\tau(1-r)+(1-s)\tau(1-r^{N_r})\right)(1-r)^{\beta-1}
            -(1-s)\Gamma \nonumber  \\
 \end{eqnarray}
 
@@ -520,7 +521,7 @@ This is done using numerical integration implemented  in~\cite{scipy}.
     \includegraphics[width=\textwidth]{images/evolution_of_system.pdf}
     \caption{\label{fig:evolution_of_system} The change of the population over
     time with different starting populations. For \(F=5, H=50,
-    \alpha=2, \beta=.99, t=1.5, \theta_r=0.01, \Gamma=0\).}
+    \alpha=2, \beta=.99, \tau=1.5, \theta_r=0.01, \Gamma=0\).}
 \end{figure}
 
 Two different outcomes seem to be evolutionary stable, for the higher values
@@ -580,8 +581,8 @@ where:
 \begin{align}
     J_1 & = F \left(- r + 1\right)^{\beta} \left(- a r \theta_{r} + r \theta_{r}
     - r + 1\right)^{\alpha + 1} \left(2 a r t - 2 a r - 2 a
-r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t - r t + r +
-r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t\right)\\
+r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t - r \tau + r +
+r^{\lceil{\frac{1}{\theta_{r}}}\rceil} \tau\right)\\
     J_2 & = H a \alpha r^{2} \theta_{r}^{2} \left(- a + 1\right) \left(r - 1\right) + H r \theta_{r} \left(2 a - 1\right) \left(r - 1\right) \left(a r \theta_{r} - r \theta_{r} + r - 1\right)
 \end{align}
 
@@ -591,7 +592,7 @@ Using the utility model described in Section~\ref{section:the_model},
 a population of selective poachers is stable if and only if:
 
 \begin{equation}\label{eq:selective_stability}
-    t > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
+    \tau > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
     \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}-\frac{\Gamma}{r(1-r)^{1-\beta}}}{F}
 \end{equation}
 \end{theorem}
@@ -605,9 +606,9 @@ Direct substitution gives:
                     F \left(- r + 1\right)^{\beta}
                     \left(- r + 1\right)^{\alpha + 1}
                     \left(
-                        r t -
+                        r \tau -
                         r -
-                        r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t
+                        r^{\lceil{\frac{1}{\theta_{r}}}\rceil} \tau
                     \right)
                     - H r
                     \theta_{r}
@@ -617,7 +618,7 @@ Direct substitution gives:
                  \left(1 - r\right)^{\beta - 1}
                  \left(
                      r -
-                     t(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )
+                     \tau(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )
                  \right) +
                  H r \theta_{r} \left(1 - r\right)^{-\alpha}
            \right)
@@ -633,10 +634,10 @@ The required condition is \(J(1)<0\):
     \left(1 - r\right)^{-\alpha}
     - \Gamma
             & < F \left(1 - r\right)^{\beta - 1}
-    t(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\\
+    \tau(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\\
     \frac{r}{r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil}}
     \frac{F + H \theta_{r} \left(1 - r\right)^{1-\beta-\alpha} -
-    \Gamma/r(1-r)^{1-\beta}}{F} & < t
+    \Gamma/r(1-r)^{1-\beta}}{F} & < \tau
 \end{align}
 
 which gives the required result.
@@ -646,10 +647,8 @@ Note that the limit of the right hand side of equation (\ref{eq:selective_stabil
 tends to infinity as \(r\to1^-\). This means that devaluing all rhinos is not
 a valid approach.
 
-\begin{itemize}
-    \item The equilibrium predicted in~\cite{Lee} can be obtained in specific
-        setting. %not sure what this means.
-\end{itemize}
+Furthermore, we see that the equilibria with poachers acting selectively,
+predicted in~\cite{Lee} can in fact be obtained in specific settings.
 
 Note that similar theoretic results have been obtained about the evolutionary
 stability of indiscriminate poachers but these have been omitted for the sake of
@@ -667,7 +666,7 @@ Figure~\ref{fig:convergence-over-r} shows a number of scenarios:
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/steady_populations.pdf}
-    \caption{Evolutionary stable populations for varying values of \(t, r,
+    \caption{Evolutionary stable populations for varying values of \(\tau, r,
     \Gamma\) for 6 difference scenarios.}
     \label{fig:convergence-over-r}
 \end{figure}
@@ -711,8 +710,8 @@ show that one of the three most important contributers to the number of rhinos i
 killed was the GDP in Far East Asia, where the demand for rhino horn is at its greatest.
 This finding supports~\cite{lawson2014global} call for improved law enforcement and
 demand reduction in the Far East. Our model suggests that these efforts, which
-would affect supply and demand, would have more potential to push poachers to 
-behave selectively than the disincentive factors. 
+would affect supply and demand, would have more potential to push poachers to
+behave selectively than the disincentive factors.
 
 Note that the proportion of devalued rhinos \(r\) is continuous over \([0, 1]\)
 in the model. However, standard practice of a given park manager in almost all
