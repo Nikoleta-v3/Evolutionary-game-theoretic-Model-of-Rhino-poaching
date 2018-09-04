@@ -411,25 +411,29 @@ types can be obtained:
 
 For selective poachers:
 
-\begin{align}
-    T_1 &= (1-r)\tau + r(1-r)(1+\tau) + r^2(1-r)(2+\tau) + \dots\\
-        &= (1-r)\sum_{i=0}^{\infty}r^i(i+\tau)\\
-        &= (1-r)\left(\frac{1}{r}\sum_{i=0}^{\infty}ir^{(i+1)} + t\sum_{i=0}^{\infty}r^i\right)\\
-        &= (1-r)\left(\frac{r}{(1-r)^2} + \frac{\tau}{1-r}\right) && \text{ \small{using standard
+\begin{equation}
+    \begin{split}
+    T_1 &= (1-r) \tau + r(1-r)(1+ \tau) + r^2(1-r)(2+ \tau) + \dots\\
+        &= (1-r) \sum_{i=0}^{\infty}r^i(i + \tau)\\
+        &= (1-r) \left ( \frac{1} {r} \sum_{i=0} ^ {\infty} i r ^ {(i+1)} + \tau \sum_{i=0} ^ {\infty} r ^ i \right)\\
+        &= (1-r)\left(\frac{r}{(1-r)^2} + \frac{\tau}{1-r}\right) \quad \quad \quad \quad \text{ \small{using standard
 formula for geometric series}}\\
     &= \frac{r+\tau(1-r)}{1-r}
-\end{align}
+    \end{split}
+\end{equation}
 
 For indiscriminate poachers:
 
-\begin{align}
+\begin{equation}
+    \begin{split}
     T_2 &= (1-r)\tau + r(1-r)2\tau + r^2(1-r)3\tau + \dots + r^{N_r -
     2}(1-r)(N_r - 1)\tau + r^{N_r - 1}N_r\tau\\
         &= (1-r)\tau\sum_{i=1}^{N_r - 1}ir^{i-1} + r^{N_r - 1}N_r\tau \\
         &= (1-r)\tau\left(\frac{1}{r \left(r - 1\right)^{2}} \left(N_{r} r
 r^{N_{r}} - N_{r} r^{N_{r}} - r r^{N_{r}} + r\right)\right) + r^{N_r - 1}N_r\tau \\
         &= \frac{\tau(1 - r^{N_r})}{(1 - r)}
-\end{align}
+    \end{split}
+\end{equation}
 
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
 directly related to the proportion of rhinos not devalued, \(1 - r\), since
@@ -448,10 +452,12 @@ where \(\beta \geq 0\) is a constant that determines the precise relationship
 between the proportion of rhinos not devalued and the security on the grounds.
 Therefore, at any given time the expected cost for a poacher is,
 
-\begin{eqnarray}
+\begin{equation}
+    \begin{split}
     \label{eqn:cost}
         FT_i(1 - r)^{\beta} \text{ for } i \in \{1, 2\}
-\end{eqnarray}
+    \end{split}
+\end{equation}
 where \(F\) is a constants that determines the precise relationship. Fig.
 \ref{fig:CostCurves} verifies the decreasing relationship between \(r\) and the
 cost.
@@ -482,15 +488,21 @@ This will be captured by a constant \(\Gamma\).
 functions for selective poachers, \(u_1(x)\), and indiscriminate poachers,
 \(u_2(x)\),
 
-\begin{eqnarray}
+\begin{equation}
+    \begin{split}
 \label{eqn:USchi}
-u_1(x) &=& \theta(r,1) H \theta(r,x)^{-\alpha}
-           - (r+t(1-r))F (1-r)^{\beta - 1} ,
-\\
+u_1(x) = \theta(r,1) H \theta(r,x)^{-\alpha}
+           - (r+ \tau (1-r))F (1-r)^{\beta - 1} ,
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
 \label{eqn:UnotSchi}
-u_2(x) &=& \theta(r,0) H \theta(r,x)^{-\alpha} - t(1 - r^{N_r})F(1-r)^{\beta-1}
+u_2(x) = \theta(r,0) H \theta(r,x)^{-\alpha} - \tau (1 - r^{N_r})F(1-r)^{\beta-1}
 - \Gamma
-\end{eqnarray}
+\end{split}
+\end{equation}
 
 
 Given a specific individual, let \(s\) denote the probability of them behaving
@@ -498,20 +510,21 @@ selectively.
 Thus the general utility function for an individual poacher in the population with
 a proportion of \(0 \leq x \leq 1\) selective poachers is
 
-\begin{eqnarray}
+\begin{equation}
 \label{eqn:utility}
 u(s, x) = s u_1(x) +(1 - s) u_2(x).
-\end{eqnarray}
+\end{equation}
 Substituting~(\ref{eqn:USchi}) and~(\ref{eqn:UnotSchi}) into~(\ref{eqn:utility})
 and using (\ref{eqn:theta}) gives,
 
-\begin{eqnarray}
+\begin{equation}
+    \begin{split}
 \label{eqn:tutility2}
-u(s, x) &=&
-           H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} -
-           F\left(sr+s\tau(1-r)+(1-s)\tau(1-r^{N_r})\right)(1-r)^{\beta-1}
-           -(1-s)\Gamma \nonumber  \\
-\end{eqnarray}
+u(s, x) = H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(sr+s\tau(1-r)+
+(1-s)\tau(1-r^{N_r})\right)(1-r)^{\beta-1} -(1-s)\Gamma
+    \end{split}
+\end{equation}
+
 
 Figure~\ref{fig:evolution_of_system} shows the evolution of the system over time
 for a variety of initial populations and parameters.
@@ -558,14 +571,20 @@ In this setting, when \(x\) is near to some equilibria \(x^*\) so that
 Series expansion) as:
 
 \begin{equation}
+    \begin{split}
     \frac{d(x^* + \epsilon)}{dt} = J(x^*)\epsilon
+    \end{split}
 \end{equation}
+
 
 where:
 
 \begin{equation}
+    \begin{split}
     J(a) = \left.\frac{df}{dx}\right|_{x=a}
+    \end{split}
 \end{equation}
+
 
 This gives a standard approach for evaluating equilibria of the underlying game.
 For a given equilibria \(x^*\), \(J(x^*)<0\) if and only if \(x^*\) is an ESS\@.
@@ -573,34 +592,43 @@ For a given equilibria \(x^*\), \(J(x^*)<0\) if and only if \(x^*\) is an ESS\@.
 Using equations (\ref{eqn:USchi}) and (\ref{eqn:UnotSchi}):
 
 \begin{equation}
+    \begin{split}
     J(a) = \frac{1}{\left(r - 1\right) \left(- a r \theta_{r} + r \theta_{r} - r
-+ 1\right)^{\alpha + 1}} \left(J_1 - J_2 \right) + \Gamma(1 - 2a)\end{equation}
++ 1\right)^{\alpha + 1}} \left(J_1 - J_2 \right) + \Gamma(1 - 2a)
+    \end{split}
+\end{equation}
+
 
 where:
 
-\begin{align}
+\begin{equation*}
+    \begin{split}
     J_1 & = F \left(- r + 1\right)^{\beta} \left(- a r \theta_{r} + r \theta_{r}
     - r + 1\right)^{\alpha + 1} \left(2 a r t - 2 a r - 2 a
 r^{\lceil{\frac{1}{\theta_{r}}}\rceil} t - r \tau + r +
 r^{\lceil{\frac{1}{\theta_{r}}}\rceil} \tau\right)\\
     J_2 & = H a \alpha r^{2} \theta_{r}^{2} \left(- a + 1\right) \left(r - 1\right) + H r \theta_{r} \left(2 a - 1\right) \left(r - 1\right) \left(a r \theta_{r} - r \theta_{r} + r - 1\right)
-\end{align}
+    \end{split}
+\end{equation*}
 
 
 \begin{theorem}\label{theorem:selective}
 Using the utility model described in Section~\ref{section:the_model},
 a population of selective poachers is stable if and only if:
 
-\begin{equation}\label{eq:selective_stability}
+\begin{equation}
+    \begin{split}\label{eq:selective_stability}
     \tau > \frac{1}{1 - r^{\lceil{\frac{1}{\theta_{r}}}\rceil - 1}}
     \frac{F + H \theta_{r} (1 - r) ^{1- \alpha -\beta}-\frac{\Gamma}{r(1-r)^{1-\beta}}}{F}
+\end{split}
 \end{equation}
 \end{theorem}
 
 \begin{proof}
 Direct substitution gives:
 
-    \begin{align}
+\begin{equation*}
+    \begin{split}
     J(1) &= \frac{1}{\left(- r + 1\right)^{\alpha + 1} \left(r - 1\right)}
                 \left(
                     F \left(- r + 1\right)^{\beta}
@@ -623,11 +651,13 @@ Direct substitution gives:
                  H r \theta_{r} \left(1 - r\right)^{-\alpha}
            \right)
            - \Gamma
-    \end{align}
+        \end{split}
+    \end{equation*}
 
 The required condition is \(J(1)<0\):
 
-\begin{align}
+\begin{equation*}
+    \begin{split}
     F
     \left(1 - r\right)^{\beta - 1}r +
     H r \theta_{r}
@@ -637,8 +667,9 @@ The required condition is \(J(1)<0\):
     \tau(r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil} )\\
     \frac{r}{r - r^{\lceil{\frac{1}{\theta_{r}}}\rceil}}
     \frac{F + H \theta_{r} \left(1 - r\right)^{1-\beta-\alpha} -
-    \Gamma/r(1-r)^{1-\beta}}{F} & < \tau
-\end{align}
+    \frac{\Gamma}{r(1-r)^{1-\beta}}}{F} & < \tau
+\end{split}
+\end{equation*}
 
 which gives the required result.
 \end{proof}
