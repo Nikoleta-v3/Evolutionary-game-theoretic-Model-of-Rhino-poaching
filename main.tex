@@ -528,7 +528,7 @@ u(s, x) = H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(sr+s\tau(1-r
 
 Figure~\ref{fig:evolution_of_system} shows the evolution of the system over time
 for a variety of initial populations and parameters.
-This is done using numerical integration implemented  in~\cite{scipy}.
+This is done using numerical integration implemented in~\cite{scipy}.
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/evolution_of_system.pdf}
@@ -537,11 +537,12 @@ This is done using numerical integration implemented  in~\cite{scipy}.
     \alpha=2, \beta=.99, \tau=1.5, \theta_r=0.01, \Gamma=0\).}
 \end{figure}
 
-Two different outcomes seem to be evolutionary stable, for the higher values
-of \(r\) the security is low and the only way to obtain utility from poaching is
-to act indiscriminately. When \(r\) is lower, then there is less utility and
-sufficient full valued rhinos to ensure the risk of acting selectively is
-sufficiently low.
+In Figure~\ref{fig:evolution_of_system} the left column shows parameters sets
+for which a selective population is stable (\(x=1\). The figures on the right
+correspond to a decrease in \(\tau\) which decreases the risk associated with
+acting indiscriminately: in these cases a population of selective poachers is
+unstable. In one case (\(H=192\)) a mixed population is stable: some poachers
+will continue to act selectively.
 
 In Section~\ref{section:evolutionary_stability}, these observations will be
 confirmed theoretically.
@@ -689,7 +690,8 @@ In this section we have analytically studied the stability of all the possible
 equilibria. We have proven that all potential equilibria are possible.  All of
 these theoretic results have been verified empirically, and the data for this
 has been archived at~\cite{Glynatsi2017}.
-Figure~\ref{fig:convergence-over-r} shows a number of scenarios:
+Figure~\ref{fig:convergence-over-r} shows a number of scenarios where \(F=5\),
+\(\beta=0.99\), \(\theta_r = 0.05\) and, unless varied as stated on the x-axis:
 
 \begin{itemize}
     \input{list_of_scenarios.tex}
@@ -702,7 +704,16 @@ Figure~\ref{fig:convergence-over-r} shows a number of scenarios:
     \label{fig:convergence-over-r}
 \end{figure}
 
-These simulations confirm Theorem~\ref{theorem:selective}. A high value of \(r\)
+The first plot in Figure~\ref{fig:convergence-over-r} shows that when the value
+of a full horn is low, and there is no disincentive factor (Scenarios 3 and 4),
+the poacher strategy can be influenced by the time taken to kill a rhino such
+that a long time can push the poacher to behave selectively (as there is
+increased risk associated with acting indiscriminately). The second plot, shows
+that the disincentive factor has most influence when the value of a full horn is
+high (Scenarios 1 and 2). Otherwise, poachers will generally be indiscriminate
+if \(r\) is large (Scenarios 5 and 6) or selective otherwise (Scenarios 1, 2, 3
+and 4).  Most importantly, the third plot
+confirms Theorem~\ref{theorem:selective}. A high value of \(r\)
 forces the population to become indiscriminate even with a high disincentive.
 Moreover, for all scenarios a value of \(r\) does exist for which a selective
 population will subsist.
