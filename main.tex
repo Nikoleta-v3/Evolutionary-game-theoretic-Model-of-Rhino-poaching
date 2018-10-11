@@ -530,6 +530,28 @@ Figure~\ref{fig:evolution_of_system} shows the evolution of the system over time
 for a variety of initial populations and parameters.
 This is done using numerical integration implemented in~\cite{scipy}.
 
+A summary of all the parameters and their meanings is given by Table~\ref{tbl:parameters}.
+
+\begin{table}[!hbtp]
+    \begin{center}
+        \begin{tabular}{cl}
+            \toprule
+            Parameter      & Explanation                \\
+            \midrule
+            $\theta_r$     & the proportion of value gained from a horn \\
+            $r$            & the proportion of rhinos that have been devalued\\
+            $H$            & a scaling factor associated with the value of a full horn\\
+            $\alpha$       & a constant that determines the relationship between the quantity and value of a horn \\
+            $F$            & a constant associated with the cost of retrieving a horn\\
+            $\beta$        & a constant that determines the relationship between the proportion of rhinos not devalued and the security\\
+            $\tau$         & the time it takes to find and kill a rhino\\
+            $\Gamma$       & a constant representing a disincentive only applied to indiscriminate poachers \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    \caption{An summary of the parameters used in this work and their meanings.}\label{tbl:parameters}
+\end{table}
+
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/evolution_of_system.pdf}
     \caption{\label{fig:evolution_of_system} The change of the population over
