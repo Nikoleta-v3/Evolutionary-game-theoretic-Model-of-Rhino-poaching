@@ -190,7 +190,7 @@ of the population using a strategy of the first type and \(x_2\) of the second. 
 assume there are utility functions \(u_1\) and \(u_2\) that map the population
 to a fitness for each strategy, given by,
 
-\[ u_1(\chi)  \text{ and } u_2(\chi).\]
+\[ u_1((x_1, x_2))  \text{ and } u_2((x_1, x_2)).\]
 
 In evolutionary game theory these utilities are used to dictate the evolution of
 the population over time, according to the following replicator equations,
@@ -199,10 +199,10 @@ the population over time, according to the following replicator equations,
     \label{eqn:u_differential_eq}
     \left\{
     \begin{array}{cl}
-    \dfrac{dx_1}{dt}=x_1(u_1(\chi)-\phi),
+    \dfrac{dx_1}{dt}=x_1(u_1((x_1, x_2))-\phi),
     \\
     \\
-    \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi),
+    \dfrac{dx_2}{dt}= x_2(u_2((x_1, x_2))-\phi),
     \end{array} \right.
 \end{eqnarray}
 where \(\phi\) is the average fitness of the whole population~\cite{nowak2006evolutionary}.
@@ -213,15 +213,15 @@ assumed all evolutionary dynamics are considered by the utility measures).
 Here, the overall
 population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
 \begin{eqnarray}
-    \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
-     + x_2(u_2(\chi) - \phi)=0.
+    \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1((x_1, x_2)) - \phi)
+     + x_2(u_2((x_1, x_2)) - \phi)=0.
 \end{eqnarray}
 
 Recalling that \(x_1 + x_2 = 1\) the average fitness can be written as,
 
 \begin{eqnarray}
 \label{eqn:average_fitness}
-    \phi=x_1u_1(\chi) + x_2u_2(\chi).
+    \phi=x_1u_1((x_1, x_2)) + x_2u_2((x_1, x_2)).
 \end{eqnarray}
 
 \noindent{} By substituting (\ref{eqn:average_fitness}) and \(x_2= 1 - x_1\)
@@ -229,17 +229,17 @@ in (\ref{eqn:u_differential_eq}),
 
 \begin{eqnarray}
     \label{eqn:u_differential_simplified}
-    \frac{dx_1}{dt}= x_1(1 - x_1)(u_1(\chi) - u_2(\chi)).
+    \frac{dx_1}{dt}= x_1(1 - x_1)(u_1((x_1, x_2)) - u_2((x_1, x_2))).
 \end{eqnarray}
 
 The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
-are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1\) for \(u_1(\chi)=u_2(\chi)\).
+are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1\) for \(u_1((x_1, x_2))=u_2((x_1, x_2))\).
 These equilibria correspond to stability of the population: the differential
 equation (\ref{eqn:u_differential_simplified}) no longer changes.
 
 The notion of evolutionary stability can be checked only for these stable strategies.
 For a stable strategy to be an Evolutionary Stable Strategy (ESS) it must remain
-the best response even in a mutated population \(\chi_\epsilon\). A mutated population
+the best response even in a mutated population \((x_1, x_2)_\epsilon\). A mutated population
 is the post entry population
 where a small proportion \(\epsilon > 0\) starts deviating and adopts a different strategy.
 
