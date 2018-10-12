@@ -20,6 +20,7 @@
 
 # files
 rhino*
+nbs/images/
 
 # data
 data/raw/*csv
