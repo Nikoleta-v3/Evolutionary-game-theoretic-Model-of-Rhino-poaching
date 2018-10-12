@@ -2,7 +2,7 @@
 
 **Authors**: @Nikoleta-v3 @drvinceknight @TamsinELee
 
-This repository for the source code for a paper accepted for publication in
+This repository contains the source code for a paper accepted for publication in
 [Ecological Modelling](https://www.journals.elsevier.com/ecological-modelling).
 
 A pre print is available here: https://arxiv.org/abs/1712.07640
