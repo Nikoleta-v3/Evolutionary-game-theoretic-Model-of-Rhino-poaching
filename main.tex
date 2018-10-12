@@ -52,7 +52,6 @@
 \textbf{Declaration of interest}: None.
 
 \newpage
-\linenumbers{}
 \begin{abstract}
 
 Rhino populations are at a critical level due to the demand for rhino horn and
@@ -191,7 +190,7 @@ of the population using a strategy of the first type and \(x_2\) of the second. 
 assume there are utility functions \(u_1\) and \(u_2\) that map the population
 to a fitness for each strategy, given by,
 
-\[ u_1(\chi)  \text{ and } u_2(\chi).\]
+\[ u_1(x_1, x_2)  \text{ and } u_2(x_1, x_2).\]
 
 In evolutionary game theory these utilities are used to dictate the evolution of
 the population over time, according to the following replicator equations,
@@ -200,10 +199,10 @@ the population over time, according to the following replicator equations,
     \label{eqn:u_differential_eq}
     \left\{
     \begin{array}{cl}
-    \dfrac{dx_1}{dt}=x_1(u_1(\chi)-\phi),
+    \dfrac{dx_1}{dt}=x_1(u_1(x_1, x_2)-\phi),
     \\
     \\
-    \dfrac{dx_2}{dt}= x_2(u_2(\chi)-\phi),
+    \dfrac{dx_2}{dt}= x_2(u_2(x_1, x_2)-\phi),
     \end{array} \right.
 \end{eqnarray}
 where \(\phi\) is the average fitness of the whole population~\cite{nowak2006evolutionary}.
@@ -214,15 +213,15 @@ assumed all evolutionary dynamics are considered by the utility measures).
 Here, the overall
 population is assumed to remain stable thus, \(x_1 + x_2 = 1 \) and
 \begin{eqnarray}
-    \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(\chi) - \phi)
-     + x_2(u_2(\chi) - \phi)=0.
+    \dfrac{dx_1}{dt}  + \dfrac{dx_2}{dt} = 0 \Rightarrow x_1(u_1(x_1, x_2) - \phi)
+     + x_2(u_2(x_1, x_2) - \phi)=0.
 \end{eqnarray}
 
 Recalling that \(x_1 + x_2 = 1\) the average fitness can be written as,
 
 \begin{eqnarray}
 \label{eqn:average_fitness}
-    \phi=x_1u_1(\chi) + x_2u_2(\chi).
+    \phi=x_1u_1(x_1, x_2) + x_2u_2(x_1, x_2).
 \end{eqnarray}
 
 \noindent{} By substituting (\ref{eqn:average_fitness}) and \(x_2= 1 - x_1\)
@@ -230,17 +229,17 @@ in (\ref{eqn:u_differential_eq}),
 
 \begin{eqnarray}
     \label{eqn:u_differential_simplified}
-    \frac{dx_1}{dt}= x_1(1 - x_1)(u_1(\chi) - u_2(\chi)).
+    \frac{dx_1}{dt}= x_1(1 - x_1)(u_1(x_1, x_2) - u_2(x_1, x_2)).
 \end{eqnarray}
 
 The equilibria of the differential equation (\ref{eqn:u_differential_simplified})
-are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1\) for \(u_1(\chi)=u_2(\chi)\).
+are given by, \(x_1=0\), \(x_1=1\), and \(0<x_1<1\) for \(u_1(x_1, x_2)=u_2(x_1, x_2)\).
 These equilibria correspond to stability of the population: the differential
 equation (\ref{eqn:u_differential_simplified}) no longer changes.
 
 The notion of evolutionary stability can be checked only for these stable strategies.
 For a stable strategy to be an Evolutionary Stable Strategy (ESS) it must remain
-the best response even in a mutated population \(\chi_\epsilon\). A mutated population
+the best response even in a mutated population \((x_1, x_2)_\epsilon\). A mutated population
 is the post entry population
 where a small proportion \(\epsilon > 0\) starts deviating and adopts a different strategy.
 
@@ -438,6 +437,22 @@ r^{N_{r}} - N_{r} r^{N_{r}} - r r^{N_{r}} + r\right)\right) + r^{N_r - 1}N_r\tau
     \end{split}
 \end{equation}
 
+Figure~\ref{fig:indiscriminate_vs_selective_time} shows \(T_1\) and \(T_2\) for
+varying values of \(r\) and \(\tau\) highlighting that \(\tau\) has a greater
+effect on \(T_2\) than \(T_1\). Also, as \(r\) increases the overall time spent
+in the park by both poachers increases and the value of \(\tau\) at which
+\(T_1\) and \(T_2\) are equal increases.
+
+\begin{figure}[!htbp]
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/indiscriminate_vs_selective_time.pdf}
+        \caption{Expected time spent in the park for selective \(T_1\) and
+        indiscriminate poachers \(T_2\) for \(\theta_r=.15\).}\label{fig:indiscriminate_vs_selective_time}
+    \end{center}
+\end{figure}
+
+
+
 Additionally, the poachers are also exposed to a risk. The risk to the poacher is
 directly related to the proportion of rhinos not devalued, \(1 - r\), since
 the rhino manager can spend more on security if the cost of devaluing is low.
@@ -472,8 +487,8 @@ rhinos devalued, especially when the time to kill a rhino is large.
 \begin{figure}[!htbp]
     \begin{center}
         \includegraphics[width=\linewidth]{images/betas_curve.pdf}
-        \caption{Costs associated to both poachers for varying values of \(r\)
-        and \(\tau\).}\label{fig:CostCurves}
+        \caption{Costs associated to both poachers for \(F=5\) and varying
+        values of \(r\) and \(\tau\).}\label{fig:CostCurves}
     \end{center}
 \end{figure}
 
@@ -536,6 +551,28 @@ u(s, x) = H (\theta_r r(1-s) - r + 1)\theta(r,x)^{-\alpha} - F\left(sr+s\tau(1-r
 Figure~\ref{fig:evolution_of_system} shows the evolution of the system over time
 for a variety of initial populations and parameters.
 This is done using numerical integration implemented in~\cite{scipy}.
+
+A summary of all the parameters and their meanings is given by Table~\ref{tbl:parameters}.
+
+\begin{table}[!hbtp]
+    \begin{center}
+        \begin{tabular}{cl}
+            \toprule
+            Parameter      & Interpretation                \\
+            \midrule
+            $\theta_r$     & the proportion of value gained from a devalued horn \\
+            $r$            & the proportion of rhinos that have been devalued\\
+            $H$            & a scaling factor associated with the value of a full horn\\
+            $\alpha$       & a constant that determines the relationship between the quantity and value of a horn \\
+            $F$            & a constant associated with the cost of retrieving a horn\\
+            $\beta$        & a constant that determines the relationship between the proportion of rhinos not devalued and the security\\
+            $\tau$         & the time it takes to find and kill a rhino\\
+            $\Gamma$       & a constant representing a disincentive only applied to indiscriminate poachers \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    \caption{A summary of the parameters used.}\label{tbl:parameters}
+\end{table}
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{images/evolution_of_system.pdf}
@@ -815,7 +852,7 @@ A variety of software libraries have been used in this work:
 \end{itemize}
 
 All the source code used for this work has been written in a sustainable manner: it is
-open source (\url{https://github.com/drvinceknight/Evolutionary-game-theoretic-Model-of-Rhino-poaching})
+open source (\url{https://github.com/Nikoleta-v3/Evolutionary-game-theoretic-Model-of-Rhino-poaching/})
 and tested which ensures the validity of the results. The source code
 has also been properly archived and can be found at \cite{Evorepo2018}.
 
